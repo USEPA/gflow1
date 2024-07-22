@@ -214,7 +214,7 @@ C
 C
 C ---------------------------------------------------------------------------------------------------
 C
-      REAL FUNCTION RFPOTH_confined (RHEDIN,CZ)
+      REAL(8) FUNCTION RFPOTH_confined (RHEDIN,CZ)
 C
 C ---------------------------------------------------------------------------------------------------
 C
@@ -262,7 +262,7 @@ c     &        ' rdum,rfpoth=',/,5(d14.7))
 C
 C ---------------------------------------------------------------------------------------------------
 C
-      REAL FUNCTION RFPOTH_unconfined (RHEDIN,CZ)
+      REAL(8) FUNCTION RFPOTH_unconfined (RHEDIN,CZ)
 C
 C ---------------------------------------------------------------------------------------------------
 C
@@ -308,7 +308,7 @@ c     &        ,' rdum,rfpoth=',/,5(d14.7))
 C
 C ----------------------------------------------------------------------------
 C
-      REAL FUNCTION RFINTERFACE(CZ)
+      REAL(8) FUNCTION RFINTERFACE(CZ)
 C
 C     Routine returns the elevation of the interface  
       IMPLICIT NONE
@@ -365,7 +365,7 @@ c       rfac2 = rsgs/(rsgs-rsgf) (RGVFAC2)
 C
 C ---------------------------------------------------------------------------------------------------
 C
-      REAL FUNCTION RFPERM (CZ)
+      REAL(8) FUNCTION RFPERM (CZ)
 C
 C ---------------------------------------------------------------------------------------------------
 C

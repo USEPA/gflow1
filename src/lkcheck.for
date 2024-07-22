@@ -358,8 +358,8 @@ c              rs=rlkleakage(i,j)
                 ires2=ires0*ires0
                 ALLOCATE (rtrans(ires2),stat=ierr)
                 if (ierr.ne.0) then
-                  call iostat_msg (ierr,amessage)
-                  write (ilume,1112) amessage
+c                 call iostat_msg (ierr,amessage)
+                  write (ilume,1112) ierr
  1112             format (a132)
                   deallocate (rtrans)
                   write (ilume,8001) ires2

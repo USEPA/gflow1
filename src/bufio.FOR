@@ -25,7 +25,7 @@ C
 C
 C     First call BUFIN
 C     Call BUFIO2/4/R/C/L for IO of buffers of the type
-C     integer*2/*4/real/complex/logical
+C     integer(2)/(4)/real/complex/logical
 C     Last call BUFEX
 C
       IMPLICIT NONE

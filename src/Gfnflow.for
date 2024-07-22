@@ -226,7 +226,7 @@ C     the points CZ1 and CZ2. Function is called by PD, WL, W3 and DI modules.
 C
       IMPLICIT NONE
       REAL(8) RAD,RM,RN,RA,RB,RC,RD,RY,RX0,RY0,RX1,RY1,RX2,RY2,
-     &        RX3,RY3,RX4,RY4,RS1,RS2,RTEST
+     &        RX3,RY3,RX4,RY4,RS1,RS2,RTEST,D_ONE
       COMPLEX(8) CZ0,CZ1,CZ2,CZ3,CZ4
       include 'lusys.inc'
 C
@@ -237,12 +237,13 @@ c     & 2(e14.7),2x,e14.7,2x,2(2(e14.7),2x))
       RY1=AIMAG(CZ1-CZ0)
       RX2=REAL(CZ2-CZ0)
       RY2=AIMAG(CZ2-CZ0)
+      D_ONE = 1.0
 C
       IF (ABS(RX2-RX1).LT.1.0E-10) THEN ! vertical line
        RD=(RX1+RX2)/2.0
        IF (ABS(RD).LT.RAD) THEN ! line intersects disc boundary
-        RS1=SIGN(1.0,RY1)
-        RS2=SIGN(1.0,RY2)
+        RS1=SIGN(D_ONE,RY1)
+        RS2=SIGN(D_ONE,RY2)
         IF (RS1*RS2.GT.0.0) THEN ! intersection not on segment CZ1 and CZ2
           LINSECTCIRCLE=.FALSE.
           RETURN

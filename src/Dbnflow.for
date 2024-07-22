@@ -12,7 +12,7 @@ c     DFDBAREA     calculates area cut of inhomogeneity by a line
 c
 c ----------------------------------------------------------------------------------------------------------
 c
-      REAL FUNCTION RFNFDB(CZ1,CZ2)
+      REAL(8) FUNCTION RFNFDB(CZ1,CZ2)
 c
 c ----------------------------------------------------------------------------------------------------------
 c
@@ -42,7 +42,7 @@ C
 C
 C ----------------------------------------------------------------------------------------------------------
 C
-      REAL FUNCTION RFNFDBGAM(I,CZ1,CZ2)
+      REAL(8) FUNCTION RFNFDBGAM(I,CZ1,CZ2)
 c
 c ----------------------------------------------------------------------------------------------------------
 c
@@ -90,7 +90,7 @@ c     No correction for one or more segments being inside or outside!!!
 c
 c ----------------------------------------------------------------------------------------------------------
 c
-      REAL FUNCTION RFNFDBGAMI(ISTRING,CZ1,CZ2)
+      REAL(8) FUNCTION RFNFDBGAMI(ISTRING,CZ1,CZ2)
 c
 c ----------------------------------------------------------------------------------------------------------
 c
@@ -112,7 +112,7 @@ C
 c
 c ----------------------------------------------------------------------------------------------------------
 c
-      REAL FUNCTION RFNFDBGAMO(ISTRING,CZ1,CZ2)
+      REAL(8) FUNCTION RFNFDBGAMO(ISTRING,CZ1,CZ2)
 c
 c ----------------------------------------------------------------------------------------------------------
 c
@@ -153,11 +153,12 @@ c
       IMPLICIT NONE
       INTEGER INOD,INOD1,INODL,INODM1,ISTRING,I0,I1
       LOGICAL LBRANCH
-      REAL(8) RBRANCH,RDIS,RDISMIN,RS,RSIGN,DS
+      REAL(8) RBRANCH,RDIS,RDISMIN,RS,RSIGN,DS, D_ONE
       COMPLEX(8) CZ1,CZ2,CZ3,CZC1,CZC2
       INCLUDE 'DBCOM.INC'
       INCLUDE 'LUSYS.INC'
       INCLUDE 'TRACOM.INC'
+      D_ONE = 1.0
       RBRANCH=0.0
       CZC1=0.5*(CZ1+CZ2) ! center of line segment
       RDISMIN=1.0e21
@@ -183,7 +184,7 @@ c
         DS=AIMAG(CDDBSS(I1))
         END IF
         RS=(DS-AIMAG(CDDBSS(I0)))
-        RSIGN=SIGN(1.0,RBRANCH)  ! preserve sign
+        RSIGN=SIGN(D_ONE,RBRANCH)  ! preserve sign
         RBRANCH=ABS(RBRANCH)/ABS(CDBZ(I1)-CDBZ(I0)) ! make rbranch vary along CZS-CZE between 0 and 1
         RBRANCH=(1.0-RBRANCH)*RS+(AIMAG(CDDBSS(I0))) ! calculate jump in PSI across line dipole at intersection
         RBRANCH=RSIGN*RBRANCH ! apply proper sign
@@ -202,7 +203,7 @@ c
         DS=AIMAG(CDDBSS(INOD))
         END IF
           RS=(DS-AIMAG(CDDBSS(INODM1)))
-          RSIGN=SIGN(1.0,RBRANCH) !preserve sign
+          RSIGN=SIGN(D_ONE,RBRANCH) !preserve sign
           RBRANCH=ABS(RBRANCH)/ABS(CDBZ(INOD)-CDBZ(INODM1)) ! make rbranch vary along CZS-CZE between 0 and 1
           RBRANCH=(1.0-RBRANCH)*RS+(AIMAG(CDDBSS(INODM1))) !  calculate jump in PSI across line dipole at intersection
           RBRANCH=RSIGN*RBRANCH ! apply proper sign
@@ -228,7 +229,7 @@ C
       IMPLICIT NONE
       INTEGER ISTRING,INOD,INOD1,INODM1,INODL
       LOGICAL LAREA, LINSECTLINE
-      REAL(8) DA,DFA,DS
+      REAL(8) DA,DFA,DS, D_ONE
       COMPLEX(8) CZ1,CZ2,CZZ1,CZZ2,CZ0
       INCLUDE 'DBCOM.INC'
       INCLUDE 'TRACOM.INC'
@@ -252,7 +253,8 @@ C
            CZZ1=CZ0-CZ1
            CZZ2=CDBZ(INOD)-CZ1
            DA=DFA(CZZ1,CZZ2)
-           DS=SIGN(1.0,DA)
+           D_ONE=1.0
+           DS=SIGN(D_ONE,DA)
            LAREA=.TRUE.
         END IF
       ELSE

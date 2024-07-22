@@ -749,7 +749,7 @@ c
  6050 format (' Sink Disc (2D) data to file: ',/,a,/)
  6080 format (' Sink Disc (3D) data to file: ',/,a,/)
  7000 format (' Well data written to file: ',/,a,/)
- 7050 format(' Partially Penetrating Well data written to file: ',/,a,/)
+ 7050 format(' Partially Penetrating Well data written to file: ',/,a)
  8000 format ('! flux_inspection_line_label   normal_flow      ',
      &        '  numerical_nf')
  8010 format (3x,a16,13x,',',e14.7)
@@ -1097,9 +1097,9 @@ C
       WRITE (*,1000)
       WRITE (*,2000) (AMESS(I),I=1,NLINE)
       write (*,4000)
-      call timer (itic0)
+      !call timer  (itic0)
       do
-      call timer (itic)
+      !call timer  (itic)
       if (itic-itic0.gt.500) GOTO 10
       end do
    10 OPEN (UNIT=11,FILE='GFLOW.OPS',STATUS='REPLACE')
@@ -2024,7 +2024,7 @@ C     NERR=7
       END
 C
 C --------------------------------------------------------------------------
-C
+
       INTEGER(4) FUNCTION IVAR(NPAR)
 C
 C --------------------------------------------------------------------------
@@ -2306,8 +2306,8 @@ C      CALL TONE              ! NOT AVAILABLE IN BATCH MODE
       OPEN (ILUIN,FILE=ASTRING,STATUS='OLD',IOSTAT=IERR,ERR=55)
       ALINE(1)='*'
       RETURN
-  55  CALL IOSTAT_MSG (IERR,AMESSAGE)
-      PRINT*, AMESSAGE
+C  55  CALL IOSTAT_MSG (IERR,AMESSAGE)
+   55 PRINT*, IERR
       PRINT*,' Press any key to continue.'
       CLOSE (ILUIN)
       OPEN (ILUIN,FILE='CON')
@@ -2319,7 +2319,7 @@ C
  1500 format ('+',132a1)
  2000 FORMAT ('&',A1)
  3000 FORMAT (' *** ERROR: Premature end of file encountered,',/,
-     &' Data may be incomplete!! Attempt to use file "trail.dat".',/)
+     &' Data may be incomplete!! Attempt to use file "trail.dat".')
  4000 FORMAT (A152)
       END
 C
@@ -2657,7 +2657,7 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' writing coefficient matrix to disk, size=',i4)
-      call timer(iticks1)
+      !call timer (iticks1)
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
      &           aBasenameOut,aDateTimeOut,nsolOut)
@@ -2666,16 +2666,16 @@ c
       do i=1,isize
       write (UNIT=10,IOSTAT=istatus,ERR=200)dra(i,1:n) ! changed to row by row write on 4-19-06
       end do
-      call timer (iticks2)
+      !call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Written coefficient matrix. Execution time=        ',i10,
      &' E-2 seconds.')
 
       return
-  200 call iostat_msg(istatus,amessage)
-      write (*,2000) amessage ! error in accessing file
-      write (ilume,2000) amessage
+c  200 call iostat_msg(istatus,amessage)
+ 200  write (*,2000) istatus ! error in accessing file
+      write (ilume,2000) istatus
  2000 format (' Error in WRITE routine in WriteMatrix: IOSTAT=',/,a80,/,
      &        ' program execution aborted.')
       AMESS(1)='Error when writing to matrix file *.mtr'
@@ -2711,13 +2711,13 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' loading coefficient matrix from disk, size=',i4)
-      call timer(iticks1)
+      !call timer (iticks1)
       REWIND (UNIT=10)
       read (UNIT=10,IOSTAT=istatus,ERR=100) aDateTimeStamp,nEquation  ! not used here for speed
       do i=1,isize
       read (UNIT=10,IOSTAT=istatus,ERR=100)dra(i,1:n) ! changed to row by row read on 4-19-06
       end do
-      call timer (iticks2)
+      !call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Loaded coefficient matrix. Execution time=         ',i10,
@@ -2725,9 +2725,9 @@ c
 
       return
 c
-  100 call IOSTAT_MSG (istatus,amessage)
-      write (*,1000) amessage ! error in reading file
-      write (ilume,1000) amessage
+c  100 call IOSTAT_MSG (istatus,amessage)
+ 100  write (*,1000) istatus ! error in reading file
+      write (ilume,1000) istatus
  1000 format (' Error in LoadMatrix:',/,a80,/,
      &        ' program execution aborted.')
       AMESS(1)='Error when reading matrix file *.mtr'
@@ -2766,7 +2766,7 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' writing decomposed matrix to disk, size=',i4)
-      call timer(iticks1)
+      !call timer (iticks1)
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
      &           aBasenameOut,aDateTimeOut,nsolOut)
@@ -2774,14 +2774,14 @@ c
       write (UNIT=11,IOSTAT=istatus,ERR=200) aDateTimeOut,n
       write (UNIT=11,IOSTAT=istatus,ERR=200) ((dra(i,j),i=1,n),j=1,n)
       write (UNIT=11,IOSTAT=istatus,ERR=200) (ipiv(i),i=1,n)
-      call timer (iticks2)
+      !call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Written decomposed matrix. Execution time=         ',i10,
      &' E-2 seconds.')
       return
-  200 call iostat_msg(istatus,amessage)
-      write (*,2000) amessage ! error in accessing file
+c  200 call iostat_msg(istatus,amessage)
+ 200  write (*,2000) amessage ! error in accessing file
       write (ilume,2000) amessage
  2000 format (' Error in WriteDecompMatrix: IOSTAT=',/,a80,/,
      &        ' program execution aborted.')
@@ -2821,12 +2821,12 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' loading decomposed matrix from disk, size=',i4)
-      call timer(iticks1)
+      !call timer (iticks1)
       REWIND (UNIT=11)
       read (UNIT=11,IOSTAT=istatus,ERR=100) aDateTimeStamp,nEquation  ! not used here for speed
       read (UNIT=11,IOSTAT=istatus,ERR=100) ((dra(i,j),i=1,n),j=1,n)
       read (UNIT=11,IOSTAT=istatus,ERR=100) (ipiv(i),i=1,n)
-      call timer (iticks2)
+      !call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Loaded decomposed matrix. Execution time=          ',i10,
@@ -2834,9 +2834,9 @@ c
 
       return
 c
-  100 call IOSTAT_MSG (istatus,amessage)
-      write (*,1000) amessage ! error in reading file
-      write (ilume,1000) amessage
+c  100 call IOSTAT_MSG (istatus,amessage)
+  100 write (*,1000) istatus ! error in reading file
+      write (ilume,1000) istatus
  1000 format (' Error in LoadDecompMatrix:',/,a80,/,
      &        ' program execution aborted.')
       AMESS(1)='Error reading decomposed matrix file *.dec'
@@ -2844,5 +2844,3 @@ c
       CALL HALT(2) ! stop program execution for batch version
 c
       end subroutine
-
-

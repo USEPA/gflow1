@@ -44,7 +44,7 @@ c
 c
       implicit none
       INTEGER i,j
-      REAL*(8) rx0,ry0,rx1,ry1,rdx,rdy,
+      REAL(8) rx0,ry0,rx1,ry1,rdx,rdy,
      &         rlkdeltax,rlkdeltay
       COMPLEX(8) cz0,cz1,cz2,cz3
       DIMENSION rlkdeltax(*),rlkdeltay(*)

@@ -256,7 +256,7 @@ C     and groundwater flow in both confined and unconfined aquifers.
 C
       IMPLICIT NONE
       INTEGER NEQCOM,NEQMAX,NCHA,I,NCHAR1,NCHAR2,IDUM,
-     &        NEQ,IERR,IMXSZE,IVAR,ngridsize
+     &        NEQ,IERR,IMXSZE,IVAR,ngridsize, cmdstatus
       CHARACTER(20) AIDENT1,AIDENT2
       CHARACTER(127) ACLINE
       CHARACTER(8) aDate
@@ -274,8 +274,19 @@ c
 C
 C     parse the GFLOW1.EXE command line
 C
-      CALL GETCL (ACLINE)
-      NCHA=NBLANK(ACLINE)
+C      CALL GETCL (ACLINE)
+
+      CALL getarg(1, ACLINE)
+      IF (LEN_TRIM(ACLINE) > 0) THEN
+          print *, 'Command line argument: ', TRIM(ACLINE)
+      ELSE
+          print *, 'No command line arguments'
+      END IF
+
+      DO NCHA = 1, LEN(ACLINE)
+        IF (ACLINE(NCHA:NCHA).EQ.' ') EXIT
+      END DO
+      NCHA = NCHA - 1
       DO 3 I=1,132
       ALINE(I)=' '
   3   CONTINUE      
@@ -318,6 +329,7 @@ c
       CALL SETUP(NEQ,ngridsize)  ! enter the driver routine for GFLOW
       STOP
       END
+      
 C
 C -----------------------------------------------------------------------------
 C
@@ -411,7 +423,10 @@ C
       IF (LMISS.OR.LERROR) THEN ! failed to read a filename
         NCHA=0
       ELSE                      ! get filename length for parsing
-        NCHA=NBLANK(AFILE2)
+        DO NCHA = 1, LEN(AFILE2)
+          IF(AFILE2(NCHA:NCHA).EQ.' ') EXIT
+        END DO
+        NCHA = NCHA - 1
       ENDIF
       LMISS=.FALSE.
       LERROR=.FALSE.
@@ -493,9 +508,9 @@ c     &         ' igrsize=',i5)
           CALL HALT(2) ! stop program execution for batch version
         end if
       end if
-c      call timer(iticks1)
+c      !call timer (iticks1)
       CALL GRIDIN (DRA,IGRSIZE)
-c      call timer(iticks2)
+c      !call timer (iticks2)
 c      iticks=iticks2-iticks1
 c      write (iluer,1234) iticks
 c 1234 format (' setup1234: time for grid=',i10)
@@ -644,8 +659,8 @@ c
       open (UNIT=ilutmp,FILE='gfmfmonitor.dat',RECL=132,
      &      POSITION='append',iostat=ierr)
       if (ierr.ne.0) THEN ! failed to open file, abort
-       call IOSTAT_MSG (ierr,amessage)
-       write (iluer,1010) ierr,amessage
+C       call IOSTAT_MSG (ierr,amessage)
+       write (iluer,1010) ierr
  1010  format ('Failed to open -gfmfmonitor.dat- in Setup.',/,
      & 'Error number is ',i5,' Error message is:',/,
      & a256,/)
@@ -707,17 +722,17 @@ c     assign LU 10 and 11, but 11 is not used when lDirectFromDisk=.false.
          lwrongfile=.TRUE. ! set, since we test on it in SOLUT
          afile=TRIM(abasename) // ".mtr"
          open (UNIT=10,IOSTAT=istatus,ERR=512,FILE=afile,            ! using LU 10 for coefficient matrix file
-     &        STATUS='REPLACE',ACCESS='TRANSPARENT',FORM='BINARY')
+     &        STATUS='REPLACE',ACCESS='STREAM',FORM='UNFORMATTED')
          afile=TRIM(abasename) // ".dec"
          open (UNIT=11,IOSTAT=istatus,ERR=513,FILE=afile,
-     &        STATUS='REPLACE',ACCESS='TRANSPARENT',FORM='BINARY')  ! using LU 11 for decomposed matrix file
+     &        STATUS='REPLACE',ACCESS='STREAM',FORM='UNFORMATTED')  ! using LU 11 for decomposed matrix file
       else                                   ! solution exisits, just open files
          afile=TRIM(abasename) // ".mtr"
          open (UNIT=10,IOSTAT=istatus,ERR=514,FILE=afile,
-     &        STATUS='OLD',ACCESS='TRANSPARENT',FORM='BINARY')
+     &        STATUS='OLD',ACCESS='STREAM',FORM='UNFORMATTED')
          afile=TRIM(abasename) // ".dec"
          open (UNIT=11,IOSTAT=istatus,ERR=515,FILE=afile,
-     &        STATUS='OLD',ACCESS='TRANSPARENT',FORM='BINARY')
+     &        STATUS='OLD',ACCESS='STREAM',FORM='UNFORMATTED')
          lWrongFile=.false.
          read (UNIT=10,IOSTAT=istatus,ERR=516) aDateTimeStamp,nEquation
          if (aDateTimeStamp.ne.aDateTime) lWrongfile=.true.! incompatible .mtr file matrix must be regenerated
@@ -810,7 +825,7 @@ c                     --------------------------------------------
       WRITE (ILUME,6300)
       LSOL=.FALSE.
       LGRCOM=.FALSE.    ! grid no longer compatible
-c      CALL TIMER(ILAYER) ! ILAYER used as a code to identify a solution
+c      !call timer (ILAYER) ! ILAYER used as a code to identify a solution
       ENDIF
       ENDIF         ! end solve streamflow only
 c                   -----------------------------------------------
@@ -829,7 +844,7 @@ c                   -----------------------------------------------
 c
 c     start timing the solution procedure
 c
-  505 call timer(iticks1)
+c  505 !call timer (iticks1)
 c
       DO I=1,ITER
       WRITE (*,6100)
@@ -860,7 +875,7 @@ c
 c     end timing solution procedure
 c
  510  continue
-      call timer(iticks2)
+      !call timer (iticks2)
       iticks=iticks2-iticks1
       write (ilume,2222) iticks
  2222 format (' TOTAL SOLUTION TIME =                             ',i10,
@@ -903,7 +918,7 @@ c     end of logic to add iterations for base jump
 c
   511 call lslakewaterbalance(.FALSE.,lErrorReport) ! write lake water balance at end of inner loop
 c
-      IF (LFLSLAKEITERATIONS(NOUTERLOOP).and..not.lakedone) GOTO 505
+c      IF (LFLSLAKEITERATIONS(NOUTERLOOP).and..not.lakedone) GOTO 505
 c
 c     Solution procedure is complete, wrap up calculations and error reporting
 c
@@ -934,33 +949,33 @@ c                                       set lErrorReport=true to force a report
 C
 C     failure to create matrix files, halt program
 C
- 512  call iostat_msg(istatus,amessage)
-      write (*,9097) amessage ! error in allocating file
-      write (ilume,9097) amessage
+c 512  call iostat_msg(istatus,amessage)
+ 512  write (*,9097) istatus ! error in allocating file
+      write (ilume,9097) istatus
       AMESS(1)='Error allocating matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
- 513  call iostat_msg(istatus,amessage)
-      write (*,9098) amessage ! error in allocating file
-      write (ilume,9098) amessage
+c 513  call iostat_msg(istatus,amessage)
+ 513  write (*,9098) istatus ! error in allocating file
+      write (ilume,9098) istatus
       AMESS(1)='Error allocating decomposed matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
- 514  call iostat_msg(istatus,amessage)
-      write (*,9097) amessage ! error in allocating file
-      write (ilume,9097) amessage
+c 514  call iostat_msg(istatus,amessage)
+  514 write (*,9097) istatus ! error in allocating file
+      write (ilume,9097) istatus
       AMESS(1)='Error opening matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
- 515  call iostat_msg(istatus,amessage)
-      write (*,9098) amessage ! error in allocating file
-      write (ilume,9098) amessage
+c 515  call iostat_msg(istatus,amessage)
+  515 write (*,9098) istatus ! error in allocating file
+      write (ilume,9098) istatus
       AMESS(1)='Error opening decomposed matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
- 516  call iostat_msg(istatus,amessage)
-      write (*,9099) amessage ! error in allocating file
-      write (ilume,9099) amessage
+c 516  call iostat_msg(istatus,amessage)
+  516    write (*,9099) istatus ! error in allocating file
+      write (ilume,9099) istatus
       AMESS(1)='Error reading from matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
@@ -989,10 +1004,10 @@ C
 C     load a solution file
 C 
  650  write (*,1113)
- 1113 format (/,' Read a solution from the disk.')
+ 1113 format (' Read a solution from the disk.')
       CALL BIO (2,'READ ')
       write (*,1214)
- 1214 format (/,' Solution has been read.')
+ 1214 format (' Solution has been read.')
       loadsol=.TRUE.
       LINALREADY=.TRUE.
 c      nsol=0               ! this reset is necessary to make a resolve work correctly
@@ -1380,6 +1395,4 @@ C
       aDateTime='Not_Set'
       RETURN
       END
-
-
 

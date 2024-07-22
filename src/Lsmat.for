@@ -520,7 +520,7 @@ c
       INCLUDE 'TRACOM.INC'
 c
       IF (NLSH.EQ.0) RETURN
-      if (ltimer) call timer (iticks1)
+c     if (ltimer) call timer  (iticks1)
       i=0
       iremove=0
       DO II=1,NLSH ! check all head specified line-sinks (with or without resistance, galleries, drains, lakes)
@@ -534,7 +534,7 @@ c
       ENDDO
       write (ilume,1000) iremove
       if (ltimer) then
-        call timer(iticks2)
+        !call timer (iticks2)
         iticks=iticks2-iticks1
       if (ltimer) write (ilume,1001) iticks
  1001 format(' ls_remove_equations execution time=                ',i10,

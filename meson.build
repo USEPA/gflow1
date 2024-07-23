@@ -7,7 +7,6 @@ project(
 )
 main_file = 'src/Gfmod.for'
 src = [
-
     'src/bufio.FOR',
     'src/Dbcheck.for',
     'src/Dbfun.for',
@@ -90,5 +89,5 @@ executable(
     sources: [main_file] + src,
     include_directories: incdir,
     install : true,
-    fortran_args : ['-std=legacy', '-fno-align-commons'],
+    fortran_args : ['-std=legacy', '-fno-align-commons', '-freal-4-real-8'],
 )

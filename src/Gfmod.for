@@ -278,9 +278,9 @@ C      CALL GETCL (ACLINE)
 
       CALL getarg(1, ACLINE)
       IF (LEN_TRIM(ACLINE) > 0) THEN
-          print *, 'Command line argument: ', TRIM(ACLINE)
+         CONTINUE
       ELSE
-          print *, 'No command line arguments'
+         STOP
       END IF
 
       DO NCHA = 1, LEN(ACLINE)

@@ -9,4 +9,5 @@ setup = "meson setup builddir --libdir=bin --bindir=bin"
 build = "meson install -C builddir"
 
 [dependencies]
+fortls = "*"
 meson = ">=1.5.0,<1.6"

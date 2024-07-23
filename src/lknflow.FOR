@@ -39,7 +39,7 @@ c
       implicit none
       INTEGER nrow,ncol,i,j,icase
       LOGICAL lvinsect,lhinsect
-      REAL(8) rlkdeltax,rlkdeltay,rlkleakage,rlkrecharge,rfunc,
+      REAL(8) rlkdeltax,rlkdeltay,rlkleakage,rlkrecharge,rfunc, d_one,
      &        rx,ry,rdx,rdy,rx0,ry0,rx1,ry1,rx2,ry2,rxg1,ryg1,rxg2,ryg2,
      &       rs,rsm,rsp,rsign,rxx1,ryy1,rxx2,ryy2,rdeltapsi,ra,rm,rmsign
       COMPLEX(8) cz,cz1,cz2,cz0,czz1,czz2,czseg1,czseg2,cflk_omega,
@@ -76,7 +76,8 @@ c 1001 format (' lkfnf_sub_actual1: Entering.')
       else
        rm=-1.0d30 ! vertically downward
       end if
-      rmsign=SIGN(1.0,rm)
+      d_one = 1.0
+      rmsign=SIGN(d_one,rm)
       if (rx2.le.rxg1) then
        icase=1 ! line segment entirely to the left of the grid (no branch cuts)
       elseif (rx1.ge.rxg2) then
@@ -347,7 +348,7 @@ c
       REAL(8) rlkdeltax,rlkdeltay,rfunc,rtol,
      &        rx,ry,rdx,rdy,rx0,ry0,rx1,ry1,rx2,ry2,rxg1,ryg1,rxg2,ryg2,
      &        rs,rsm,rsp,rsign,rxx1,ryy1,rxx2,ryy2,rdeltapsi,ra,rm,
-     &        rmsign,rlksubleakage,rPoisson
+     &        rmsign,rlksubleakage,rPoisson, d_one
       COMPLEX(8) cz,cz1,cz2,cz0,czz0,czz1,czz2,czseg1,czseg2,
      &           cflk_subomega,czj,czi,coffset
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),
@@ -385,6 +386,7 @@ c 1012 format (' lkfnfsub_sub_actual12: rdx ',d14.7)
 c      write (iluer,1013) rtol
 c 1013 format (' lkfnfsub_sub_actual13: rtol ',d14.7)
 c
+      d_one = 1.0
       czz1=CMPLX(rx1,ry1) ! redefine line segment end points
       czz2=CMPLX(rx2,ry2) ! use local variables so as to not change the input parameters cz1 and cz2
       if (rx1.ne.rx2) then ! calculate slope "rm"
@@ -394,7 +396,7 @@ c
       else
        rm=-1.0d30 ! vertically downward
       end if
-      rmsign=SIGN(1.0,rm) ! save sign of rm to be used at end of routine to correct sign of normal flow
+      rmsign=SIGN(d_one,rm) ! save sign of rm to be used at end of routine to correct sign of normal flow
       if (rx2.le.rxg1) then
        icase=1 ! line segment entirely to the left of the MODFLOW grid (no subgrid branch cuts)
       elseif (rx1.ge.rxg2) then
@@ -598,7 +600,7 @@ c
       REAL(8) rlkdeltax,rlkdeltay,rlksubleakage,rfunc,
      &        rx,ry,rx0,ry0,rx1,ry1,rx2,ry2,rxx1,ryy1,rxx2,ryy2,
      &        rxcenter,rdx,rdy,rdxx,rdyy,ra,rtol,rPoisson,rpsi,
-     &        rs,rytop,rybot,rm,rmsign
+     &        rs,rytop,rybot,rm,rmsign, d_one
       COMPLEX(8) cz1,cz2,czseg1,czseg2,czj,czi,coffset,czz0,
      &           cflk_subomega
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlksubleakage(nbuf),
@@ -623,7 +625,8 @@ c     &          2(i3),d14.7)
       ry0=rlky0-SUM(rlkdeltay(1:irow))  ! y-value of lower grid line of MODFLOW cell
       rdxx=rdx/ires
       rdyy=rdy/ires
-      rmsign=SIGN(1.0,rm)
+      d_one = 1.0
+      rmsign=SIGN(d_one,rm)
 c      write (iluer,1002) rx0,ry0
 c 1002 format (' lkadd_subPoisson2: rx0,ry0 ',2(d14.7))
 c      write (iluer,1003) istart,

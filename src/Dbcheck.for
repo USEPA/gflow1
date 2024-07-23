@@ -228,7 +228,7 @@ C
 c
 c -------------------------------------------------------------------------------------------------------
 c
-      REAL FUNCTION RFDBER(CZ,RBIGX,ISTR,INODS,INODE)
+      REAL(8) FUNCTION RFDBER(CZ,RBIGX,ISTR,INODS,INODE)
 c
 c -------------------------------------------------------------------------------------------------------
 c
@@ -316,7 +316,7 @@ c 1002 format ('rfdbr2: cz,rh1,rh2,rha,rfdber (new) ',
 c     &          2(d14.7),1x,3(d14.7),1x,d14.7)
       RETURN
  1100 FORMAT (' ***WARNING in RFDBR called from DBERROR:',
-     &/, 'Potential at ',2F11.1,' is ',G11.4,)
+     &/, 'Potential at ',2F11.1,' is ',G11.4)
  2200 format (' ***ERROR in RFDBER call (from DBERROR):',/,
      &/,' Recharge only inhomogeneity, point is skipped!')
       END

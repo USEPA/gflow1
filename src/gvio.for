@@ -19,7 +19,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
       REAL(8) RVERSION
-      INCLUDE 'GVCOM.INC'
+      INCLUDE 'gvcom.inc'
 C
       if (ierr.ne.0) return
       CALL BUFIOR (RK,5,ILU,ICODE,IERR)
@@ -49,8 +49,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ILU
       COMPLEX CFLOW,CEXP
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILU,1000)
       WRITE (ILU,2000) RK
@@ -87,8 +87,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL
       CHARACTER(1) ADUM
-      INCLUDE  'GVCOM.INC'
-      INCLUDE  'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       WRITE  (ILUOUT,1000)  RK,RH,RHEAD0,RBASE
       WRITE  (ILUOUT,1002)  RPOTC,CREFZ

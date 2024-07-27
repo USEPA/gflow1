@@ -17,8 +17,8 @@ c     Routine writes data for head specified line sinks and drains to .xtr file
 c     Routine is called in EXTRACT.FOR
 c
       implicit none
-      include 'lscom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       integer(4) ilu,i,ils,ils1,ils2,istr
       LOGICAL ldrains,lgalleries,lheadonly
       REAL(8) rhc,rfhedp
@@ -135,8 +135,8 @@ C
       IMPLICIT NONE
       REAL(8) RESISTANCE,RDEPTH
       INTEGER(4) ILU,ISTR,ISTART,IEND,IDUM,I,II,ICOUNT
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NLS.EQ.0) RETURN
 c
@@ -246,7 +246,7 @@ C
       INTEGER(4) ICODE,ILU,IERR,NWORD
       LOGICAL LDUM(2)
       REAL(8) RVERSION
-      INCLUDE 'LSCOM.INC'
+      INCLUDE 'lscom.inc'
 C
       if (ierr.ne.0) return
       CALL BUFIO4 (NLS,1,ILU,ICODE,IERR)
@@ -331,8 +331,8 @@ C
 c     Output for debugging
 c
       IMPLICIT NONE
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       INTEGER(4) ICALL,I
       COMPLEX(8) CZ
       CHARACTER(1) ADUM

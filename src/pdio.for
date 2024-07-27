@@ -26,7 +26,7 @@ C
         INTEGER(4) ICODE,ILU,IERR
         LOGICAL LDUM(4)
         REAL(8) RVERSION
-        INCLUDE 'PDCOM.INC'
+        INCLUDE 'pdcom.inc'
 C
       if (ierr.ne.0) return
         CALL BUFIO4 (NPD,1,ILU,ICODE,IERR)
@@ -65,8 +65,8 @@ C
       INTEGER(4) ILU,I,II
       REAL(8) RESISTANCE,RDEPTH,RSTOP
       COMPLEX(8) CZRAD
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NPD.EQ.0) RETURN
       RESISTANCE=-1.0
@@ -126,8 +126,8 @@ c
       integer(4) ilu,i,ipd
       REAL(8) rh,rfhead
       COMPLEX(8) cz
-      include 'pdcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
 c
       if (npdhd.eq.0) return  ! there are no head specified wells
       write (ilu,2000)
@@ -173,8 +173,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL,I
       CHARACTER(1) ADUM
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       WRITE (ILUOUT,1000) NPD,NPDHD,NPDRC
       WRITE (ILUOUT,1010) LPDHD,LPDRC,LPDRCH,LPDPER

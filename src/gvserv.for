@@ -27,9 +27,9 @@ C     has a constant elevation of the aquifer top (CZ is not used).
 C
       IMPLICIT NONE
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC' 
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc' 
       RFTOP=RBASE+RH
       RETURN
       END
@@ -47,9 +47,9 @@ C
       REAL(8) RPOT,RFHDP0,RLPOT0,RKLOC,RFPERM,RHLOC,RFBASE,RFTOP,RFHFP,
      &        RBLOC
       COMPLEX(8) CZ,CZ0
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DATA RLPOT0,RFHDP0,CZ0 /2*1.E21,(1.E21,1.E21)/
       RFHEDP=RFHDP0
       IF (RPOT.EQ.RLPOT0.AND.CZ.EQ.CZ0) RETURN
@@ -80,8 +80,8 @@ c
       REAL(8) rpot,rkloc,rhloc,rcond,rbloc,
      &        RHS,RALPHA,RBETA,RHED,RCCONFINED,RCUNCONFINED,
      &        RTEST1,RTEST2
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
         RCOND=0.5D0*RKLOC*RHLOC*RHLOC
 c        write (iluer,1001) rpot,rkloc,rhloc,rbloc
 c 1001 format (' rfhfp1: rpot,rkloc,rhloc,rbloc ',4(d14.7))
@@ -149,7 +149,7 @@ C
       IMPLICIT NONE
       REAL(8) RK0,RH0,RHED0,RB0,RP0
       COMPLEX(8) CZ0
-      INCLUDE 'GVCOM.INC'
+      INCLUDE 'gvcom.inc'
 C
       RK0=RK
       RH0=RH
@@ -172,9 +172,9 @@ C
       LOGICAL Linside_inhom
       REAL(8) RT,RBO,RBI,RP,RKO,RKI
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       IF (Linside_inhom (CZ,RKI,RP,RBI,RT)) THEN
 c      write (iluer,1001)
  1001 format (' rfbase1: inside')
@@ -200,9 +200,9 @@ C
       IMPLICIT NONE
       REAL(8) RHEDIN,RFTOP,RFPOTH_confined,RFPOTH_unconfined
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (RHEDIN.GE.RFTOP(CZ)) THEN ! confined flow
       RFPOTH=RFPOTH_confined (RHEDIN,CZ)
@@ -224,9 +224,9 @@ C
       REAL(8) RFPERM,RFTOP,RFBASE,RHEDIN,RHEDTIP,RALPHA,RBETA,RCOND,
      &        RKLOC,RHLOC,RBLOC,RHED,RHS,RCCONFINED,RCUNCONFINED,RDUM
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFPOTH_confined=0.0D0
       RKLOC=RFPERM(CZ)
       RBLOC=RFBASE(CZ)
@@ -272,9 +272,9 @@ C
       REAL(8) RFPERM,RFTOP,RFBASE,RHEDIN,RHEDTIP,RALPHA,RBETA,RCOND,
      &        RKLOC,RHLOC,RBLOC,RHED,RHS,RCCONFINED,RCUNCONFINED,RDUM
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFPOTH_unconfined=0.0D0
       RKLOC=RFPERM(CZ)
       RBLOC=RFBASE(CZ)
@@ -312,8 +312,8 @@ C
 C
 C     Routine returns the elevation of the interface  
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
       REAL(8) RHS,RFBASE,RFHEAD,RBLOC,RHED
       COMPLEX(8) CZ
       RBLOC=RFBASE(CZ)
@@ -334,8 +334,8 @@ c
 c     True if interface flow is being solved.
 c
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
       lfinterface=linterface
       return
       end
@@ -352,8 +352,8 @@ c       rsgf  = fresh water specific gravity (RSPECIFICGRAVITYFRESH)
 c       rfac1 = rsgs/rsgf (RGVFAC1)
 c       rfac2 = rsgs/(rsgs-rsgf) (RGVFAC2)
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
       REAL(8) rhss,rsgs,rsgf,rfac1,rfac2
       RHSS=RSEALEVEL
       RSGS=RSPECIFICGRAVITYSALT
@@ -372,9 +372,9 @@ C
 C     Function returns the HYDRAULIC CONDUCTIVITY at CZ.
 C
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       LOGICAL Linside_inhom
       REAL(8) RKI,RKO,RP,RBI,RBO,RT
       COMPLEX(8) CZ
@@ -396,9 +396,9 @@ C
 C     Function returns the POROSITY at CZ.
 C
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       LOGICAL Linside_inhom
       REAL(8) RKI,RKO,RP,RBI,RBO,RT
       COMPLEX(8) CZ
@@ -421,9 +421,9 @@ C     In case of interface flow this is the distance between the
 C     fresh-salt water interface and the saturated aquifer top.
 C
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC' 
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc' 
       REAL(8) RHEAD,RTOP,RFHEAD,RFTOP,RFBASE,RBLOC,RFINTERFACE
       COMPLEX(8) CZ
       RHEAD=RFHEAD(CZ)
@@ -448,7 +448,7 @@ C ------------------------------------------------------------------------------
 C
       IMPLICIT NONE
       COMPLEX CZ
-      INCLUDE 'GVCOM.INC'
+      INCLUDE 'gvcom.inc'
       RGVREFDIST=ABS(CREFZ-CZ)
       rgvrefdist=MAX(1.0,rgvrefdist)
       RETURN

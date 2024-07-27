@@ -64,8 +64,8 @@ C
 C -------------------------------------------------------------------------
 C
       IMPLICIT NONE
-      INCLUDE 'TWCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'twcom.inc'
+      INCLUDE 'lusys.inc'
       DATA RPI4,NTW /12.56637061,0/
       DATA RTWH0,RTWQ /NTWMX*0.0,NTWMX*0.0 /
       data RTWST / NTWMX*0.0 /
@@ -85,10 +85,10 @@ C
       REAL(8) RDUM,RVAR,RDUM1,RDUM2,RDUM3,RDUM4,RDUM5
       LOGICAL LENTRY,LBAD
       COMPLEX(8) CDUM,CVAR
-      INCLUDE 'GVCOM.INC'      
-      INCLUDE 'TWCOM.INC'      
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'      
+      INCLUDE 'twcom.inc'      
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       CHARACTER(1) AWORD(23)
       DATA AWORD /'?',' ',
      &            'S','T','O','R',' ',

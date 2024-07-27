@@ -16,10 +16,10 @@ C     TRUE if there are discharge specified partially penetrating wells
 C
       IMPLICIT NONE
       INTEGER(4) IW
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       lw3discharge=.false.
       IF (NW3.EQ.0) RETURN
       DO 10 IW=1,NW3
@@ -38,10 +38,10 @@ C     TRUE if there are discharge specified partially penetrating wells
 C
       IMPLICIT NONE
       INTEGER(4) IW
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       lw3head=.false.
       IF (NW3.EQ.0) RETURN
       DO 10 IW=1,NW3
@@ -65,8 +65,8 @@ c
       REAL(8) rwell,rqwell,rdis
       COMPLEX(8) cz,czwell,cz0
       CHARACTER(16) awell
-      include 'w3com.inc'
-      include 'lusys.inc'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
 c
       lw3info=.false.
       if (nw3.eq.0) return

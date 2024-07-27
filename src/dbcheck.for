@@ -24,9 +24,9 @@ C
      &        RDUM,RFDBER,RERSLUR,RTOT1,RTOT2,R1,R2,RTOT3,RBZ,
      &        RFDBNFCONDITION,RFNORMALFLOW,R3,rfhead,rhloc,rftop,rfhfp
       COMPLEX(8) CZ,CZA,CZB,cfsmallz
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       IF (NDB.EQ.0) RETURN
       RERROR=0.0
       LREPOR=.FALSE.
@@ -250,9 +250,9 @@ C
      &     RPOTFAC,rhtemp,rfhfp,rtt,rhloc,rht,rfdbslocal,
      &     rh1,rh2,rha
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
 C
       RFDBER=0.0
       IF (ldbrechargeonly(istr)) THEN ! ERROR =  "recharge only" domain
@@ -330,7 +330,7 @@ c
 c     function returns the strength at point RBIGX on the line-doublet
 c
       implicit none
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
       REAL(8) rbigx,rs1,rmu,rs2
 c
       if (rbigx.GE.-1.0d0.and.rbigx.le.1.0d0) then

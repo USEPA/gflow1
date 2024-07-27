@@ -28,8 +28,8 @@ C
       INTEGER(4) I,IP
       REAL(8) RDIS
       COMPLEX(8) CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
       RFPDS=0.0
       IF (NPDRC.LE.0) RETURN
       DO 10 I=1,NPDRC
@@ -55,8 +55,8 @@ C
       INTEGER(4) I,IP
       REAL(8) RDIS
       COMPLEX(8) CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
       RFPDSBOTTOM=0.0
       IF (NPDRC.LE.0) RETURN
       DO 10 I=1,NPDRC
@@ -81,8 +81,8 @@ C
       INTEGER(4) I,IP
       REAL(8) RDIS
       COMPLEX(8) CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
       RFPDH=0.0
       IF (NPDHD.LE.0) RETURN
       DO 10 I=1,NPDHD

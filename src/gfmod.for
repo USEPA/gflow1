@@ -262,10 +262,10 @@ C
       CHARACTER(8) aDate
       CHARACTER(10)aTime
       COMMON /IDENT/ AIDENT1,AIDENT2,NCHAR1,NCHAR2
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'MAIN.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'main.inc'
 c
       NEQMAX=6000             ! maximum number of equations   (increased from 5000 to 6000 on 5/5/2017)
       ngridsize=200           ! set (maximum) grid size
@@ -359,13 +359,13 @@ c      CHARACTER(8) ADATE
       DIMENSION RQI(3),idim_dra(2)
       ALLOCATABLE DRA(:,:),DRSCR1(:),DRSCR2(:),DRFAC(:,:),CALPH(:),
      &            CZI(:),KTYPE(:),IPIV(:)
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'GRID.INC'
-      INCLUDE 'MATCH.INC'     
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'main.inc'
+      INCLUDE 'grid.inc'
+      INCLUDE 'match.inc'     
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'tracom.inc'
       EXTERNAL RFPOT,RFPSI,RFHEAD,RFDSCH
       DATA LDATACHANGE /.FALSE./
       DATA AWORD  /
@@ -1367,10 +1367,10 @@ C
 C -----------------------------------------------------------------------------
 C
       IMPLICIT COMPLEX (C), LOGICAL (L)
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
+      INCLUDE 'main.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
       LINALREADY=.FALSE.
       RPI=3.141592654
       RPI2=2.0*RPI

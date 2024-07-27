@@ -52,7 +52,7 @@ c
       INTEGER i,j,m
       REAL(8) drb
       DIMENSION drb(m)
-      include 'wlcom.inc'
+      INCLUDE 'wlcom.inc'
       if (nwldischarges.gt.0) then  ! we have wells in the matrix
        do i=1,nwldischarges
          j=j+1
@@ -72,9 +72,9 @@ C
       INTEGER(4) M,N,ITYPE,IW,ICPT
       REAL(8) DRFAC,RTOL
       COMPLEX(8) CZI,CALPH
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(*),DRFAC(4,*),CALPH(*),ITYPE(*)
       IF (NWL.EQ.0) RETURN
       DO 10 IW=1,NWL
@@ -110,9 +110,9 @@ C
       LOGICAL LNEG
       REAL(8) DRA,DRFAC,RFNFWLCO
       COMPLEX(8) CZ,CZA,CZI,CALPH,CFWLOMC,CFWLQC
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),CZI(*),CALPH(*),ITYPE(*),DRFAC(4,*)
       IF (NWL.EQ.0) RETURN
       DO 20 IW=1,NWL
@@ -168,9 +168,9 @@ C
       LOGICAL LNEG
       REAL(8) DRA,DRFAC,RFNFWLCO
       COMPLEX(8) CZ,CZA,CZI,CALPH,CFWLOMC,CFWLQC
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),CZI(*),CALPH(*),ITYPE(*),DRFAC(4,*)
       IF (NWL.EQ.0) RETURN
       DO 20 IW=1,NWL
@@ -217,9 +217,9 @@ C
       INTEGER(4) J,IW
       REAL(8) DRB,RPOT,RFPOT,RPOTWL,RFPOTH,rdum1,rdum2
       COMPLEX(8) CZI
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*),CZI(*)
       IF (NWL.EQ.0) RETURN
       DO 10 IW=1,NWL
@@ -252,9 +252,9 @@ C
       COMPLEX(8) cz,CZI,cflk_subomega
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRSCR(*),CZI(*)
       IF (NWL.EQ.0) RETURN
       laddsubcells=lincludesub
@@ -289,9 +289,9 @@ C
       INTEGER(4) J,IW,N,M
       REAL(8) DRSCR,RFPOT,rdum1,rdum2
       COMPLEX(8) CZI
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(m)
       IF (NWL.EQ.0) RETURN
       DO 10 IW=1,NWL
@@ -316,8 +316,8 @@ C
       IMPLICIT NONE
       INTEGER(4) J,IW
       REAL(8) DRB
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*)
       IF (NWL.EQ.0) RETURN
       DO 10 IW=1,NWL

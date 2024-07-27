@@ -43,8 +43,8 @@ C
       LOGICAL LDN1,LUP1,LSIBR1,LDN2,LUP2,LSIBR2,LSKIP
       REAL(8) RDIS,RMIN
       COMPLEX(8) CZS,CZE
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
 c      character(1) adum
 C
 C      write (iluout,1000) (i,klsup(i),klsdn(i),i=1,nls)
@@ -182,8 +182,8 @@ C
      &        relaxarray
       COMPLEX(8) CZ
       DIMENSION niterarray(*),relaxarray(*)
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       lreintroduce=.true.  ! may be used to suppress reintroduction of stream sections
 c                            during some initial iterations. Does not work well.
 c      write (ilume,1001) nsol,lreintroduce
@@ -487,9 +487,9 @@ C     Routine check and correct open ends in stream network
 C
       IMPLICIT NONE
       INTEGER(4) ISTR,IADLAST
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 C
       IF (NLSTRING.EQ.0) RETURN
       DO 30 ISTR=1,NLSTRING 
@@ -536,9 +536,9 @@ c
       INTEGER ilu,itemp,i,ivar,idum1,ierr
       LOGICAL lret,lnorelaxfile
       REAL(8) rdum1,rdum2,rvar
-      include 'lusys.inc'
-      include 'match.inc'
-      include 'main.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'main.inc'
 c
       lnorelaxfile=.false.
       ilstablelength=0

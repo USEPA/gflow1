@@ -23,9 +23,9 @@ C
       INTEGER(4) I
       REAL(8) RQI,RS
       COMPLEX(8) CZ,CZ1,CZ2,CLSDIS,CDLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'      
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'      
+      INCLUDE 'lusys.inc'
       DIMENSION RQI(3)
       IF (NLS.EQ.0) RETURN
       CLSDIS=(0.0,0.0)
@@ -53,9 +53,9 @@ C     COMLS lacks a constant calculated by LSPREP and added to COMLS where calle
 c
       IMPLICIT NONE
       COMPLEX(8) COM1,COM2,CBZ,CZ,CZS,CZE,CFBIGZ
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       CBZ=CFBIGZ(CZ,CZS,CZE)
       COM1=(.0,.0)
       COM2=(.0,.0)
@@ -79,8 +79,8 @@ c
       IMPLICIT NONE
       INTEGER(4) K,I
       COMPLEX(8) CZ,COMLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
       CFLSG=(.0,.0)
       IF (NLSIG.EQ.0) RETURN
       DO 100 I=1,NLSIG
@@ -102,8 +102,8 @@ c
       INTEGER(4) I,K
       REAL(8) RS
       COMPLEX(8) CZ,COMLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
       CFLSU=(.0,.0)
       IF (NLSH.EQ.0) RETURN
       DO 100 I=1,NLSH
@@ -126,9 +126,9 @@ C     Derivative of COMLS (omega for line sink with endpoints czs and cze) with 
 C
       IMPLICIT NONE
       COMPLEX(8) CZ,CZS,CZE,CBZ,CBZP1,CBZM1,CFBIGZ
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CBZ=CFBIGZ(CZ,CZS,CZE)
       CBZP1=CBZ+1.0
       CBZM1=CBZ-1.0
@@ -150,8 +150,8 @@ c
       IMPLICIT NONE
       INTEGER(4) I,K
       COMPLEX(8) CZ,CDLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
       CDLSG=(.0,.0)
       IF (NLSIG.EQ.0) RETURN
       DO 100 I=1,NLSIG
@@ -173,8 +173,8 @@ c
       INTEGER(4) I,K
       REAL(8) RS
       COMPLEX(8) CZ,CDLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
       CDLSU=(.0,.0)
       IF (NLSH.EQ.0) RETURN
       DO 100 I=1,NLSH
@@ -196,8 +196,8 @@ c     Discharge potential due to all line sinks
 c
       IMPLICIT NONE
       COMPLEX(8) CZ,CFLSG,CFLSU
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
       RFLSPT=-REAL(CFLSG(CZ)+CFLSU(CZ))
       RETURN
       END

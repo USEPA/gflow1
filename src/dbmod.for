@@ -97,7 +97,7 @@ c
 c --------------------------------------------------------------------------------------------------------
 c
       IMPLICIT NONE
-      INCLUDE 'DBCOM.INC'
+      INCLUDE 'dbcom.inc'
       DATA NDB,NDBSTR /2*0/
       DATA DPI,D2PI /.3141592653589793D+1,.6283185307179586D+1/
       DATA CDI,DBEPS  /(0.0D+1,1.0D0),1.0D-3/
@@ -134,9 +134,9 @@ C
       COMPLEX(8) CZEX,CZ,CVAR,C1
       CHARACTER(1) AWORD(33),APAR(8),APAR2(28),ALINEDB(80)
       CHARACTER(16) AFILEG
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RA(IRA,*),RSCR(*)
       DATA AWORD /'?',' ',
      &            'I','N','H','O',' ',
@@ -661,8 +661,8 @@ C
       INTEGER(4) ISTR,INODEX,INOD1,INODL,INOD,II1,II2,I
       REAL(8) RTEST,RFGRTOL,RLEN
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       INODEX=0
       INOD1=IDBSTA(ISTR)
       INODL=INOD1+NDBSTI(ISTR)-1
@@ -729,8 +729,8 @@ C
       INTEGER(4) ISTR,INOD1,INODL,NODM1,NOD,INOD
       REAL(8) RV1,RV2,RU1,RU2,RDUM,RFDBRP
       COMPLEX(8) CZZ,CZ1,CZ2,CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (ISTR.LT.0.OR.ISTR.GT.NDBSTR) THEN
       WRITE (ILUER,1000) ISTR,NDBSTR
@@ -798,8 +798,8 @@ C
       REAL(8) RDUM
       COMPLEX(8) CZ,C1,C2,CDUM
       CHARACTER(16) ADBDUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       IF (NDB.EQ.0) RETURN
       IF (NDBSTR.EQ.0) THEN
       WRITE (ILUER,1000) NDB
@@ -855,8 +855,8 @@ C
       REAL(8) RKNEW,RPNEW,RBNEW,RTNEW,RWNEW,RHNEW,DAVNEW,RDGNEW,
      &        DBANEW,RDRNEW
       COMPLEX(8) CZ,C1,C2,CDZNEW
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       IF (NDB.EQ.0) RETURN
       if (ndbstr.eq.1) return ! first string don't try to sort
       IF (NDBSTR.EQ.0) THEN
@@ -992,8 +992,8 @@ C
       IMPLICIT NONE
       INTEGER(4) istr1,istr2,i,istart,iend,j,jstart,jend
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       save
 c
 c     Find vertex of domain istr1 that is not shared with a vertex of domain istr2
@@ -1035,8 +1035,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ISTR,INOD1,INODL,INOD,II1,II2
       REAL(8) RLEN
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       if (ndbstr.eq.0) return
       rlen=1.0d+31
       do 20 istr=1,ndbstr

@@ -97,7 +97,7 @@ C
 C
 C-------------------------------------------------------------------------------------------------------
 C
-      INCLUDE 'LSCOM.INC'
+      INCLUDE 'lscom.inc'
       DATA RO2PI / .159154943D0/
       DATA NLS,RLSIG/ 0,NLSMAX*.0/
       DATA LSGIV,LSDRAIN /NLSMAX*.FALSE.,NLSMAX*.FALSE./
@@ -128,9 +128,9 @@ C
 C-------------------------------------------------------------------------------------------------------
 C
       IMPLICIT NONE
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'GRID.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'grid.inc'
       INTEGER(4) IRA,ILU,INEXT,IAD,ISPRSTR,ICODE,JUMP,I,IWMIN,IWMAX,
      &           NSPRFILES,ISTR0,idum,ivar
       INTEGER :: rvalues(8)
@@ -143,7 +143,7 @@ C
       CHARACTER(11) ATIME
       CHARACTER(5) azone
       CHARACTER(80) ASPRFILE(20)
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'match.inc'
       DIMENSION RA(IRA,*),RSCR(*),ISPRSTR(20)
       DATA AWORD/ 'D','I','S','C',' ',
      .            'D','R','A','I',' ',
@@ -608,9 +608,9 @@ C     Output:
 C     ICOD = 0 zero line sink in string, abort string input.
 C      
       IMPLICIT NONE
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       INTEGER(4) ICOD,ICODE,I3,I4,I5,I6,I7,JUMP,ISTART,IOFF,I
       LOGICAL LFIRST,LBAD,LEQUALHD
       REAL(8) ROF,RHW,RTOL,RFGTOL,RDUM1,RVAR,RDUM2,RDUM3,RDUM4,

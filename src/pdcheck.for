@@ -20,9 +20,9 @@ C
       REAL(8) RERMAX,RERRH,RERRS,RBASE,RFBASE,RS,RF,
      &        RFHEAD,RC,RFFF,RDUM,RSIG,RSIGC,RSSS
       COMPLEX(8) CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       IF (NPDHD.EQ.0) RETURN
       RERRH=0.0
       RERRS=0.0

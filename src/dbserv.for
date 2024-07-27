@@ -34,10 +34,10 @@ C
       INTEGER(4) ISTR,INOD1,INODL,INOD
       LOGICAL LCZ,LFDBIN
       COMPLEX(8) CZ,CZ0
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'main.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       COMMON /temp/ lcz  ! debugging, remove
       DATA CZ0 /(1.0E21,1.0E21)/
       IF (NDB.EQ.0) RETURN
@@ -99,9 +99,9 @@ C
       LOGICAL LCZ,L2
       REAL(8) DUM
       COMPLEX(8) CDDUM,CDD1,CDD2,CDDBZ,CZ,CFBIGZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       COMMON /temp/ lcz  ! debugging, remove
       IF (INOD.EQ.INOD1) THEN
       INODM1=INODL         ! will be zero for open string
@@ -203,10 +203,10 @@ C
       INTEGER(4) ISTR,INOD
       REAL(8) RKI,RP,RBI,RT
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'GVCOM.INC'   ! change this to a GCPAR call
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'gvcom.inc'   ! change this to a GCPAR call
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       Linside_inhom=.FALSE.
       RKI=RK
@@ -279,10 +279,10 @@ C
       LOGICAL LDOMINSIDEDOM
       INTEGER(4) ISTR,ISTR0,INOD
       REAL(8) RKO,RKI,RP,RBO,RBI,RT
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'GVCOM.INC'   ! change this to a GCPAR call
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'gvcom.inc'   ! change this to a GCPAR call
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       LINDOM=.FALSE.
       RKO=RK
@@ -323,9 +323,9 @@ C
       IMPLICIT NONE
       INTEGER(4) ISTR,INOD1,INOD,NOD
       REAL(8) RDUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (ISTR.LT.1.OR.ISTR.GT.NDBSTR) THEN
       WRITE (ILUER,1000) ISTR,NDBSTR
@@ -363,9 +363,9 @@ C
       INTEGER(4) ISTR
       LOGICAL LFDBIN
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFDBGM=0.0
       IF (NDBSTR.LE.0) RETURN
       CALL DBPREP (CZ)
@@ -392,9 +392,9 @@ C
       LOGICAL LFDBIN,LIN,L1,L2
       REAL(8) RX,RY
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       LDBOUTSIDE=.FALSE.
       IF (NDB.EQ.0) RETURN
       DO ISTR=1,NDBSTR
@@ -428,8 +428,8 @@ C
       INTEGER(4) INOD,INOD1,INODL,ISTR
       REAL(8) RBOT,RTOP1,RTOP2,RFTOP
       COMPLEX(8) CZ1,CZ2,CZZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       IF (NDB.EQ.0) RETURN
       DO 20 ISTR=1,NDBSTR
       INOD1=IDBSTA(ISTR)
@@ -582,8 +582,8 @@ c    After the matrix solution procedure, this option is disabled and line-doubl
 c    one by one, see subroutine setldbmatrix_false()
 C
       IMPLICIT none
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       IF (NDB.EQ.0) RETURN
       ldbmatrix=.true.
       return
@@ -601,8 +601,8 @@ c    This is necessary to allow line-doublets to be evaluated one by one, withou
 c    nearby line-doublets. These point shifts occur in CDBOM (and also in DBQI).
 C
       IMPLICIT none
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       IF (NDB.EQ.0) RETURN
       ldbmatrix=.false.
       return
@@ -641,8 +641,8 @@ C
      &        RHIT,RH1,RFTOP
       COMPLEX(8) CZ,CZ1,CZ2,CZ3,CZZ0
       DIMENSION IDOMAIN1(20),IDOMAIN2(20)
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       IF (NDB.EQ.0) RETURN
       IF (NDBSTR.EQ.0) THEN
       WRITE (ILUER,1000) NDB
@@ -800,8 +800,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ISTR,istr0,inod0,INOD1,INODL,INOD,IDOMAIN,ndom
       DIMENSION IDOMAIN(20)
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       idomain(1:20)=0
       ldbsharednode=.false.
       IF (NDB.EQ.0) RETURN
@@ -866,8 +866,8 @@ C
       LOGICAL l11,l13,l31,l33,lnot0,l0not0,l0not2
       INTEGER(4) ISTR,INOD0,INOD1,INODL,INOD,INODP1,INODM1,icase
       COMPLEX(8) CZ1,CZ2,CZ3,C1,C2,C3
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
         INOD1=IDBSTA(ISTR)
         INODL=INOD1+NDBSTI(ISTR)-1
 c        write (iluer,1001) inod0,cz1,cz2,cz3,istr
@@ -951,8 +951,8 @@ C
       INTEGER(4) ISTR,INOD1,INODL,INOD,INODP1
       REAL RK0,RKI,RB0,RBI,RP,RT,RHED0,RP0,RH0
       COMPLEX(8) CZ1,CZ2,CZ,CFSMALLZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 c
       IF (IDBCODE(INOD).GT.0) THEN ! is in matrix, set properties
        CALL GVPAR (RK0,RH0,RHED0,RB0,RP0,CZ) ! get background properties
@@ -1010,8 +1010,8 @@ c
       REAL(8) rfpor,rfdbgm,rftop
       COMPLEX(8) cztemp,czex,czplus,cz
       DIMENSION cztemp(*),alabtemp(*)
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 c
       if (nodes.gt.0) then ! OK, we have data
        if (ndbstr+1.le.ndbsmx.and.ndb+nodes.le.ndbzmx) then ! OK, we have space

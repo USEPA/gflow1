@@ -17,9 +17,9 @@ C
       INTEGER(4) IW,IHED
       REAL(8) RERMAX,RERRH,RBAS,RS,RF,RFFF,RDUM,RFBASE,RFHEAD
       COMPLEX(8) CZ
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       IF (NWL.EQ.0) RETURN
       RERRH=0.0
       IHED=0

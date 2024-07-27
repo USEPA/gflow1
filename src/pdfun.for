@@ -22,9 +22,9 @@ C
       IMPLICIT NONE
       INTEGER(4) I
       COMPLEX(8) CZ,CFPDCO
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CFPDOM=(0.0,0.0)
       IF (NPD.EQ.0) RETURN
       DO 10 I=1,NPD
@@ -47,9 +47,9 @@ C
       INTEGER(4) IPD
       REAL(8) RAD,RL,R,rgvrefdist
       COMPLEX(8) CZ,CR
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CFPDCO=(0.0,0.0)
       RAD=RPDR(IPD)
       CR=CZ-CPDZ(IPD)
@@ -73,8 +73,8 @@ C
       INTEGER(4) I
       REAL(8) RFPDCO
       COMPLEX(8) CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
       RFPDPT=0.0
       IF (NPD.EQ.0) RETURN
       DO 10 I=1,NPD
@@ -97,9 +97,9 @@ C
       INTEGER(4) IPD
       REAL(8) R,RAD,rgvrefdist,RL
       COMPLEX(8) CZ,CR
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       RFPDCO=0.0
       CR=CZ-CPDZ(IPD)
       R=ABS(CR)
@@ -125,9 +125,9 @@ C
       REAL(8) RQI,RQTAU,RQ3,RHGHT,RFHGHT,R3DZ,
      &        RTAU,RX,RY,RADP,RS,R3DZMINBASE,RFBASE
       COMPLEX(8) CZ,CZT
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RQI(3)
       IF (NPD.EQ.0) RETURN
       RQTAU=0.0

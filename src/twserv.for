@@ -17,11 +17,11 @@ C
       IMPLICIT NONE
       REAL(8) RXC,RYC,RDUM,RVAR
       COMPLEX(8) CZ
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'TWCOM.INC'      
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'twcom.inc'      
+      INCLUDE 'tracom.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       IF(NTW.EQ.0) RETURN
       RXC=REAL(CZ)
       RYC=AIMAG(CZ)
@@ -58,9 +58,9 @@ C     New routine 12/3/99
 C
       IMPLICIT none
       REAL(8) RT
-      INCLUDE 'TWCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'twcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RTWCT=RT
       RETURN
       END
@@ -73,7 +73,7 @@ C ------------------------------------------------------------------------------
 C
 C
       IMPLICIT NONE
-      INCLUDE 'TWCOM.INC'      
+      INCLUDE 'twcom.inc'      
       RTWTIM=RTWCT
       RETURN
       END
@@ -88,7 +88,7 @@ C
 C     Function is TRUE when transient wells are introduced and time is larger than 0
 C
       IMPLICIT none
-      INCLUDE 'TWCOM.INC'      
+      INCLUDE 'twcom.inc'      
       LTWL = (NTW.GT.0.AND.RTWCT.GT.0.0)
       RETURN
       END
@@ -103,8 +103,8 @@ C
       INTEGER(4) I
       REAL(8) RH,RK,RFPERM,RFBASE,RTOP,RFTOP
       COMPLEX(8) CZ
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TWCOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'twcom.inc'
       IF (NTW.GT.0) THEN
       DO 10 I=1,NTW
       CZ=CTWZ(I)

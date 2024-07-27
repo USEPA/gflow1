@@ -18,10 +18,10 @@ C
       REAL(8) RERMAX,RHDI,RW3ERRQ,RW3ERRH,RQ,
      &        RHDSUM,RBAS,RFBASE,RFHEAD,RERR,RHDAV,RFHGHT,RHEDS
       COMPLEX(8) CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RHDI(100)
       RW3ERRQ=0.0
       RW3ERRH=0.0

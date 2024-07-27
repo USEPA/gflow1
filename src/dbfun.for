@@ -27,9 +27,9 @@ C
       REAL(8) RQ,DQS,roffset
       COMPLEX(8) CZ,CFDBF,CFDBS,CFDBG,CDDS,CDDBOM,CZ0,CBZ,
      &           cdds1,cdds2
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CDBOM=(0.0,0.0)
       IF (NDB.EQ.0) RETURN
       CALL DBPREP (CZ)
@@ -126,10 +126,10 @@ C
      &        rfinterface
       COMPLEX(8) CZ,CDDUM,CFDBFD,CFDBSD,CFDBGD,CDDS,CBZ,CZ0,
      &           cdds1,cdds2
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RQI(3)
 C
       IF (NDB.EQ.0.0) RETURN
@@ -229,9 +229,9 @@ C
       INTEGER(4) IEL,I
       REAL(8) DCOF
       COMPLEX(8) CDDUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA DCOF /-1.0D0,
      &           0.3333333333333333D0,-0.3333333333333333D0,
@@ -275,9 +275,9 @@ C
       INTEGER(4) IEL,I
       REAL(8) DCOF
       COMPLEX(8) CDDUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA DCOF /1.0D0,
      &           0.3333333333333333D0,0.3333333333333333D0,
@@ -320,9 +320,9 @@ C
       INTEGER(4) IEL,I
       REAL(8) DCOF
       COMPLEX(8) CDDUM,CBZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA DCOF /0.3333333333333333D0,0.0D0,
      &           0.0666666666666666D0,0.0D0,
@@ -367,9 +367,9 @@ C
       IMPLICIT NONE
       INTEGER(4) IEL,I
       REAL(8) DCOF
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA DCOF /
      &             0.0000000000000000D+00, 0.1000000000000000D+01,
@@ -414,9 +414,9 @@ C
       IMPLICIT NONE
       INTEGER(4) IEL,I
       REAL(8) DCOF
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA DCOF /
      &             0.0000000000000000D+00,-0.1000000000000000D+01,
@@ -462,9 +462,9 @@ C
       INTEGER(4) IEL,I
       REAL(8) DCOF
       COMPLEX(8) CBZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA DCOF /
      &             0.0000000000000000D+00,-0.3333333333333333D+00,
@@ -507,8 +507,8 @@ C
       INTEGER(4) ISTR
       REAL(8) RFDBRP
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 C
       RFDBPT=0.0
       IF (NDB.EQ.0) RETURN
@@ -533,8 +533,8 @@ C
       INTEGER(4) ISTR
       REAL(8) RAD
       COMPLEX(8) CZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 C
       RFDBRP=0.0
       IF (ISTR.LE.0.OR.ISTR.GT.NDBSTR) THEN

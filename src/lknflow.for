@@ -12,7 +12,7 @@ c
       implicit none
       REAL(8) rfunc
       COMPLEX(8) cz1,cz2
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c      write (iluer,1001) cz1,cz2
 c 1001 format (' rfnflk1: Entering with cz1 and cz2= ',4(d14.7))
       rfnflk=0.0d0
@@ -46,8 +46,8 @@ c
      &           czj,czi
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkleakage(nrow,ncol),
      &          rlkrecharge(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,1001)
 c 1001 format (' lkfnf_sub_actual1: Entering.')
@@ -267,8 +267,8 @@ c
      &        rx,ry,rs,rsm,rsp,rytop,rybot,rdx
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkleakage(nrow,ncol),
      &          rlkrecharge(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,1001)
 c 1001 format (' lkadd_deltapsi1: Entering.')
@@ -315,8 +315,8 @@ c
       implicit none
       REAL(8) rfunc
       COMPLEX(8) cz1,cz2
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
       rfunc=0.0d0
 c
@@ -354,8 +354,8 @@ c
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),
      &          ilkresolution(nrow,ncol),
      &          ilkpointer(nrow,ncol),rlksubleakage(nbuf)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,1001)
 c 1001 format (' lkfnfsub_sub_actual1: Entering.')
@@ -605,8 +605,8 @@ c
      &           cflk_subomega
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlksubleakage(nbuf),
      &          ilkresolution(nrow,ncol),ilkpointer(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,1001) irow,jcol,rtol
 c 1001 format (' lkadd_subPoisson1: entering with irow, jcol, rtol = ',

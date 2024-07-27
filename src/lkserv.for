@@ -34,7 +34,7 @@ c
       COMPLEX(8) cz
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow)
       INCLUDE 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       i0=0
       ry=aimag(cz)
@@ -105,7 +105,7 @@ c
      &          ilkresolution(nrow,ncol),ilkpointer(nrow,ncol),
      &          rlksubheadlower(nbuf)
       INCLUDE 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=-9999.0  ! flag for being outside the grid.
       call lkfindcell (cz,icell,jcell,rxc,ryc)
@@ -152,7 +152,7 @@ c
       implicit none
       REAL(8) rfunc
       COMPLEX(8) cz
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=0.0d0
       if (lkleakage) then
@@ -180,7 +180,7 @@ c
       COMPLEX(8) cz
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkleakage(nrow,ncol)
       INCLUDE 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=0.0   ! default zero leakage outside the grid.
       call lkfindcell (cz,i0,j0,rx0,ry0)
@@ -200,7 +200,7 @@ c
       implicit none
       REAL(8) rfunc
       COMPLEX(8) cz
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=0.0d0
       if (lkleakage) then
@@ -233,7 +233,7 @@ c
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow)
       DIMENSION ilkresolution(nrow,ncol)
       INCLUDE 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=0.0   ! default zero leakage outside the grid.
       call lkfindcell (cz,icell,jcell,rxc,ryc)
@@ -289,7 +289,7 @@ c
       implicit none
       REAL(8) rfunc
       COMPLEX(8) cz
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=0.0d0
       if (lkleakage) then
@@ -316,7 +316,7 @@ c
       COMPLEX(8) cz
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkrecharge(nrow,ncol)
       INCLUDE 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=0.0   ! default zero recharge outside the grid.
       call lkfindcell (cz,i0,j0,rx0,ry0)
@@ -360,7 +360,7 @@ c
       COMPLEX(8) cz
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkresist(nrow,ncol)
       INCLUDE 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       rfunc=1.0d+30 ! default infinite resistance outside the grid.
       call lkfindcell (cz,i0,j0,rx0,ry0)
@@ -391,7 +391,7 @@ c
       LOGICAL l1,l2
       REAL(8) rx,rx1,rx2,ry,ry1,ry2
       COMPLEX(8) cz,cz0,cz1,cz2,cz3
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       lkinside=.false.
       if (lkleakage) then
@@ -420,7 +420,7 @@ c
      &           lErrorReportOut,lDirectfromDiskOut
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -479,7 +479,7 @@ c
      &           czterm,comega,cdum,cbz,clog
       DIMENSION rphim(ncolpts),czm(ncolpts),ca(nterms,ncells)
       DATA ldeb1 /.false./
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,1110) rxc,ryc
 c 1110 format (' lkgensubcellcoefmatrix0: entered with cz0=',2(d14.6))

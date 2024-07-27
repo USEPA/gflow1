@@ -95,7 +95,7 @@ C
      &        RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU,
      &        RQZF,RQZG,RQZE,RA,RB,RC,RD,RK,GENOLD,
      &        RXOLD,RF,RG,RE
-      INCLUDE 'W3COM.INC'
+      INCLUDE 'w3com.inc'
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       COMMON/FAR3D/ L2D,L3D,L3DH
@@ -144,10 +144,10 @@ C
      &        RDUM,RLSUM,RL,RSINIT,RH,RZST,RZEN,RDL
       COMPLEX(8) CZ,CDUM
       CHARACTER(1) AWORD(28)
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RZPT(NW3SMX),RA(IRA,*),RSCR(*)
       DATA INODE,RW3R0 /1,1.0/
       DATA AWORD /

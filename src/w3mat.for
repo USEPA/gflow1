@@ -54,7 +54,7 @@ c
       INTEGER i,j,m
       REAL(8) drb
       DIMENSION drb(m)
-      include 'w3com.inc'
+      INCLUDE 'w3com.inc'
       if (nw3strengths.gt.0) then  ! we have 3D wells in the matrix
        do i=1,nw3strengths
          j=j+1
@@ -78,9 +78,9 @@ C
       INTEGER(4) M,N,ITYPE,IW,IST,ILAST,IEN,I
       REAL(8) DRFAC
       COMPLEX(8) CZI,CALPH
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(*),DRFAC(4,*),CALPH(*),ITYPE(*)
       IF (NW3.EQ.0) RETURN
       DO 20 IW=1,NW3
@@ -121,10 +121,10 @@ C
       LOGICAL LNEG
       REAL(8) DRA,RQW3I,RQW3E,RFW3MATC,RAD,RFNFW3CO
       COMPLEX(8) CZI,CALPH,CZ,CZA,CZ0
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RQW3I(3),RQW3E(3)
       DIMENSION DRA(M,*),CZI(*),CALPH(*),ITYPE(*)
       IF(NW3.EQ.0) RETURN
@@ -217,10 +217,10 @@ C
       LOGICAL LNEG
       REAL(8) DRA,RQW3I,RQW3E,RFW3MATC,RAD,RFNFW3CO
       COMPLEX(8) CZI,CALPH,CZ,CZA,CZ0
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RQW3I(3),RQW3E(3)
       DIMENSION DRA(M,*),CZI(*),CALPH(*),ITYPE(*)
       IF(NW3.EQ.0) RETURN
@@ -287,10 +287,10 @@ C
       LOGICAL LNEG
       REAL(8) DRB,RFPOT,RHEAD,RPOT,RFPOTH,rdum1,rdum2
       COMPLEX(8) CZI,CALPH,CZ,CZA
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*),CZI(*),CALPH(*),ITYPE(*)
       IF (NW3.EQ.0) RETURN
       DO 20 IW=1,NW3
@@ -349,8 +349,8 @@ C
       IMPLICIT NONE
       INTEGER(4) J,IW,IST,ILAST,IEN,I
       REAL(8) DRB,RS
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*)
       IF(NW3.EQ.0) RETURN
       DO 20 IW=1,NW3
@@ -391,10 +391,10 @@ C
       LOGICAL LNEG
       REAL(8) RFPOT,rdum1,rdum2
       COMPLEX(8) CZI,CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(m),ITYPE(m)
       IF (NW3.EQ.0) RETURN
       DO 20 IW=1,NW3
@@ -444,10 +444,10 @@ C
       COMPLEX(8) CZI,CALPH,CZ,CZA,cflk_subomega
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRSCR(*),CZI(*),CALPH(*),ITYPE(*)
       IF (NW3.EQ.0) RETURN
       laddsubcells=lincludesub
@@ -500,10 +500,10 @@ C
      &        RHOI,RXI,RHGHT,RFBASE,RFTOP,RF3DSP,
      &        RADTST,RADTST2,RFW3CP,RL,RGVREFDIST
       COMPLEX(8) CZ,CFW3OMCOF,CZ0
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       COMMON /W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &               RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       DIMENSION RHOI(3),RXI(3)

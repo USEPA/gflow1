@@ -19,9 +19,9 @@ C
       LOGICAL LINSECTCIRCLE
       REAL(8) RFBRANCH,RFNFW3CO
       COMPLEX(8) CZ,CZ1,CZ2,C1,C2,CDUM1,CDUM2
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       RFNFW3=0.0
       IF (NW3.EQ.0) RETURN
       DO I=1,NW3
@@ -46,9 +46,9 @@ C
       LOGICAL LINSECTCIRCLE
       REAL(8) RFBRANCH,RAD
       COMPLEX(8) CZ,CZ1,CZ2,C1,C2,CDUM1,CDUM2
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       RFNFW3CO=0.0
       C1=CZ1-CZ
       IF (ABS(C1).LT.RAD) RETURN ! if CZ1 inside well do not add flow for this line segment

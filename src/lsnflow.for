@@ -18,9 +18,9 @@ c
       INTEGER I
       REAL RFNFLSCO,RNF
       COMPLEX CZ1,CZ2
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFNFLS = 0.0
       IF (NLS.EQ.0) RETURN
       DO  I=1,NLS
@@ -45,9 +45,9 @@ c
       INTEGER I
       REAL RFBCLSU
       COMPLEX CZ1,CZ2,COMLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFNFLSCO = AIMAG(COMLS(CZ1,CLSZS(I),CLSZE(I))) -
      .           AIMAG(COMLS(CZ2,CLSZS(I),CLSZE(I))) ! calculate Delta Psi
 C      Note: the constant CLSCONST(I) will cancel out, hence is not added to COMLS
@@ -71,8 +71,8 @@ c     Real function, returns the branch cut in the stream function from
 c     the first point to the second for a single linesink of unit strength.
 c
       IMPLICIT COMPLEX(C), LOGICAL(L)
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
       RFBCLSU=0.0
       call BRANCHCUT(CZ1,CZ2,CLSZS(I),CLSZE(I),CZ0,RBRANCH,LBRANCH)
       RFBCLSU=RBRANCH

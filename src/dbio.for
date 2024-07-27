@@ -22,7 +22,7 @@ C
       INTEGER(4) ICODE,ILU,IERR
       LOGICAL LDUM
       REAL(8) RVERSION
-      INCLUDE 'DBCOM.INC'
+      INCLUDE 'dbcom.inc'
 c
       if (ierr.ne.0) return
       CALL BUFIO4 (NDB,1,ILU,ICODE,IERR)
@@ -97,9 +97,9 @@ c
       IMPLICIT NONE
       INTEGER(4) ILU,ISTR,INOD1,INODL,INODM1,INOD
       COMPLEX(8) CFDBF,CFDBS,CFDBG,CDDS,CDDBOM,CZCNTR
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       IF (NDB.EQ.0)  RETURN
       write (ilu,5000)
       DO ISTR=1,NDBSTR
@@ -205,8 +205,8 @@ C     Routine is called in DATIO.
 C
       IMPLICIT NONE
       INTEGER(4) ILU,ISTR,INOD1,INODL,INOD
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NDB.EQ.0) RETURN
       WRITE (ILU,1000)
@@ -260,8 +260,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL,I,J
       CHARACTER(1) ADUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILUOUT,1000) NDB,NDBSTR,NDBZMX,NDBTRM,NDBSMX,LDBPLT,
      &                    DPI,D2PI,CDI,DBEPS,CDDPAD

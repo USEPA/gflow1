@@ -29,9 +29,9 @@ C
       LOGICAL L3DEND,L1,L2,L3DREV,lredo
       REAL(8) RSD0,RSTEP,R3DZ,RS,RDIST,RZDIS,RZNEW,R1,RFHGHT,RAD
       COMPLEX(8) CZ,CZ0,CZNEW
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       DATA IDICLOSE /0/
       IF (NDIS.EQ.0.or.lredo) RETURN

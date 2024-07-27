@@ -63,7 +63,7 @@ C
 C --------------------------------------------------------------------------
 C
       IMPLICIT NONE
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       DATA ILUIN,ILUOUT,ILUME,ILUER,ILUTMP,ILUPL,ILUECH,ILUDUM
      .    /5,    8,     13,   7,    4,     1,    9,     2*0/
 C
@@ -84,7 +84,7 @@ C --------------------------------------------------------------------------
 C
       IMPLICIT NONE
       INTEGER(4) ICALL
-      INCLUDE  'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       WRITE (ILUOUT,500) ICALL
       WRITE (ILUOUT,1000) LECHO,LUCON,LUOUTFILE
       WRITE (ILUOUT,2000) ILUIN,ILUOUT,ILUME,ILUER
@@ -109,8 +109,8 @@ C
       IMPLICIT NONE
       INTEGER(4) I,ICALL,ICOUNT
       CHARACTER(1) ADUM
-      INCLUDE 'CHKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'chkcom.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILUOUT,1000) NPIEZ,NPZMX
       IF (NPIEZ.GT.0) THEN
@@ -153,9 +153,9 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL,I
       CHARACTER(1) ADUM
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILUOUT,1000) R3DH,R3DK,R3DPOR
       WRITE (ILUOUT,1001) R3DSTO,R3DZ
@@ -196,9 +196,9 @@ C     Routine reads and writes some initialization data to and from disc
 C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR,NWORD
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'GRID.INC'
-      INCLUDE 'DWMN.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'grid.inc'
+      INCLUDE 'dwmn.inc'
 C
       IF (ICODE.EQ.41) WRITE (ILUME,1000)
       IF (ICODE.EQ.73) WRITE (ILUME,2000)
@@ -234,9 +234,9 @@ C
       IMPLICIT NONE
       INTEGER(4) ILU
       LOGICAL LRET
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 C
       ILU=2
 C
@@ -282,9 +282,9 @@ C     Routine is called in DATIO.
 C
       IMPLICIT NONE
       INTEGER(4) ILU,I,ICHAR
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILU,1000)
       WRITE (ILU,2000) RMODORIGX,RMODORIGY,IMODORCODE
@@ -316,7 +316,7 @@ C     Routine is called in DATIO.
 C
       IMPLICIT NONE
       INTEGER(4) ILU
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILU,1000)
       RETURN
@@ -342,9 +342,9 @@ C     Routine is called in DATIO.
 C
       IMPLICIT NONE
       INTEGER(4) ILU
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (RXMN.GE.RXMX.OR.RYMN.GE.RYMX) RETURN  ! zero area in window
       IF (L3DPL) THEN         ! first check for valid window
@@ -389,9 +389,9 @@ c
       character(1) aword(73),apar(11)
       character(16) afilename,alabel
 
-      include 'com3d.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       data aword /'?',' ',
      &            'F','I','L','E',' ',
      &            'Q','U','I','T',' ',
@@ -774,8 +774,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
       REAL(8) RVERSION      
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'main.inc'
+      INCLUDE 'lusys.inc'
 C
       if (ierr.ne.0) return
       CALL BUFIOR (RVERSION,1,ILU,ICODE,IERR)
@@ -812,7 +812,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
       REAL(8) RVERSION
-      INCLUDE 'COM3D.INC'
+      INCLUDE 'com3d.inc'
 C
       if (ierr.ne.0) return
       CALL BUFIOR (R3DH,300,ILU,ICODE,IERR)
@@ -839,8 +839,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL
       CHARACTER(1) ADUM
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'main.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILUOUT,1000) RPI2,RO2PI,ROPI
       WRITE (ILUOUT,2000) CPI,C2PI
@@ -871,8 +871,8 @@ C
       INTEGER(4) JUMP
       LOGICAL LBAD
       CHARACTER(1) APAR(81)
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DATA APAR /         
      .             'Q','U','I','T',' ', 
      .             'G','R','I','D',' ',
@@ -967,7 +967,7 @@ C
       REAL(8) RA,RB,DRFAC
       COMPLEX(8) CZI,CALPH
       CHARACTER(1) ADUM
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       DIMENSION RA(M,N),CZI(*),CALPH(*),RB(*),ITYPE(*),DRFAC(4,*)
       if (n.gt.10) then
         write (ilume,1001)
@@ -1093,7 +1093,7 @@ C
       IMPLICIT NONE
       INTEGER(4) I,NLINE,itic,itic0
       CHARACTER*1 adum
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       WRITE (*,1000)
       WRITE (*,2000) (AMESS(I),I=1,NLINE)
       write (*,4000)
@@ -1128,8 +1128,8 @@ C
       LOGICAL LREAD,LWRITE,LRET
       REAL(8) RCURRENTVERSION,RVERSION
       CHARACTER(5) AIO
-      INCLUDE 'LUSYS.INC'
-      include 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 C           version 1.0  changed into 2.0  on 11/28/95
 C           version 2.0  changed into 3.0  on 10/15/99
 C           version 3.0  changed into 4.0  in 2000
@@ -1219,9 +1219,9 @@ C
       LOGICAL LRET,LREP,LFILEOPEN
       CHARACTER(4) AEXT
       CHARACTER (LEN=7)  AWRITE
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
 C
       LRET=.TRUE.
       CALL GETFN (2)
@@ -1418,9 +1418,9 @@ C
       INTEGER(4)ILU,ITYPE,ITYP,IERR
       LOGICAL LRET,LREP,LFILEOPEN
       CHARACTER(4) AEXT
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       LRET=.TRUE.
       CALL GETFN (2)
   5   IF (LERROR) THEN    
@@ -1529,9 +1529,9 @@ C
       IMPLICIT NONE
       INTEGER(4) I
       CHARACTER(4) AEXT
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'DWMN.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'dwmn.inc'
 C
       DO 10 I=2,13
       IF (AFILE(I:I).EQ.' ') THEN
@@ -1578,7 +1578,7 @@ c
       implicit none
       INTEGER(4) ilu
       CHARACTER*16 afil
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       open (UNIT=ilu,FILE=afil,ERR=100,STATUS='replace')
       write (ilu,FMT="('*')",ERR=200)
@@ -1609,9 +1609,9 @@ C  NCHAR gives the number of characters found in the name.
 C
       IMPLICIT NONE
       INTEGER(4) NPAR,I,I1,I2
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'DWMN.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'dwmn.inc'
       DO 10 I=1,ilinelength         ! restore ALINE prior to TIDY call
       ALINE(I)=ALINE2(I)
   10  CONTINUE
@@ -1663,10 +1663,10 @@ C
       REAL(8) RA
       CHARACTER(16) AFILT,AFILESURFER1,AFILESURFER2
       DIMENSION RA(ISIZE,*)
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'GRID.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'grid.inc'
+      INCLUDE 'tracom.inc'
 C
       CALL GETFN (2)
       IF (LERROR.OR.LMISS) RETURN
@@ -1739,7 +1739,7 @@ C
 C     Routine views help files
 C
       IMPLICIT NONE
-      INCLUDE 'MAIN.INC'
+      INCLUDE 'main.inc'
       CALL SYSTEM (AHELPDRIVE)
       CALL SYSTEM (AHELPPATH)
       CALL VIEW
@@ -1766,8 +1766,8 @@ C
       CHARACTER(80) ALINEBUFFER(NLINEMAX)
       CHARACTER(80) APAGEBUFFER
       DIMENSION APAGEBUFFER(IMXLN)
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 C
       DO 1 I=1,NLINEMAX                   ! empty buffers
       ALINEBUFFER(I)='                                                 
@@ -1932,8 +1932,8 @@ C
       INTEGER(4) NPAR,JUMP,I,IL1,IL2,NT,IL
       LOGICAL LBAD,LONG
       CHARACTER(1) IBLK,NTI,NTABB(*),NTAB(1000)
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DATA IBLK /' '/
 C
 C      WRITE(ILUME,*)'NTAB = ',NTAB
@@ -1997,7 +1997,7 @@ C
       CHARACTER(1) IBUF(20),IBL
       CHARACTER(20) BUF
       COMMON /CVARR/ BUF
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'match.inc'
       DATA IBL,K20 /' ',20/
       LERROR=.FALSE.
       NP=NPAR
@@ -2038,7 +2038,7 @@ C
       INTEGER(4) NPAR,IV
       CHARACTER BUF*20
       COMMON /CVARR/ BUF
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'match.inc'
       IF(LERROR) GOTO 100
       CALL VAR(NPAR)
       READ (BUF,200,ERR=100) IV
@@ -2064,7 +2064,7 @@ C
       REAL(8) RV
       CHARACTER BUF*20
       COMMON /CVARR/ BUF
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'match.inc'
       IF(LERROR) GOTO 100
       CALL VAR(NPAR)
       READ (BUF,200,ERR=100) RV
@@ -2089,8 +2089,8 @@ C
       IMPLICIT NONE
       INTEGER(4) IL1,IL2,NPAR,I
       LOGICAL LSEP
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       LERROR=.FALSE.
       IL1=1
@@ -2133,8 +2133,8 @@ C
       IMPLICIT NONE
       INTEGER(4) IL1,IL2,NPAR,I
       LOGICAL LSEPUL
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       LERROR=.FALSE.
       IL1=1
@@ -2236,9 +2236,9 @@ C
       INTEGER(4) I,IKEY,ILENGTH,IERR
       CHARACTER(256) AMESSAGE
       CHARACTER(86) ASTRING
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MAIN.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'main.inc'
 C
    5  IF (LUCON) THEN                    ! <<< reading from the keyboard or file >>>
         DO 6 I=1,ilinelength
@@ -2334,7 +2334,7 @@ c
       IMPLICIT NONE
       INTEGER(4) IPAR
       REAL(8) RX1,RX2,RVAR
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'match.inc'
       CVAR=(.0,.0)
       RX1=RVAR(IPAR)
       RX2=RVAR(IPAR+1)
@@ -2351,7 +2351,7 @@ C --------------------------------------------------------------------------
 C
       IMPLICIT NONE
       INTEGER(4) ILUI,ILUM,ILUE,ILUO,ILUP,ILUC
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       SAVE      
       ILUI=ILUIN
       ILUM=ILUME
@@ -2377,10 +2377,10 @@ C
       CHARACTER(1) AWORD,APAR
       CHARACTER(16) ADEF(6),AFERROR
       PARAMETER (NWORD=47)
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'main.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION AWORD(NWORD),APAR(8)
       SAVE
       DATA ADEF /4*'CON             ','COM1            ',
@@ -2653,7 +2653,7 @@ c
       CHARACTER(16) aDateTimeOut
       CHARACTER(256) amessage
       DIMENSION dra(isize,n)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' writing coefficient matrix to disk, size=',i4)
@@ -2707,7 +2707,7 @@ c
       CHARACTER(256) amessage
       CHARACTER(16) aDateTimeStamp
       DIMENSION dra(isize,n)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' loading coefficient matrix from disk, size=',i4)
@@ -2762,7 +2762,7 @@ c
       CHARACTER(16) aDateTimeOut
       CHARACTER(256) amessage
       DIMENSION dra(n,n),ipiv(n)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' writing decomposed matrix to disk, size=',i4)
@@ -2817,7 +2817,7 @@ c
       CHARACTER(256) amessage
       CHARACTER(16) aDateTimeStamp
       DIMENSION dra(n,n),ipiv(n)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' loading decomposed matrix from disk, size=',i4)

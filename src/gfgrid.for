@@ -19,7 +19,7 @@ c ------------------------------------------------------------------------------
 c
       BLOCK DATA GRIDINIT
       IMPLICIT NONE
-      INCLUDE 'GRID.INC'
+      INCLUDE 'grid.inc'
       DATA NXMAX,NYMAX /2*200/ ! see array in /BASEG/, see GRIDIN.FOR
       DATA RX1,RY1,RX2,RY2 /4*0.0/
       DATA NX,NY /2*0/
@@ -46,10 +46,10 @@ C
       INTEGER(4) ISIZE,I,J,NINCX,NINCY,INUM
       LOGICAL LSET,LDBOUTSIDE
       REAL(8) RA,RDELX,RDELY,RDELZ
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RA(ISIZE,*)
       RWX1=0.0
       RWX2=0.0
@@ -137,9 +137,9 @@ C
      &         RFBASE,RFTOP,RFHGHT,RFPERM,RFPOR,RFDBGM,
      &         rflklowerhead
       COMMON /BASEG/ RA2(200,200)       ! for flownet or drawdown plots
-      INCLUDE 'GRID.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
   10  CZ=(0.0,0.0)
       CALL GGRPAR(LESCAP,RA,IMXSZE)
@@ -188,10 +188,10 @@ C
       LOGICAL LDISPL
       REAL(8) RA,RFUNC,RDUM
       COMPLEX(8) CZ
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       EXTERNAL RFUNC
       DIMENSION RA(ISIZE,*)
   1   LDISPL=.FALSE.
@@ -252,8 +252,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ISIZE,I,J
       REAL(8) RA,R
-      INCLUDE 'GRID.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RA(ISIZE,*)
       RMIN=1.E31
       RMAX=-1.E31
@@ -285,8 +285,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
       REAL(8) RVERSION
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
 c
       if (ierr.ne.0) return
       CALL BUFIOA (ATITLE,1,ILU,ICODE,IERR)
@@ -319,7 +319,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,ISIZE,IERR,J
       REAL(8) RA
-      INCLUDE 'GRID.INC'
+      INCLUDE 'grid.inc'
       DIMENSION RA(ISIZE,*)
       IF (NX.LE.0) RETURN
       DO 10 J=1,NY
@@ -343,9 +343,9 @@ C     Routine used only when reading or writing .GRI files
 C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
       CALL BUFIOR (RX1,6,ILU,ICODE,IERR)
       CALL BUFIO4 (NX,2,ILU,ICODE,IERR)
       CALL BUFIOR (RSCALE,201,ILU,ICODE,IERR) ! Note, incomplete and 
@@ -388,9 +388,9 @@ C
       LOGICAL LDUM1(3),LDUM2(5),LDUM3,LDUM4,LRET,LDUM5(3)
       REAL(8) RDUM1(6),RDUM2(201),RDUM3(3),RDUM4,RDUM5(4),RDUM6(4),
      &     RDUM7(6)
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
       IF (ICODE.NE.73) THEN
        WRITE (ILUER,1000) ICODE
        LRET=.TRUE.
@@ -440,7 +440,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR,J
       REAL(8) RA2
-      INCLUDE 'GRID.INC'
+      INCLUDE 'grid.inc'
       COMMON /BASEG/ RA2(200,200)      
       IF (NX.LE.0) RETURN
       DO 10 J=1,NY
@@ -464,8 +464,8 @@ C
       IMPLICIT NONE
       INTEGER(4) I,J,ISIZE
       REAL(8) RA,RA2
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
       COMMON /BASEG/ RA2(200,200)       ! for flownet or drawdown plots      
       DIMENSION RA(ISIZE,*)
 C
@@ -506,8 +506,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL,IERR,I
       CHARACTER(1) ADUM
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
 C
       WRITE (ILUOUT,1000) RX1,RX2,RY1,RY2
       WRITE (ILUOUT,1005) RMAX,RMIN

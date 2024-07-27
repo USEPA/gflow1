@@ -57,8 +57,8 @@ C     REFERENCE POINT EQUATION
       INTEGER(4) M,N,ITYPE
       REAL(8) DRFAC
       COMPLEX(8) CZC
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZC(*),DRFAC(4,*),ITYPE(*)
       M=M+1  ! add one equation for the reference point
       N=N+1  ! add one unknown (constant potential) for the reference point
@@ -80,8 +80,8 @@ C     REFERENCE POINT EQUATION AND CONTINUITY EQUATION
       INTEGER(4) M,N,J,ITYPE,I
       LOGICAL lset1
       REAL(8) DRA,DRFAC
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),DRFAC(4,*),ITYPE(*)
 C
 C ITYPE=+1 potential specified at CZ (Note: at doublet nodes ITYPE=+1,
@@ -119,8 +119,8 @@ C     REFERENCE POINT EQUATION AND CONTINUITY EQUATION
       IMPLICIT NONE
       INTEGER(4) M,N,J,ITYPE,I
       REAL(8) DRA,DRFAC
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),DRFAC(4,*),ITYPE(*)
 C
 C ITYPE=+1 potential specified at CZ (Note: at doublet nodes ITYPE=+1,
@@ -158,9 +158,9 @@ C     REFERENCE POINT EQUATION
       INTEGER(4) J
       REAL(8) DRB,RFTOP,RFPOT,RFPOTH
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*)
       J=J+1
       CZ=CREFZ
@@ -179,8 +179,8 @@ C     REFERENCE POINT EQUATION AND CONTINUITY EQUATION
       IMPLICIT NONE
       INTEGER(4) J
       REAL(8) DRB
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*)
       J=J+1
       RPOTC=RPOTC+DRB(J)

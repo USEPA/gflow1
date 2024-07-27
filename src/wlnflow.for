@@ -15,8 +15,8 @@ C     Returns the flow across a line between CZ1 and CZ2 due to all wells.
 C     The flow is positive if from left to right when seen from CZ1
 C
       IMPLICIT NONE
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
       INTEGER(4) I
       REAL(8) RFNFWLCO
       COMPLEX(8) CZ1,CZ2
@@ -43,9 +43,9 @@ c
       LOGICAL LINSECTCIRCLE
       REAL(8) RFBRANCH,RDIS,CABS
       COMPLEX(8) CZ1,CZ2,CFWLOMC,CDUM1,CDUM2
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 c
       RFNFWLCO=0.0
 c     test for point inside well and return zero flow if true

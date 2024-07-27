@@ -70,8 +70,8 @@ C
 C --------------------------------------------------------------------
 C
       IMPLICIT NONE
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
       DATA RK,RH,RHEAD0,RBASE,RPOTC,CREFZ/3*1.0D0,2*0.0D0,(0.0D0,0.0D0)/
       DATA RCON,RPI,RQ0,CUNALP /0.5D0,3.141592653589793D0,
      &                          0.0D0,(0.0D0,0.0D0)/
@@ -95,9 +95,9 @@ C
      &        RDUM1,RDUM2
       COMPLEX(8) CDUM,CVAR
       CHARACTER(1) AWORD(51)
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DATA AWORD /'P','E','R','M',' ',
      .            'T','H','I','C',' ',
      .            'R','E','F','E',' ',

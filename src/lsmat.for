@@ -34,7 +34,7 @@ c
       REAL(8) drb
       DIMENSION drb(m)
       INCLUDE 'lscom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (nlsh.eq.0) return
       do i=1,nlsh
@@ -55,7 +55,7 @@ c     Routine updates the array dimensions M and N for the number of equations a
 c
       implicit none
       INTEGER i,j,M,N
-      include 'lscom.inc'
+      INCLUDE 'lscom.inc'
       if (nlsh.gt.0) then
        do i=1,nlsh ! loop over all head specified line-sinks (includes drains and galleries)
          M=M+1
@@ -92,9 +92,9 @@ c
       COMPLEX(8) CZI,CALPH,CZ0,CZOLD,CZ0FIRST
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(*),DRFAC(4,*),CALPH(*),ITYPE(*),DRB(*),lskip(*)
       IF (NLSH.EQ.0) RETURN
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
@@ -251,9 +251,9 @@ c
       LOGICAL LNEG,lDirectFromDisk,ltimer
       REAL(8) DRA,DRFAC,RFNFLSCO
       COMPLEX(8) CZI,CALPH,CZ1,CZ2,CZ0,CZ,CZA,COMLS,CDLS
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,1),CZI(1),CALPH(1),ITYPE(1),DRFAC(4,1)
       IF (NLSH.EQ.0) RETURN
       DO 20 II=1,NLSH
@@ -330,9 +330,9 @@ c
      &        RFPOTH_confined,RFPOTH_unconfined,rbase,rtop,DRB,DRSCR
       COMPLEX(8) CZI,CALPH,CZ1,CZ2,CZ0,CZ,CZA,COMLS,CDLS,CZ0FIRST,
      &           cz0start
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),CZI(*),CALPH(*),ITYPE(*),DRFAC(4,*),DRB(*),
      &          DRSCR(*)
       LINTERFACEFLOW=LFINTERFACE()
@@ -515,9 +515,9 @@ c
       LOGICAL ltimer
       REAL(8) DRA
       DIMENSION DRA(M,N)
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 c
       IF (NLSH.EQ.0) RETURN
 c     if (ltimer) call timer  (iticks1)
@@ -560,9 +560,9 @@ c
      &      RFPOTH_confined,RFPOTH_unconfined,rcunconfined,rcconfined,
      &      rcond,rdum,rgvfac1,rgvfac2,rhedtip
       COMPLEX(8) CZI,CZ0,CZ
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*),CZI(*),ITYPE(*)
       LINTERFACEFLOW=LFINTERFACE()
       IF (NLSH.EQ.0) RETURN
@@ -735,9 +735,9 @@ C
       IMPLICIT NONE
       INTEGER(4) J,I,IAD,j0
       REAL(8) DRB,RSIGAV,RTEST
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DRB(*)
       IF (NLSH.EQ.0) RETURN
       j0=j
@@ -800,9 +800,9 @@ C
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
       DIMENSION DRSCR(*)
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NLSH.EQ.0) RETURN
       laddsubcells=lsubinclude
@@ -860,9 +860,9 @@ C
       INTEGER(4) I,iad,j,M,N
       REAL(8) RFPOT,rdum
       COMPLEX(8) CZ
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NLSH.EQ.0) RETURN
       DO I=1,NLSH
@@ -898,9 +898,9 @@ C
       REAL(8) RHEAD,RC,RW,RFHEDP,RLENGTH,RQ,
      &        rflstable
       COMPLEX(8) CZ
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       IF (.NOT.LSFIRST) THEN  ! do not force flow yet in first iteration
       DO ISTR=1,NLSTRING     !  Update resistance for outlet line-sink
         I=KLSTRING(ISTR)
@@ -947,7 +947,7 @@ c
       implicit none
       INTEGER istr,itable,ilength,i
       REAL(8) rhead,rdh,rdq
-      INCLUDE 'LSCOM.INC'
+      INCLUDE 'lscom.inc'
       INCLUDE 'lusys.inc'
 c
       itable=nlstab(istr)
@@ -987,9 +987,9 @@ c
       INTEGER istr,iad,itable,itablelength,ilu,itemp,i
       LOGICAL lret
       REAL(8) rdum1,rdum2,rvar
-      include 'lscom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       if (lsfirst.and.nlstring.gt.0) THEN ! see is there are tables to be read
       itable=0
@@ -1060,9 +1060,9 @@ c     If not present the logical LAKEDONE is set TRUE, since no lake convergence
 c
       implicit none
       INTEGER istr,iad
-      include 'lscom.inc'
-      include 'lusys.inc'
-      include 'tracom.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 c
       lakedone=.false.
       do istr=1,nlstring
@@ -1093,8 +1093,8 @@ c
       INTEGER i,niter,istr,iad,iend,inext,istart
       LOGICAL lakeiterations
       REAL(8) rh,rh1,rh2,rq1,rq2,rq,rqf,rflstable
-      include 'lscom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       DATA lakeiterations /.false./
 c
       lflslakeiterations=.false.

@@ -17,8 +17,8 @@ c
       INTEGER(4) I
       REAL(8) RTOLD,RPTOLD,RT,R,RCOEF,RU2,RE1
       COMPLEX(8) CZOLD,CZ
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TWCOM.INC'      
+      INCLUDE 'lusys.inc'
+      INCLUDE 'twcom.inc'      
       DATA CZOLD,RTOLD,RPTOLD /(1.E30,1.E30),1.E30,0.0/
       RFTWPT=RPTOLD
       IF (CZ.EQ.CZOLD.AND.RTWCT.EQ.RTOLD) RETURN
@@ -54,9 +54,9 @@ C
       INTEGER(4) I
       REAL(8) RQI,R,RT,RCOEF,RU2
       COMPLEX(8) CZ,CZZ,CQ,CQADD
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TWCOM.INC'      
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'twcom.inc'      
+      INCLUDE 'tracom.inc'
       DIMENSION RQI(3)
       IF (NTW.EQ.0) RETURN
       CQ=(0.0,0.0)

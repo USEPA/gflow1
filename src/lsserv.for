@@ -14,7 +14,7 @@ C
 C-----------------------------------------------------------------------------------------------------
 C
       IMPLICIT NONE
-      INCLUDE 'LSCOM.INC'     
+      INCLUDE 'lscom.inc'     
 C
       LSBASE=.FALSE.
 C
@@ -37,8 +37,8 @@ c        --> call ls_cancellakerecharge
 c     Routine is called once in SOLUT prior to the first solution step.
 c
       implicit none
-      INCLUDE 'LSCOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       INTEGER ils
       REAL RK0,RH0,RHED0,RB0,RP0
       COMPLEX czs,cze,cz0,comls
@@ -66,8 +66,8 @@ c     streamflow=overlandflow+baseflow
 c     If no line-sink is found zero is returned.
 c
       implicit none
-      INCLUDE 'LSCOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       INTEGER ils,ilsclose
       REAL rdist,rdistmin
       COMPLEX cdum
@@ -103,8 +103,8 @@ c     If no line-sink is found zero is returned.
 c     NOTE: the distance to the nearest line-sink is returned, whether a lake or not!
 c
       implicit none
-      INCLUDE 'LSCOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       INTEGER ils,ilsclose
       REAL rdist,rdistmin
       COMPLEX cdum
@@ -154,8 +154,8 @@ c
       REAL rfbase,rfperm,raquifertop,raquiferbase,rhlocal,
      &     rklocal,rtransmissivity,rlambda,rwidth,rzone
       COMPLEX cz
-      INCLUDE 'LSCOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
       if (nlsh.gt.0) then
        do i=1,nlsh
         ils=klspth(i)
@@ -205,8 +205,8 @@ c
       COMPLEX(8) cztemp
       parameter (isize=500)
       DIMENSION cztemp(isize),alabtemp(isize)
-      include 'lscom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
 c
       do istr=1,nlstring
        iad=klstring(istr)

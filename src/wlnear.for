@@ -20,9 +20,9 @@ C
       REAL(8) RZ0,RZNEW,RDIS,RZONE,RSD0,RSTEP,RADW,
      &     RDISI(3),RTEST(3),RSCALP,RFSP3D,RDISEND
       COMPLEX(8) CZ,CZNEW,CDIS,CDISEND
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       IF (NWL.EQ.0.or.lredo) RETURN
       CALL GETSTEP (RSD0,RSTEP,L3DEND,L3DREV)
       if (l3dend) RETURN ! streamline ended elsewhere

@@ -19,9 +19,9 @@ C
       REAL(8) RZ0,RZNEW,RDIS,RZONE,RSD0,RSTEP,RADW,
      &     RDISI(3),RTEST(3),RSCALP,RFSP3D,RDISEND
       COMPLEX(8) CZ,CZNEW,CDIS,CDISEND
-      INCLUDE 'TWCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'twcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C      write (ilume,1000) ntw
 C 1000 format (' twnear0: ntw ',i3)
       IF (NTW.EQ.0.or.lredo) RETURN

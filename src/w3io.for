@@ -22,10 +22,10 @@ C
       INTEGER(4) ILU,IEN,IST,IW,I,NPT
       REAL(8) RQ,RHDSUM,RBAS,RFBASE,RHDI,RFHEAD,RERR,RHDAV,RHEDS
       COMPLEX(8) CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DIMENSION RHDI(100)
       IF (NW3.EQ.0) RETURN
       DO 50 IW=1,NW3
@@ -114,10 +114,10 @@ C
       LOGICAL LW3HEAD
       REAL(8) RQ,RHDSUM,RBAS,RFBASE,RHDI,RFHEAD,RHED,RHEDS,RERR
       COMPLEX(8) CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DIMENSION RHDI(100)
       if (lw3head()) then
       write (ilu,2000)
@@ -172,10 +172,10 @@ C
       LOGICAL LW3DISCHARGE
       REAL(8) RQ,RHDSUM,RBAS,RFBASE,RHDI,RFHEAD,RHED
       COMPLEX(8) CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DIMENSION RHDI(100)
       if (lw3discharge()) then
       write (ilu,2000)
@@ -225,8 +225,8 @@ C
       LOGICAL LHEAD,LDISCHARGE
       REAL(8) RZB,RZT
       COMPLEX(8) CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NW3.EQ.0) RETURN
       WRITE (ILU,1000)
@@ -290,8 +290,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR,NPNT,NWORD
       REAL(8) RVERSION
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
 C
       if (ierr.ne.0) return
       CALL BUFIO4 (NW3,1,ILU,ICODE,IERR)
@@ -328,8 +328,8 @@ c
       IMPLICIT NONE
       INTEGER(4) ICALL,IEN,I,J
       CHARACTER(1) ADUM
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       IEN=IPNT(NW3+1)-1
       WRITE (ILUOUT,1000) NW3,NLIMAG,NW3RH,RW3ALP

@@ -29,9 +29,9 @@ C
       INTEGER(4) I
       REAL(8) RDUM,RFDIPC
       COMPLEX(8) CZ
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFDIPT=0.0
       IF (NDIS.EQ.0) RETURN
       DO 10 I=1,NDIS
@@ -56,8 +56,8 @@ C
       IMPLICIT NONE
       REAL(8) RFDIPC
       COMPLEX(8) CZ
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'tracom.inc'
       RFDIGP=RDIS(IEL)*RFDIPC(CZ,IEL)
       RETURN
       END
@@ -77,9 +77,9 @@ C
       LOGICAL L2D
       REAL(8) RQI,RQCI,RS
       COMPLEX(8) CZ
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RQI(3),RQCI(3)
       L2D=.TRUE.
       GOTO 1
@@ -117,10 +117,10 @@ C
      &        RDISX,RDISY,RDISZ,RDISA,RSCO,RFSP3D,RZP,RZM,
      &        RFDISC,RF3DSL,RL,RGVREFDIST,RZP1,RZM1
       COMPLEX(8) CZ,CZ0
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RTAUI(3)
       DATA RTAUI /3*0.0/
       IF (ID.GT.NDIS) THEN
@@ -229,9 +229,9 @@ C
       IMPLICIT NONE
       INTEGER(4) I
       COMPLEX(8) CZ,CDICOMC
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 C
       CDIOM=(0.0,0.0)
       IF (NDIS.EQ.0) RETURN
@@ -255,10 +255,10 @@ C
       INTEGER(4) I
       REAL(8) rl,rgvrefdist
       COMPLEX(8) CZ,CZ0,CMPLX
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 C
       CDICOMC=(0.0,0.0)
       CZ0=CMPLX(RDIZ(1,I),RDIZ(2,I))
@@ -282,9 +282,9 @@ C     The factor 4*pi is not included!
 C
       IMPLICIT NONE
       REAL(8) RETA,RETA2,ROOT2,RZ,RFE,RFK,RFDIOM
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       RETA=R3DZ-RZ
       RETA2=RETA*RETA
       ROOT2=RTAU2+RETA2+RDISR2+RTARA
@@ -316,10 +316,10 @@ C
       IMPLICIT NONE
       REAL(8) RETA,RT2,RT,RT3,RSIG,RSIG2,RFK,
      &        RALPH2,RMA2,RMA,RKP2,RFE,RFPI, D_ONE
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       IF (ABS(RETA).GT.10.0*RDISR) THEN
       RT2=RETA*RETA+RTAU2
       RT=SQRT(RT2)
@@ -369,10 +369,10 @@ C
      &        RDISX,RDISY,RDISZ,RDISA,RSCO,RFSP3D,RQTAU,RQZ,RZP,
      &        RZM,R,RZP1,RZM1
       COMPLEX(8) CZ
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
       DIMENSION RTAUI(3),RQCI(3)
       DATA RTAUI /3*0.0/
   1   RQCI(1)=0.0
@@ -505,10 +505,10 @@ C     not included)
 C
       IMPLICIT NONE
       REAL(8) RZ,RQTAU,RQZ,RETA,RETA1,RETA2,ROOT2,RFDIOM,REMK,RFE,RFK
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       RETA=R3DZ-RZ
       RETA2=RETA*RETA
       ROOT2=RTAU2+RETA2+RDISR2+RTARA

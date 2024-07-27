@@ -25,9 +25,9 @@ C
       INTEGER(4) I
       REAL(8) RFNFDICO
       COMPLEX(8) CZ1,CZ2
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       RFNFDI=0.0
       IF (NDIS.EQ.0) RETURN
       DO I=1,NDIS
@@ -51,9 +51,9 @@ C
       LOGICAL LINSECTCIRCLE
       REAL(8) RFDPDII,RFDPDIO,RAD,RR1,RR2,RA,RB,RC,RD,RFSCALAR
       COMPLEX(8) CZ0,CZ1,CZ2,CZ3,CZ4,CR1,CR2,CV12,CV21
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       RFNFDICO = 0.0
       RAD=RDIR(I)
       CZ0=CMPLX(RDIZ(1,I),RDIZ(2,I))
@@ -108,9 +108,9 @@ C
       INTEGER(4) I
       REAL(8) RAD,RFBRANCH
       COMPLEX(8) CZ0,CZ1,CZ2,CR1,CR2
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 c     Compute the delta-psi for the sink disc being on the outside.
 C     NOTE: The coefficient function CDICOMC is not used to avoid a point just inside
 C     the disc (numerical inaccuracies) to miss a PSI allocation.
@@ -139,9 +139,9 @@ C
       INTEGER(4) I
       REAL(8) RFAREATRIANGLE
       COMPLEX(8) CZ0,CZ1,CZ2
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CZ0=CMPLX(RDIZ(1,I),RDIZ(2,I))
       RFDPDII=RFAREATRIANGLE (CZ1,CZ2,CZ0)
       RETURN

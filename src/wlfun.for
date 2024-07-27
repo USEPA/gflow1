@@ -20,9 +20,9 @@ C
       INTEGER I
       REAL(8) RQI
       COMPLEX(8) CQW,CFWLQC,CZ
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RQI(3)
       IF (NWL.EQ.0) RETURN
       CQW=(0.0,0.0)
@@ -48,9 +48,9 @@ C     contribution to the discharge).
       INTEGER(4) IW
       REAL(8) RDIS
       COMPLEX(8) CZ,CDIS
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       CFWLQC=(0.0,0.0)
       CDIS=CZ-CWLZ(IW)
       RDIS=ABS(CDIS)
@@ -72,8 +72,8 @@ C     Function returns the complex potential due to all (2D) wells
       IMPLICIT NONE
       INTEGER(4) IW
       COMPLEX(8) CZ,CFWLOMC
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
       CFWEOM=(0.0,0.0)
       IF (NWL.EQ.0) RETURN      
       DO 10 IW=1,NWL
@@ -95,8 +95,8 @@ C
       INTEGER(4) IW
       REAL(8) RDIS,RADW,RGVREFDIST
       COMPLEX(8) CZ,CDIS,CZR
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'tracom.inc'
       CFWLOMC=(0.0,0.0)
       RADW=RWLR(IW)      
       CDIS=CZ-CWLZ(IW)

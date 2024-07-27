@@ -41,9 +41,9 @@ C
       REAL(8) rzInterfaceElevation,rfinterface,rCInterfaceI,
      &        rCInterfaceO,rhss,rsgs,rsgf,rfac1,rfac2
       COMPLEX(8) CZ,CZA,CZB,cfsmallz
-      INCLUDE 'DBCOM.INC'
-      include 'main.inc'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'main.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NDB.EQ.0) RETURN
       IF (NDBSTR.EQ.0) THEN
@@ -198,8 +198,8 @@ c
       implicit none
       INTEGER M,N,inod,inod1,inodl,istr,inodp1,N0
       LOGICAL ls,lc,le,lshift1,lshift2
-      include 'dbcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
       ndbstrengths=0      ! number of doublet strength parameters used in "dbkeep" routine
       IF (NDB.EQ.0) RETURN
       N0=N
@@ -281,7 +281,7 @@ c
       INTEGER i,j,m
       REAL(8) drb
       DIMENSION drb(m)
-      include 'dbcom.inc'
+      INCLUDE 'dbcom.inc'
       if (ndbstrengths.gt.0) then  ! we have line-doublets in the matrix
        do i=1,ndbstrengths
          j=j+1
@@ -306,9 +306,9 @@ C
       INTEGER(4) M,N,ITYPE,ISTR,INOD1,INODL,INOD,INODP1
       REAL(8) DRFAC
       COMPLEX(8) CZI,CALPH,CZZ,CZ,CFSMALLZ
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 
       DIMENSION CZI(*),DRFAC(4,*),CALPH(*),ITYPE(*)
       IF (NDB.EQ.0) RETURN
@@ -474,9 +474,9 @@ C
      &        RFPERM
       COMPLEX(8) CZI,CALPH,CFDBF,CFDBG,CFDBS,CFDBFD,CFDBGD,CFDBSD,CZ,
      &           CZA,CDUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),CZI(*),DRFAC(4,*),CALPH(*),ITYPE(*)
 c
       IF (NDB.EQ.0) RETURN
@@ -851,9 +851,9 @@ C
      &        RFPERM
       COMPLEX(8) CZI,CALPH,CFDBF,CFDBG,CFDBS,CFDBFD,CFDBGD,CFDBSD,CZ,
      &           CZA,CDUM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(M,*),CZI(*),DRFAC(4,*),CALPH(*),ITYPE(*)
       IF (NDB.EQ.0) RETURN
       DO 30 ISTR=1,NDBSTR
@@ -1360,9 +1360,9 @@ C
      &        RFPERM,RFNORMALFLOW,rlocs,rfdbslocal,rx,
      &        rdum1,rdum2
       COMPLEX(8) CZI,CALPH,CZRESTART,CZ,CZA
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DATA CZRESTART /(1.0E21,1.0E21)/
       DIMENSION DRB(*),CZI(*),CALPH(*),ITYPE(*)
       IF (NDB.EQ.0) RETURN
@@ -1618,9 +1618,9 @@ C
       LOGICAL lshift1,lshift2,ls,lc,le
       INTEGER(4) J,ISTR,INOD1,INODL,J0,INOD,INODM1,inodp1
       REAL(8) DRB,DAVADD
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRB(*)
       IF (NDB.EQ.0) RETURN
       j0=0
@@ -1771,10 +1771,10 @@ C
       REAL(8) RFPERM,RXA,RXB,RCONDUCT,
      &     RFINTLABLEFT,RFINTLABRIGHT,RFINTMU,rkcz
       COMPLEX(8) CZ,CZA,CZB
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'main.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFDBNFCONDITION=0.0
       IF (IDOMAINTYPE(ISTR).EQ.1) THEN
       WRITE (ILUER,1000) ISTR
@@ -1877,10 +1877,10 @@ C
       REAL(8) RFPERM,RFBASE,RFHGHT,RGAP,RHEIGHT,RWETWALL,
      &     rht,rftop,rkcz
       COMPLEX(8) CZ
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'main.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       IF (ABS(RDBT(ISTR)).EQ.9999.0) THEN ! inside or outside wall, must be zero conductance.
       RFDBCONDUCTANCE=0.0
       RETURN
@@ -1939,9 +1939,9 @@ c
       LOGICAL lindom,lfinterface,lInterfaceExempt
       REAL(8) rki,rko,rbi,rbo,rp,rt,rh1,rhss,rfac1,rfac2,rsgs,rsgf
       COMPLEX(8) c1,c2,cz
-      include 'dbcom.inc'
-      include 'lusys.inc'
-      include 'main.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'main.inc'
 c
 c      write (iluer,1002)
 c 1002 format (' Entering LDBBOTTOMOFF')
@@ -2013,8 +2013,8 @@ c
       INTEGER i,istr,inod1,inodl,inod
       REAL(8) rki,rko,rbi,rbo,rp,rt
       COMPLEX(8) c1,c2,cz
-      include 'dbcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,1002)
 c 1002 format (' Entering LDBBOTTOMON')
@@ -2083,8 +2083,8 @@ c
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
       DIMENSION drscr(m),czi(m),calph(m)
-      include 'dbcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 c
       if (ndb.EQ.0) return  ! no line-doublets present
       laddsubcells=lsubinclude
@@ -2362,9 +2362,9 @@ C
      &        RFPERM,RFNORMALFLOW,
      &        rdum1,rdum2
       COMPLEX(8) CZI,CALPH,CZ,CZA
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(m),CALPH(m),itype(m)
       IF (NDB.EQ.0) RETURN
       DO 20 ISTR=1,NDBSTR
@@ -2498,8 +2498,8 @@ c
      &        rCInterfaceO,rhss,rsgs,rsgf,rfac1,rfac2
       CHARACTER*16 aBasenameOut,aDateTimeOut
       COMPLEX(8) cz,czcol
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
 c         write (iluer,1001) czcol,rhcol,rki,rko,rbi,rbo,rfcol,rgcol
 c 1001 format (' dbgentbfac1: czcol,rhcol,rki,rko,rbi,rbo,rfcol,rgcol',/,
 c     &        2(d14.7),2x,7(d14.7))

@@ -23,9 +23,9 @@ c
       INTEGER(4) I
       REAL(8) RFNFPDCO
       COMPLEX(8) CZ1,CZ2
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 c
       RFNFPD = 0.0
       IF (NPD.EQ.0) RETURN
@@ -50,9 +50,9 @@ c
       LOGICAL LINSECTCIRCLE
       REAL(8) RAD,RR1,RR2,RA,RB,RC,RD,CABS,RFSCALAR,RFDPPDO,RFDPPDI
       COMPLEX(8) CZ1,CZ2,CZ3,CZ4,CV12,CV21,CR1,CR2
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 c
       RFNFPDCO = 0.0
       RAD=RPDR(I)
@@ -108,9 +108,9 @@ C
       INTEGER(4) I
       REAL(8) RA0,RFAREATRIANGLE,DR1,DR2,DS1,DS2,DW3
       COMPLEX(8) CZ1,CZ2,CR,CS
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFDPPDI=RFAREATRIANGLE (CZ1,CZ2,CPDZ(i))
       RETURN
       END
@@ -131,9 +131,9 @@ C
       INTEGER(4) I
       REAL(8) RFBRANCH,RPI,RAD
       COMPLEX(8) CZ1,CZ2,CR1,CR2
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DATA RPI /3.1415926/
 c     Compute the delta-psi for the sink disc being on the outside.
 C     NOTE: The coefficient function CFPDCO is not used to avoid a point just inside

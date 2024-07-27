@@ -17,9 +17,9 @@ c
       INTEGER(4) N,ITYPE,I,IAD,ICPT
       REAL(8) RFAC,RTOL,RDIS,RC,RS,RFPERM
       COMPLEX(8) CZI,CALPH
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(1),RFAC(4,1),CALPH(1),ITYPE(1)
       IF (NPDHD.EQ.0) RETURN
       RTOL=1.0E31
@@ -84,9 +84,9 @@ C
       REAL(8) RA,RFAC,RFPDCO,RK,RFPERM,RTHICK,
      &        RFBASE,RFTOP,RC,RSIG,RH,RFHEAD,RFNFPDCO
       COMPLEX(8) CZI,CALPH,CZ,CZA,CFPDCO
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RA(N,1),CZI(1),CALPH(1),ITYPE(1),RFAC(4,1)
       IF (NPDHD.EQ.0) RETURN
       DO 20 II=1,NPDHD
@@ -165,9 +165,9 @@ C-------------------------------     Note: for ITYPE=1 only!!
       REAL(8) RB,RFPOT,RFPOTH,RK,RFPERM,RTHICK,
      &        RFBASE,RFTOP,RC,RSIG,RH,RFHEAD
       COMPLEX(8) CZI,CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RB(*),CZI(*)
       IF (NPDHD.EQ.0) RETURN
       DO 10 I=1,NPDHD
@@ -201,8 +201,8 @@ c ---------------------------------------------------------------------------
 c
       INTEGER(4) J,I,IAD
       REAL(8) RB
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RB(1)
       IF (NPDHD.EQ.0) RETURN
       DO 10 I=1,NPDHD

@@ -14,9 +14,9 @@ C     (called in SOLUT)
 C 
       IMPLICIT NONE
       REAL(8) RDUM,RERMAX,RFBASE,RERRH,RFHEAD
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       rdum=RHEAD0-rfbase(crefz)
       IF (rdum.NE.0.0) THEN
        RERRH=ABS(RHEAD0-RFHEAD(CREFZ))/(ABS(rdum))*100

@@ -40,9 +40,9 @@ C
       COMPLEX(8) CZ,CZ1,CZ2,CZNEW,CFBIGZ,CBIGZ,CZ0,CZEULER,
      &        CBIGZNEW,CUNIT,CBIG1,CBIG2,CI,CN,CS,CZZ0,CZNEW1
       LOGICAL L3DEND,L3DREV,LINSID,L1,L2,LJUMP,LEULER,lredo
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       EXTERNAL VELOC
       DIMENSION RVI2(3),RNI(3)
       DATA CI /(0.0,1.0)/
@@ -250,7 +250,7 @@ C     length of 2*RZONEL surrounding the linesink between
 C     CZ1 and CZ2.
 C      
       IMPLICIT COMPLEX (C), LOGICAL (L)
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
 C      CHARACTER(1) ACHAR
       DIMENSION CZI(5)
       DATA CI /(0.0,1.0)/

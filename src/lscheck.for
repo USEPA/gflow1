@@ -24,9 +24,9 @@ C
      &        RF,RFHEDP,RC,RFFF,RDUM,RW,RSIG,RSIGC,RSSS,
      &        RERGH,RERGR
       COMPLEX(8) CZ
-      INCLUDE 'LSCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       IF (NLSH.EQ.0) RETURN
       RERRH=0.0D0
       RERRS=0.0D0
@@ -172,10 +172,10 @@ c
      &        rsin,rsout,rin,rout,rdeltaq,rdeltaqpercent
       CHARACTER(8) aBasenameOut
       CHARACTER(16) aDateTimeOut
-      include 'lscom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
-      include 'tracom.inc'
+      INCLUDE 'lscom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'tracom.inc'
 c
 
 c

@@ -72,12 +72,12 @@ C
       DIMENSION APAR5(NPAR5),APAR6(NPAR6),APAR7(NPAR7),APAR8(NPAR8)
       DIMENSION APAR9(NPAR9)
       DIMENSION AWORD(NWORD)
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'GRID.INC' 
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'PLOT.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'grid.inc' 
+      INCLUDE 'com3d.inc'
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'plot.inc'
       PARAMETER (NCMPAR=21)
       DIMENSION LCMD(NCMPAR),LCMPL(NCMPAR),LCMPG(NCMPAR),LCMGG(NCMPAR),
      .LCMWV(NCMPAR),LDSCR(NCMPAR),LDPRI(NCMPAR),LDPLO(NCMPAR),
@@ -1042,8 +1042,8 @@ C
       IMPLICIT NONE
       REAL(8) RXIN,RYIN
       COMPLEX(8) CZ
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
 C
       RXIN=REAL(CZ)
       RYIN=AIMAG(CZ)
@@ -1068,8 +1068,8 @@ C     early on (preferably first) when entering data.
 C
       IMPLICIT NONE
       REAL(8) RDX,RDY,RDEL,AMIN1
-      INCLUDE 'GRID.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'lusys.inc'
 C
       RFGRTOL=0.0
       RDX=RX2-RX1
@@ -1102,8 +1102,8 @@ C
       REAL(8) RX0,RY0,RAD0,RML,RY0L,RAL,RBL,RCL,ROOTL,SQROOT,
      &        RXX1,RYY1,RXX2,RYY2
       COMPLEX(8) CZ01,CZ02,CZ1,CZ2,CMPLX
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
       LFAIL=.FALSE.
       IF (.NOT.L3DVER) THEN
         WRITE (ILUER,1000)
@@ -1156,7 +1156,7 @@ c
       CHARACTER(8) aBasenameOut
       CHARACTER(16) aDateTimeOut
       integer nsolOut
-      include 'main.inc'
+      INCLUDE 'main.inc'
 c
       lsolOut=lsol
       loadsolOut=loadsol

@@ -24,8 +24,8 @@ c
 c ---------------------------------------------------------------------------------
 c
       IMPLICIT NONE
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DATA RETARDATION,RHALFLIFE /1.0,0.0/
       DATA LTRACEOUT,LGRAPHICS,LBOUNDARY /.FALSE.,.TRUE.,.FALSE./
       END
@@ -60,12 +60,12 @@ C
       CHARACTER(11) ATIME
       CHARACTER(5) azone
       CHARACTER(16) ATFIL,APATH,AWELL
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'GRID.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'DWMN.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'grid.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'dwmn.inc'
       DIMENSION RXST(4,NPTMAX),RQI(3)
       DATA LAY,LCONT,LREPORT,LSURFER /.TRUE.,.FALSE.,.TRUE.,.FALSE./
       DATA LDARK /.FALSE./
@@ -899,12 +899,12 @@ C
      &        RTEST,RCDT,RTWT,RZ0,RESTIM,RXST0,RQI,RPI,RTWTIM,
      &        RFTOP,RFBASE
       COMPLEX(8) CZ,CZOLD,CZ0,CZCROSS,CI
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'GRID.INC'
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'match.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'grid.inc'
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'lusys.inc'
       COMMON /MASTER/ RESTIM(5),ICOUNT,NSWITCH,LMAST  ! for MASTER project
       INTEGER(4) IDIRECT
       CHARACTER(1) ACHAR,ADIRECT,AESC
@@ -1655,10 +1655,10 @@ C
      &     RF3DSP,RDELTA,RDTWALL,SQROOT,K1,B1,RZMIN,RZMAX,RFPERM,
      &     rfinterface,rbloc,z0,z1,deltaz
       COMPLEX(8) CZ,CZNEW,CZEULER,CZCROSS,cz1
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RXI1(3),RXI2(3),RVI1(3),RVI2(3)
       RSTEP=RDS
       RDTWALL=0.0
@@ -1858,10 +1858,10 @@ C
       REAL(8) RDT,RDELTA,RFAC,RSUM,RK,RVI,RDUM,RFPERM,RDELT,
      &        R2,RF3DSP,R,SQROOT,RZ0,RPERM0,RPERM,RHDUM,RVDUM
       COMPLEX(8) CZ,CZ0
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RVI(3),RK(3),RSUM(3),RFAC(4)
       SAVE
       DATA RFAC /1.0,2.0,2.0,1.0/
@@ -1946,10 +1946,10 @@ C
       IMPLICIT NONE
       LOGICAL LEND,LREV
       REAL(8) RSTP0,RSTP,RZ
-      INCLUDE 'GRID.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'grid.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RSTP0=RDS0
       RSTP=RSTEP
       LEND=L3DEND
@@ -1996,8 +1996,8 @@ C
       LOGICAL LREDO,L3DEND,L3DREV
       REAL(8) RZ0,RZNEW,RSD0,RSTEP,rtest
       COMPLEX(8) CZ,CZNEW
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (LBOUNDARY) THEN
         call getstep (rsd0,rstep,l3dend,l3drev)

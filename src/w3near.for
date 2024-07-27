@@ -18,9 +18,9 @@ c
       REAL(8) rz0,rznew,rsd0,rstep,rq,rdis,rzone,rstmax,rdisi(3),
      &     rtest(3),rscalp,rfsp3d,radw,rlength,rdisend
       COMPLEX(8) cz,cznew,cz0,cdis,cdisend
-      include 'w3com.inc'
-      include 'tracom.inc'
-      include 'lusys.inc'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 c
       if (nw3.eq.0) return   ! no partially penetrating wells, skip
       call getstep (rsd0,rstep,l3dend,l3drev)

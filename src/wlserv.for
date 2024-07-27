@@ -17,8 +17,8 @@ C
       REAL(8) rwell,rqwell,rdis
       COMPLEX(8) cz,czwell
       CHARACTER(16) AWELL
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
       lwlinfo=.false.
       IF (NWL.EQ.0) RETURN
       DO IW=1,NWL

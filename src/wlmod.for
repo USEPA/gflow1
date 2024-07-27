@@ -70,7 +70,7 @@ C
 C     Last change:  HMH   2 Jan 2001    5:33 pm
       BLOCK DATA WLDAT
       IMPLICIT NONE
-      INCLUDE 'WLCOM.INC'
+      INCLUDE 'wlcom.inc'
       DATA CWLZ /NWLMX*(0.0,0.0)/
       DATA RWLQ,RWLH,RWLR /NWLMX*0.0,NWLMX*0.0,NWLMX*0.0/
       DATA NWL,RPI2/0,6.2831853/
@@ -89,9 +89,9 @@ C
       REAL(8) RA,RSCR,RDUM1,RVAR,RDUM2,RDUM
       COMPLEX(8) CDUM,CVAR
       CHARACTER(1) AWORD(28)
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DIMENSION RA(IRA,*),RSCR(*)
       DATA AWORD /'?',' ',
      .            'H','E','A','D',' ',

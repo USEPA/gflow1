@@ -17,8 +17,8 @@ C     Calculates contribution to potential due to uniform flow.
 C
       IMPLICIT NONE
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
       CFUFOM=(0.0,0.0)
       IF (RQ0.EQ.0.0) RETURN
       CFUFOM=-RQ0*CZ*EXP(-CUNALP) 
@@ -36,9 +36,9 @@ C
       IMPLICIT NONE
       REAL(8) RVI
       COMPLEX(8) CZ,CDUM
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'      
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'      
       DIMENSION RVI(3)
       IF (ABS(CZ).GT.1.0E30) THEN
       WRITE (ILUER,1000) CZ
@@ -61,9 +61,9 @@ C     Calculates constant potential.
 C
       IMPLICIT NONE
       COMPLEX(8) CZ
-      INCLUDE 'GVCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'      
+      INCLUDE 'gvcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'      
 C
       IF (ABS(CZ).GT.1.0E30) THEN
       WRITE (ILUER,1000) CZ
@@ -88,7 +88,7 @@ c     This is arbitrary, but results in a better first GW solution.
 c
       implicit none
       REAL(8) rfpoth,rfpot
-      include 'gvcom.inc'
+      INCLUDE 'gvcom.inc'
 c
       rpotc=rfpoth (rhead0,crefz)-rfpot(crefz)
 c

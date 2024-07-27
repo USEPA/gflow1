@@ -25,9 +25,9 @@ C
       INTEGER I
       REAL(8) RFNFDBGAM
       COMPLEX(8) CZ1,CZ2,CDBOM
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       RFNFDB=0.0
       IF (NDB.EQ.0) RETURN
@@ -56,9 +56,9 @@ C
       INTEGER I
       REAL(8) RFNFDBGAMI,RFNFDBGAMO,RBRANCH
       COMPLEX(8) CZ1,CZ2,CZ3
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       RFNFDBGAM=0.0
       CALL DBPREP (CZ2)
@@ -102,9 +102,9 @@ C
       INTEGER ISTRING
       REAL(8) RFAREATRIANGLE,DFDBAREA
       COMPLEX(8) CZ1,CZ2
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       RFNFDBGAMI=RDBGAM(ISTRING)*
      &(RFAREATRIANGLE(CZ1,CZ2,CDBZ0(ISTRING))-DFDBAREA(ISTRING,CZ1,CZ2))
       RETURN
@@ -123,9 +123,9 @@ C
       INTEGER ISTRING,INOD1
       REAL(8) RFBRANCH,DFDBAREA
       COMPLEX(8) CZ1,CZ2
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C     Flow due to line doublets/dipoles already incorporated
 c     in Delta-PSI calculated in function RFNFDB.
 C     Add flow in branch cut if it is being crossed.
@@ -155,9 +155,9 @@ c
       LOGICAL LBRANCH
       REAL(8) RBRANCH,RDIS,RDISMIN,RS,RSIGN,DS, D_ONE
       COMPLEX(8) CZ1,CZ2,CZ3,CZC1,CZC2
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       D_ONE = 1.0
       RBRANCH=0.0
       CZC1=0.5*(CZ1+CZ2) ! center of line segment
@@ -231,9 +231,9 @@ C
       LOGICAL LAREA, LINSECTLINE
       REAL(8) DA,DFA,DS, D_ONE
       COMPLEX(8) CZ1,CZ2,CZZ1,CZZ2,CZ0
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       DFDBAREA=0.0
       LAREA=.FALSE.

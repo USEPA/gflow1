@@ -85,7 +85,7 @@ c
 c ------------------------------------------------------------------
 c
       IMPLICIT NONE
-      INCLUDE 'DICOM.INC'
+      INCLUDE 'dicom.inc'
       DATA RDIZ,RDIR,RDIS,RDIH,RDICPT,RDIA /N_DI_INIT*0.0/
 C
 C     NDIRH is the number of aquifer thicknesses away from the
@@ -115,10 +115,10 @@ C
      &        RDUM1,RVAR,RDUM2,RDUM3,RDUM4,RDUM5,RDUM6
       COMPLEX(8) CZ
       CHARACTER(1) AWORD(23)
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RA(IRA,*),RSCR(*)
       DATA AWORD /'?',' ',
      .            'D','I','S','C',' ',

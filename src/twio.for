@@ -17,8 +17,8 @@ c     Routine writes data for Theis wells to .xtr file.
 c     Routine is called in EXTRACT.FOR
 c
       implicit none
-      include 'twcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'twcom.inc'
+      INCLUDE 'lusys.inc'
       COMPLEX(8) cz
       REAL(8) rh,rfhead,rhead
       integer(4) ilu,i
@@ -53,8 +53,8 @@ C     Routine is called by DATIO
 C
       IMPLICIT NONE
       INTEGER(4) ILU,I
-      INCLUDE 'TWCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'twcom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NTW.EQ.0) RETURN
       WRITE (ILU,1000)
@@ -87,7 +87,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
       REAL(8) RVERSION
-      INCLUDE 'TWCOM.INC'
+      INCLUDE 'twcom.inc'
 c
       if (ierr.ne.0) return
       CALL BUFIO4 (NTW,1,ILU,ICODE,IERR)
@@ -114,8 +114,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ICALL,I
       CHARACTER(1) ADUM
-      INCLUDE  'TWCOM.INC'
-      INCLUDE  'LUSYS.INC'
+      INCLUDE 'twcom.inc'
+      INCLUDE 'lusys.inc'
       WRITE (ILUOUT,1002) NTW,RTWCT,RTWRD0,RTWST0,RPI4
       IF (NTW.EQ.0) RETURN
       DO 10 I=1,NTW

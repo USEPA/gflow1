@@ -28,7 +28,7 @@ c
       REAL(8) rfnfgv,rfnfpd,rfnfdb,rfnfls,rfnfwl,rfnflk,rfnflksub, ! 2D functions
      &     rfnfdi,rfnfw3                       ! 3D functions
       COMPLEX(8)  cz1,cz2
-      INCLUDE 'MAIN.INC'
+      INCLUDE 'main.inc'
       INCLUDE 'lusys.inc'
 c
       RFNORMALFLOW=0.0
@@ -56,7 +56,7 @@ C
       IMPLICIT NONE
       REAL(8) RXW,RYW,RXINT,RX1,RY1,RX2,RY2
       COMPLEX(8) CBRANCH,CZ1,CZ2
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 C
       RXW=REAL(CBRANCH)
       RYW=AIMAG(CBRANCH)
@@ -106,8 +106,8 @@ C
       LOGICAL LBRANCH
       REAL(8) RBRANCH,RBX1,RBY1,RBX2,RBY2,RXINT
       COMPLEX(8) CZ1,CZ2,CZS,CZE,CZ0,CBZ1,CBZ2,CFBIGZ
-      INCLUDE 'TRACOM.INC'
-      include 'lusys.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       LBRANCH=.FALSE.
       RBRANCH=0.0
       CBZ1=CFBIGZ(CZ1,CZS,CZE) ! map CZ1 onto reference plane
@@ -157,7 +157,7 @@ C
       INTEGER(4) I
       REAL(8) RA0,DR1,DR2,DS1,DS2,DW3
       COMPLEX(8) CZ1,CZ2,CZ3,CR,CS
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
 c     Vector CR is the vector from CZ1 to the center of the recharge circle
       CR = CZ3-CZ1      ! To center of circle
       DR1 = REAL(CR)
@@ -228,7 +228,7 @@ C
       REAL(8) RAD,RM,RN,RA,RB,RC,RD,RY,RX0,RY0,RX1,RY1,RX2,RY2,
      &        RX3,RY3,RX4,RY4,RS1,RS2,RTEST,D_ONE
       COMPLEX(8) CZ0,CZ1,CZ2,CZ3,CZ4
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 C
 c      write (ilume,1001) cz0,rad,cz1,cz2
 c 1001 format (' Entering LINSECTCIRCLE: cz0,rad,cz1,cz2 ',/,
@@ -302,8 +302,8 @@ C
       IMPLICIT NONE
       REAL(8) RBX1,RBY1,RBX2,RBY2,RXINT
       COMPLEX(8) CZS,CZE,CZ1,CZ2,CZ0,CBZ1,CBZ2,CFBIGZ
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CBZ1=CFBIGZ(CZ1,CZS,CZE) ! map CZ1 onto reference plane for CZS-CZE
       CBZ2=CFBIGZ(CZ2,CZS,CZE) ! map CZ2 onto reference plane for CZS-CZE
       RBX1=REAL(CBZ1)

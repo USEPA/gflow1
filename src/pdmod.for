@@ -83,7 +83,7 @@ c
 c ----------------------------------------------------------------------
 c
       IMPLICIT NONE
-      INCLUDE 'PDCOM.INC'
+      INCLUDE 'pdcom.inc'
       DATA NPD,NPDHD,NPDRC /3*0/
       DATA LPDHD,LPDRC,LPDRCH,LPDPER /2*.TRUE.,2*.FALSE./
       DATA RPI2,RPDC0,RPDD0 /6.283185308,2*0.0/
@@ -109,9 +109,9 @@ C
       LOGICAL LSOL,LBAD
       REAL(8) RA,RSCR,RDUM,RVAR
       CHARACTER(1) AWORD(43),APAR(25)
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DIMENSION RA(IRA,*),RSCR(*)
       DATA AWORD /'D','I','S','C',' ',
      &            'H','E','A','D',' ',
@@ -302,9 +302,9 @@ c
       INTEGER(4) ICODE
       REAL(8) RDUM1,RDUM2,RVAR,RDUM3,RDUM4,RTOL,RFGRTOL
       COMPLEX(8) CDUM1,CVAR,CDUM2,CZ
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'lusys.inc'
 C -------------------------- check for space in arrays
       IF (NPD.EQ.NPDMX) THEN
       WRITE (ILUER,1000) NPDMX

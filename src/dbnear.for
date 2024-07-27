@@ -39,9 +39,9 @@ C
      &     RFPOR,RFDBCONDUCTANCE,RSTEP,RH1,RH2,RHGHT,RPOT,RPOT1,RPOT2,
      &     rk,rh3,rzdiv,rsd0,RFTOP
       COMPLEX(8) CZ,CZNEW,CZS,CZE,CZ0,CZCROSS
-      INCLUDE 'DBCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dbcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
 C
       RDTWALL=0.0
       IF (NDB.EQ.0.or.lredo) RETURN

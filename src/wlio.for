@@ -19,8 +19,8 @@ c     Routine writes data for HEAD SPECIFIED wells to .xtr file.
 c     Routine is called in EXTRACT.FOR
 c
       implicit none
-      include 'wlcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
       COMPLEX(8) cz
       REAL(8) rh,rfhead
       INTEGER(4) ilu,i
@@ -89,8 +89,8 @@ C
       IMPLICIT NONE
       INTEGER(4) ILU,I
       LOGICAL LWH,LWS
-      INCLUDE 'WLCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NWL.EQ.0) RETURN
       WRITE (ILU,1000)
@@ -139,7 +139,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
       REAL(8) RVERSION
-      INCLUDE 'WLCOM.INC'
+      INCLUDE 'wlcom.inc'
 c
       if (ierr.ne.0) return
       CALL BUFIO4 (NWL,1,ILU,ICODE,IERR)
@@ -166,8 +166,8 @@ C -------------------------------------------------------------------------
 C
       IMPLICIT NONE
       INTEGER(4) ICALL,I,J
-      INCLUDE  'WLCOM.INC'
-      INCLUDE  'LUSYS.INC'
+      INCLUDE 'wlcom.inc'
+      INCLUDE 'lusys.inc'
       CHARACTER(1) ADUM
       SAVE
       WRITE (ILUOUT,1002) NWL,RPI2

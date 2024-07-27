@@ -35,9 +35,9 @@ C
       REAL(8) R3DZ,RZNEW,RHGHT,RFHGHT,RBOT,RTOP,RTAU,RAD,
      &        RS,RSTOP,RSBOT,RDS0,RSTEP,RFBASE
       COMPLEX(8) CZ,CZNEW,CZT
-      INCLUDE 'PDCOM.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'pdcom.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DATA IDCLOSE,iredo /0,0/
 C     
       IF (NPD.EQ.0.or.lredo) RETURN

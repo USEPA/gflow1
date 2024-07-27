@@ -40,10 +40,10 @@ C
       REAL(8) RHOI,RXI,RHO2,RF3DSP,RADTST,
      &        RFBASE,RFTOP,RADTST2,RDUM1,RFW3CP,RDUM
       COMPLEX(8) CZ
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       COMMON /FAR3D/ L2D,L3D,L3DH
       DIMENSION RHOI(3),RXI(3)
       RFW3PT=0.0
@@ -90,12 +90,12 @@ C
      &        RHO2,RZB,RZT,RHGHT,RFBASE,RFTOP,RF3DSP,RADTST,
      &        RADTST2,RL,RGVREFDIST
       COMPLEX(8) CZ,CZ0,CFW3OMCOF
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
       COMMON /W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &               RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       DIMENSION RHOI(3),RXI(3)
       CFW3OM=(0.0,0.0)
 C            
@@ -130,10 +130,10 @@ C     Coefficient function for ppwell in 2D zone
 C
       IMPLICIT NONE
       REAL(8) RHO2,RHGHT,RHGHT2
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       CFW3OMCOF=CMPLX(0.0,0.0)
       RHGHT2=RHGHT*RHGHT
       CFW3OMCOF=CFW3OMCOF+LOG(RHO2/RHGHT2)/(12.56637062)
@@ -151,8 +151,8 @@ C
       LOGICAL LDRT
       REAL(8) RZ,RPI8,RA,RB,RC,RD,RK,GENOLD
       COMMON/GENC/RA,RB,RC,RD,RK,GENOLD(4),LDRT
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DATA RPI8 /25.13274124/
       LDRT=.FALSE.
       CALL W3GENC(RZ)
@@ -180,8 +180,8 @@ C
       LOGICAL LDRT
       REAL(8) RZ,RPI8,RA,RB,RC,RD,RK,GENOLD
       COMMON/GENC/RA,RB,RC,RD,RK,GENOLD(4),LDRT
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DATA RPI8 /25.13274124/
       LDRT=.FALSE.
       CALL W3GENC(RZ)
@@ -209,8 +209,8 @@ C
       LOGICAL LDRT
       REAL(8) RZ,RA,RB,RC,RD,RK,GENOLD,RFK
       COMMON/GENC/RA,RB,RC,RD,RK,GENOLD(4),LDRT
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       LDRT=.TRUE.
       CALL W3GENC(RZ)
       RFLSE=RD*RFK(RK)
@@ -240,8 +240,8 @@ C
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       COMMON/GENC/RA,RB,RC,RD,RK,GENOLD(4),LDRT
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       RU2=RHO2+(RZ-RZT)**2
       RV2=RHO2+(RZ-RZB)**2
@@ -286,10 +286,10 @@ C
      &              RZ,RIM2H,RZP,RZM,RSCO,RFW3IP,RDUM,RF3DSL,R1
       COMPLEX(8) CZ,CZ0
       EXTERNAL RFLSF,RFLSG,RFLSE
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       COMMON/IMAG/ NIMAG,LEQPT,LEQPB
@@ -454,8 +454,8 @@ C
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       COMMON/IMAG/ NIMAG,LEQPT,LEQPB
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       EXTERNAL RFUNC
 C
 C     Default is aquifer top and aquifer bottom are no-flow boundaries.
@@ -559,10 +559,10 @@ C
       EXTERNAL W3QTZF,W3QTZG,W3QTZE
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       COMMON/IMAG/ NIMAG,LEQPT,LEQPB
       DIMENSION RXI(3),RTAUI(3),RQW3I(3)
       SAVE
@@ -708,8 +708,8 @@ C
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU 
       COMMON/IMAG/ NIMAG,LEQPT,LEQPB
-      INCLUDE 'TRACOM.INC'      
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'tracom.inc'      
+      INCLUDE 'lusys.inc'
 C
 C     Default is aquifer top and aquifer bottom are no-flow boundaries.
 C     If LEQPT aquifer top is an equipotential boundary and aquifer bottom
@@ -826,10 +826,10 @@ C
      &        RAQTHICK,RFBASE,RFTOP,RF3DSP,RADTST,RADTST2,
      &        RQ1,RQ2,RHO,SQROOT,RAD,RDUM
       COMPLEX(8) CZ,CW3Z,CW3RAD,CQW3
-      INCLUDE 'W3COM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'w3com.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       COMMON /W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &               RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       DIMENSION RQI(3),RQW3I(3),RXI(3),RHOI(3),RQI0(3)
@@ -917,10 +917,10 @@ C
      &        RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU,
      &        RA,RB,RU2,RV2,RU,RV,SQROOT,RHH,RUV,
      &        RA1,RA2,RF,RD,RE,RM,RUVH
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       RA=RZ-RZT
       RB=RZ-RZB
       RU2=RTAU2+RA**2
@@ -965,10 +965,10 @@ C
      &        RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU,
      &        RA,RB,RU2,RV2,RU,RV,RUV,RUVH,SQROOT,
      &        RHH,RA1,RA2,RF,RD,RE,RM
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       RA=RZ-RZT
       RB=RZ-RZB
       RU2=RTAU2+RA**2
@@ -1015,11 +1015,11 @@ C
      &        RDELTA,RA,RB,RU2,RV2,RU,RV,RUV,RUVH,
      &        SQROOT,RHH,R,RK2,RK,RKP2,RKP12,RFKRK,
      &        RFK,RC1,RH1,RJ,RFERK,RFE,RL,RG
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       COMMON/W3PASS/RZT,RZB,RHO2,RT,RH,RH2,R2H,
      &              RPI1,RPI2,RPI4,RPI8,RTAU2,RTAU
       DATA RPI1D4 /0.785398163/
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       RDELTA=0.03
       RA=RZ-RZT
       RB=RZ-RZB
@@ -1063,7 +1063,7 @@ C     Pot. coeff. function for an infinite vertical line sink.
 C
       IMPLICIT NONE
       REAL(8) RTAU2,RTOLD,RLSOLD,RPI4,R
-      INCLUDE 'COM3D.INC'
+      INCLUDE 'com3d.inc'
       SAVE
       DATA RTOLD,RLSOLD /0.0,0.0/
       DATA RPI4 /12.56637062/
@@ -1094,7 +1094,7 @@ C
       IMPLICIT NONE
       REAL(8) RZ,RZP,RZM,RTAU2,RPI4,R1,R2,RU2,RV2,RU,RV,
      &        SQROOT
-      INCLUDE 'COM3D.INC'
+      INCLUDE 'com3d.inc'
       DATA RPI4 /12.56637062/
       R1=RZP-RZ
       R2=RZ-RZM
@@ -1127,8 +1127,8 @@ C
       IMPLICIT NONE
       REAL(8) RZ,RZP,RZM,RTAU,RQTAU,RQZ,RSCO,RPI4,
      &        R1,R2,RTAU2,RU2,RV2,RU,RV,SQROOT,RDUMT,RDUMZ
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DATA RPI4 /12.56637062/
       R1=RZP-RZ
       R2=RZ-RZM

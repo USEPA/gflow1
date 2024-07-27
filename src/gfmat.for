@@ -41,10 +41,10 @@ C
      &           czreset
       CHARACTER(256) amessage
       ALLOCATABLE lskip(:),czi_short(:),czi_long(:)
-      INCLUDE 'MAIN.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'MATCH.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'main.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION DRA(IMXSZE,nstr),DRSCR(imxsze),DRB(imxsze),
      &          DRFAC(4,imxsze), ! drscr may be larger
      &          CALPH(imxsze),CZI(imxsze),ITYPE(imxsze),IPIV(imxsze)
@@ -907,7 +907,7 @@ c
       CHARACTER(16)aDateTimeOut
       REAL(8) dra,drb,drscr
       DIMENSION dra(m,n),drb(n),drscr(m)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -1010,8 +1010,8 @@ C
       IMPLICIT NONE
       INTEGER(4) I,J,K,KB,KM1,KP1,M,N,P(N),NM1
       REAL(8) A(N,N),AN,C,E,RN(N),T,W(N),YN,ZN
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
 c
 c        call matrixrowout  (a,n,938,'ra in decomp 938')
 c        call matrixrowout (a,n,1145,'ra in decom 1145')
@@ -1183,7 +1183,7 @@ C*********************************************************************
       IMPLICIT NONE
       INTEGER(4) I,K,KB,KP1,M,N,P(N),NM1,NMKB
       REAL(8) A(N,N),B(N),T
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
 C
 C     FORWARD ELIMINATION
 C
@@ -1241,7 +1241,7 @@ c
      &           i,j,k
       REAL(8) dra,drb,db,drs,rdels,drfac
       DIMENSION dra(n,n),drb(*),drs(*),drfac(4,*)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
 c      write (iluer,999) (i,(dra(i,j),j=1,n),i=1,n)    ! for 5 equations only
 c 999  format (' GaussSeidel ',/,5('dra(',i3,',j)=',5(d14.7,1x),/))
@@ -1305,7 +1305,7 @@ c
       INTEGER(4) n,i,j
       REAL(8) drb,drfac,dra,drscr
       DIMENSION drb(*),drfac(4,*),dra(n,*),drscr(*)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       do i=1,n
       write (iluer,1000) i,drscr(i),drb(i)
@@ -1361,7 +1361,7 @@ C*********************************************************************
       INTEGER(4) I,K,KB,KP1,M,N,P(N),NM1,NMKB
       REAL(8) A(N,N),B(N),T,drfac
       DIMENSION drfac(4,*)
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
 C
 C     FORWARD ELIMINATION
 C
@@ -1428,7 +1428,7 @@ c
       REAL(8) dra,drb,drv,dru,druarray,dralpha,drlabda
       DIMENSION dra(n,n),drb(n),ipiv(n),lskip(n)
       ALLOCATABLE drv(:),dru(:),druarray(:,:),ipoint(:)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
 c     allocate scratch arrays
 c
@@ -1542,10 +1542,10 @@ c
       REAL(8) rdum,rvar,rconvergearray
       parameter (nconvergearraylength=10)
       DIMENSION rconvergearray(nconvergearraylength)
-      include 'lusys.inc'
-      include 'match.inc'
-      include 'main.inc'
-      include 'tracom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
+      INCLUDE 'main.inc'
+      INCLUDE 'tracom.inc'
 c
       lnoconvergefile=.false.
       igftablelength=0
@@ -1679,7 +1679,7 @@ c
       INTEGER i,j,m,n,ioffset1,ioffset2
       REAL(8) dra
       DIMENSION dra(*)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (m.gt.n) then  ! else assume m=n and we are done
         write (iluer,1001) m,n
@@ -1708,7 +1708,7 @@ c
       CHARACTER*16 aname
       REAL(8) rvec
       DIMENSION rvec(*)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (nsize.gt.0) then
         write (iluer,1000) aname
@@ -1736,7 +1736,7 @@ c
       CHARACTER*16 aname
       complex(8) cvec
       DIMENSION cvec(*)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (nsize.gt.0) then
         write (iluer,1000) aname
@@ -1764,7 +1764,7 @@ c
       CHARACTER*16 aname
       REAL(8) dra
       DIMENSION dra(nsize,nsize)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
       if (nsize.gt.0) then
         write (iluer,1000) aname
  1000   format (' From "diagonalelementsout": writing ',a16)
@@ -1793,7 +1793,7 @@ c
       CHARACTER*16 aname
       REAL(8) dra
       DIMENSION dra(nsize,nsize)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
       if (nsize.gt.0) then
         write (iluer,1000) aname
  1000   format (' From "matrixrowout": writing ',a16)
@@ -1821,7 +1821,7 @@ c
       REAL(8) dra,scratch,rdiff
       DIMENSION dra(isize,jsize)
       ALLOCATABLE scratch(:,:)
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       lErrorReport=.true.
       ltimer=.false.

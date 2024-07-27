@@ -17,10 +17,10 @@ c
       INTEGER(4) N,ITYPE,I,ICPT
       REAL(8) RFAC,RTOL
       COMPLEX(8) CZI,CALPH,CZ0
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(1),RFAC(4,1),CALPH(1),ITYPE(1)
       IF (NDIS.EQ.0) RETURN
       RTOL=1.0E31
@@ -65,10 +65,10 @@ C
       LOGICAL LNEG
       REAL(8) RA,RFAC,RFDIPC,RFNFDICO
       COMPLEX(8) CZI,CALPH,CZ,CZA,CDICOMC
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RA(N,1),CZI(1),CALPH(1),ITYPE(1),RFAC(4,1)
       IF (NDIS.EQ.0) RETURN
       DO 20 ID=1,NDIS
@@ -131,10 +131,10 @@ C-------------------------------     Note: for ITYPE=1 only!!
       INTEGER(4) J,ID
       REAL(8) RB,RFPOT,RFPOTH
       COMPLEX(8) CZI,CZ
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RB(*),CZI(*)
       IF (NDIS.EQ.0) RETURN
       DO 10 ID=1,NDIS
@@ -157,9 +157,9 @@ c
       IMPLICIT NONE
       INTEGER(4) J,ID
       REAL(8) RB
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RB(1)
       IF (NDIS.EQ.0) RETURN
       DO 10 ID=1,NDIS

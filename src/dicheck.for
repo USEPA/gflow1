@@ -22,10 +22,10 @@ C
       LOGICAL LNOTHING
       REAL(8) RERMAX,RERRH,RS,RFBASE,RF,RFHEAD,RFFF,RDUM
       COMPLEX(8) CZ,CZ0
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       IF (NDIS.EQ.0) RETURN
       RERRH=0.0
       IHED=0

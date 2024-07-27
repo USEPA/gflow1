@@ -24,7 +24,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR,NWORD
       REAL(8) RVERSION
-      INCLUDE 'DICOM.INC'
+      INCLUDE 'dicom.inc'
 C
       if (ierr.ne.0) return
       CALL BUFIO4 (NDIS,1,ILU,ICODE,IERR)
@@ -61,8 +61,8 @@ C
       LOGICAL LHEAD,LDISCHARGE
       REAL(8) RZ
       COMPLEX(8) CZ
-      INCLUDE 'DICOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
 C
       IF (NDIS.EQ.0) RETURN
       WRITE (ILU,1000)
@@ -112,8 +112,8 @@ c
       IMPLICIT NONE
       INTEGER(4) ICALL,I,J
       CHARACTER(1) ADUM
-      INCLUDE  'DICOM.INC'
-      INCLUDE  'LUSYS.INC'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
       SAVE
       WRITE (ILUOUT,1002) (I,(RDIZ(J,I),J=1,3),I=1,NDIS)
       WRITE (ILUOUT,2000) ICALL
@@ -175,8 +175,8 @@ c
       logical ldisc
       REAL(8) rh,rfhead
       COMPLEX(8) cz
-      include 'dicom.inc'
-      include 'lusys.inc'
+      INCLUDE 'dicom.inc'
+      INCLUDE 'lusys.inc'
 c
       ldisc=.false.
       if (ndis.gt.0) then       ! look if there are head specified sink discs

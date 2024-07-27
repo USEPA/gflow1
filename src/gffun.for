@@ -49,8 +49,8 @@ C
       IMPLICIT NONE
       COMPLEX(8) CZ,CFUFOM,CFW3OM,CFWEOM,CFPDOM,CFLSU,
      +           CFLSG,CDBOM,CDIOM,cflk_omega,cflk_subomega
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       COMEGA=CDBOM(CZ)
 c     write (iluer,1001) comega
  1001 format (' comega1: DB',2(d14.7))
@@ -135,9 +135,9 @@ C
       REAL(8) RZ0,RFPOT0,RTW0,RTIME,RTWTIM,RFW3PT,
      &        RFDIPT,RFTWPT,RFDBPT,RFCONPT,RFPDPT
       COMPLEX(8) CZ,CZ0,COMEGA
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DATA CZ0,RZ0,RFPOT0,RTW0 /(1.0D21,1.0D21),3*1.0D21/
       RFPOT=RFPOT0
       IF (CZ.EQ.(1.0D21,1.0D21)) THEN
@@ -190,7 +190,7 @@ C     Function returns the imaginary part of the complex potential
 C      
       IMPLICIT NONE
       COMPLEX(8) CZ,COMEGA
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       EXTERNAL COMEGA
       RFPSI=AIMAG(COMEGA(CZ))
       RETURN
@@ -208,7 +208,7 @@ C
       IMPLICIT NONE
       REAL(8) RDUM,RFPOT,RFHEDP
       COMPLEX(8) CZ
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       RDUM=RFPOT(CZ)
       RFHEAD=RFHEDP(RDUM,CZ)
       RETURN
@@ -226,7 +226,7 @@ C
       IMPLICIT NONE
       REAL(8) RQI,SQROOT
       COMPLEX(8) CZ
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       DIMENSION RQI(3)
       RQI(1)=0.0
       RQI(2)=0.0
@@ -253,9 +253,9 @@ C
       IMPLICIT NONE
       REAL(8) RQI
       COMPLEX(8) CZ
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RQI(3)
       RQI(1)=0.0
       RQI(2)=0.0
@@ -302,10 +302,10 @@ C
      &        RHED,RFHEDP,RTOP,RFTOP,RQS2,RFBASE,rbloc,rfperm,
      &        rfinterface,rintelv,rhss,rsgs,rsgf,rfac1,rfac2
       COMPLEX(8) CZ
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'DWMN.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'dwmn.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION RQI(3)
       RHGHT=RFHGHT(CZ)
       IF (RHGHT.LT.0.001) THEN
@@ -373,9 +373,9 @@ C
       INTEGER(4) I
       REAL(8) RVI,RQI,RPOR,RFPOR
       COMPLEX(8) CZ
-      INCLUDE 'COM3D.INC'
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION RQI(3),RVI(3)
       RPOR=RFPOR (CZ)
       RQI(1:3)=0.0d0
@@ -419,7 +419,7 @@ C
       INTEGER(4) I
       REAL(8) RK,RA,RB,RC,RFKOLD,RKOLD,RKP2,RKP,SQROOT,RDUM
       COMMON /ELINT/ RA(8),RB(8),RC(8)
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       SAVE
       DATA RKOLD,RFKOLD /2.0,1.E25/
       IF (RK.LT.0.0.OR.RK.GT.1.0) THEN
@@ -480,7 +480,7 @@ C
       INTEGER(4) I,J
       REAL(8) RK,RKOLD,RFEOLD,RA,RB,RC,RK0,RFK,RDUM,RKP2,RKP,SQROOT
       COMMON /ELINT/ RA(8),RB(8),RC(8)
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       SAVE      
       DATA RKOLD,RFEOLD /2.0,1.E25/
       IF (RK.LT.0.0.OR.RK.GT.1.0) THEN
@@ -548,7 +548,7 @@ C
      &        RKOLD,RALOLD,RPIOLD,REPS,RK2,RKP2,
      &        RFE,RK0,RFK,RFAC,TETA,SQROOT,RDUM,RCOS,RZ
       COMMON /ELINT/ RA(8),RB(8),RC(8)
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       DIMENSION RSN(7),RCN(7),RPSI(8)
       SAVE
       DATA RKOLD,RALOLD,RPIOLD,REPS /0.0,0.0,1.57079633,0.000001/
@@ -657,7 +657,7 @@ C
       LOGICAL LFIRST
       REAL(8) RX,RP,RP0,RP1
       COMMON /LEG/ RP(100),RP0(100),RP1(100)
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       SAVE
       DATA LFIRST /.TRUE./
       IF (IORDER.GT.100) THEN
@@ -698,7 +698,7 @@ C     NOTE: REST TERM SMALLER THAN THE MACHINE ACCURACY.
 C
       IMPLICIT NONE
       REAL(8) R,R0,R1,R2,R3,R4,R5
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       IF (R.EQ.0.0) THEN
         RE1=1.0E+31
         WRITE(ILUER,*) 'ARG = 0.0 IN ROUTINE RE1'
@@ -732,7 +732,7 @@ C
       IMPLICIT NONE
       INTEGER(4) I
       REAL(8) RUI,RVI
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'tracom.inc'
       DIMENSION RUI(3),RVI(3)
       RF3DSP=0.0
       DO 10 I=1,3
@@ -749,8 +749,8 @@ C ------------------------------------------------------------------------------
 C
       IMPLICIT NONE
       REAL(8) RX
-      INCLUDE 'TRACOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'lusys.inc'
       SQROOT=0.0
       IF (RX.LT.1.0E-30.AND.RX.GE.0.0) SQROOT=0.0
       IF (RX.GE.1.0E-30) SQROOT=SQRT(RX)

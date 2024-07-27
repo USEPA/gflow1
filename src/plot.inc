@@ -10,4 +10,4 @@ c  of the I*2 array over the C*1 array is baaaad news in F90
        COMMON/BLPLOT1/ BLCHRT,BLRES,BLSPD,BLINE
        COMMON/BLPLOT2/ IBLU,LBON
        COMMON/MARGC/ XA,YA,XB,YB
-     
+     

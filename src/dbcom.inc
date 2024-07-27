@@ -150,4 +150,4 @@ C
 C             NOTE: CDDBSS and DBSTR are added together before multipication
 C             with doublet/dipole functions. DBQSTS and DBQSTR are added together
 C             before multiplication with doublet/dipole functions.
-
+

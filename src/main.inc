@@ -50,4 +50,4 @@ c     Number_strengths  number of strength parameters (degrees of freedom) as de
 c                       routines called in main program.
 C
 c
-      
+      

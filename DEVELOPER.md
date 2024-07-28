@@ -170,7 +170,7 @@ Windows Subsystem for Linux (WSL).
 3. Click the green `><` icon in the lower left corner.
 4. You may have multiple WSL distributions. Choose the appropriate one.
 5. Open an existing folder: `File > Open Folder`; choose the `gflow1` directory.
-6. Press ``Cntrl + ``` to open the VSCode terminal, and choose TERMINAL.
+6. Press ``Cntrl + ` `` to open the VSCode terminal, and choose TERMINAL.
 7. Run `pixi run setup` and `pixi run build` to create an debug executable.
 8. Set the `program`, `miDebuggerPath`, `cwd`, and `args` entries to their appropriate values.
 9. Place a breakpoint somewhere, and start the debugger from the VSCode menu on

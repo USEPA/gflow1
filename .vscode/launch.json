@@ -5,7 +5,7 @@
             "name": "Debug (gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/builddir/gflow2.exe",
+            "program": "${workspaceFolder}/builddir-debug-gfortran/gflow2.exe",
             "args": ["well_uflow.dat"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/test/data",

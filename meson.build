@@ -1,10 +1,34 @@
 project(
     'gflow1',
     'fortran',
-     version: '0.0.1.dev0',
-     license: 'MIT',
-    default_options : ['buildtype=debug'],
-)
+    version: '0.0.1.dev0',
+    license: 'MIT',
+  default_options : [
+    'b_vscrt=static_from_buildtype', # Link runtime libraries statically on Windows
+    'optimization=2',
+    'debug=false',
+])
+  
+compiler = meson.get_compiler('fortran')
+compiler_id = compiler.get_id()
+compile_args = []
+if compiler_id == 'gcc'
+  # General options
+  compile_args += ['-std=legacy', '-fno-align-commons', '-freal-4-real-8']
+  # Define OS with gfortran for OS specific code
+  # These are identical to pre-defined macros available with ifort
+  system = build_machine.system()
+  if system == 'linux'
+    compile_args += '-D__linux__'
+  elif system == 'darwin'
+    compile_args += '-D__APPLE__'
+  elif system == 'windows'
+    compile_args += '-D_WIN32'
+  endif
+# TODO ifort, etc.
+endif
+
+
 main_file = 'src/gfmod.for'
 src = [
     'src/bufio.for',
@@ -88,6 +112,5 @@ executable(
     'gflow2',
     sources: [main_file] + src,
     include_directories: incdir,
-    install : true,
-    fortran_args : ['-std=legacy', '-fno-align-commons', '-freal-4-real-8'],
+    fortran_args : compile_args,
 )

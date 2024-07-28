@@ -105,20 +105,14 @@ git remote add upstream https://github.com/MODFLOW-USGS/modflow6.git
 [Meson](https://mesonbuild.com/index.html) is the recommended build system for
 GFLOW. It is included in the provided pixi environment.
 
-Building GFLOW requires two steps:
-
-- configure the build directory
-- build the project
-
 We can use pixi to do so:
 
 ```shell
-pixi run setup
+pixi run build-release-gfortran
 ```
 
-```shell
-pixi run build
-```
+We can also build from VSCode:
+Press `Cntrl + Shift + P > Tasks: Run build task > Build Release (gfortran)`.
 
 ## Deubugging
 
@@ -171,8 +165,10 @@ Windows Subsystem for Linux (WSL).
 4. You may have multiple WSL distributions. Choose the appropriate one.
 5. Open an existing folder: `File > Open Folder`; choose the `gflow1` directory.
 6. Press ``Cntrl + ` `` to open the VSCode terminal, and choose TERMINAL.
-7. Run `pixi run setup` and `pixi run build` to create an debug executable.
-8. Set the `program`, `miDebuggerPath`, `cwd`, and `args` entries to their appropriate values.
+7. Press `Cntrl + Shift + P > Tasks: Run build task > Build Debug (gfortran)`;
+   alternatively run `pixi build-debug-gfortran` from the command line.
+8. Set the `program`, `miDebuggerPath`, `cwd`, and `args` entries to their
+   appropriate values.
 9. Place a breakpoint somewhere, and start the debugger from the VSCode menu on
    the left or via `Cntrl + Shift + D`. Choose `Debug (gdb)`.
 

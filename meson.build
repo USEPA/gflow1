@@ -108,9 +108,12 @@ src = [
     'src/wlserv.for',
 ]
 incdir = include_directories('./src')
+project_bin_dir = join_paths(meson.current_source_dir(), 'bin')
 executable(
     'gflow2',
     sources: [main_file] + src,
     include_directories: incdir,
     fortran_args : compile_args,
+    install: true,
+    install_dir: project_bin_dir,
 )

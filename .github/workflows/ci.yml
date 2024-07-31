@@ -33,7 +33,8 @@ jobs:
         with:
           compiler: gcc
 
-      - name: build
-        run: pixi run build-gfortran-release
+      - name: Build GFLOW executable
+        run: pixi run build-release-gfortran
+
       - name: Run Tests
         run: pixi run test

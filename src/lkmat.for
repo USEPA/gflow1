@@ -122,9 +122,9 @@ c
      &           cz1,cz2,cz3,cz
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      INCLUDE 'TRACOM.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
       DIMENSION CZI(mtot),DRFAC(4,mtot),CALPH(mtot),ITYPE(mtot)
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),
      &          ilkresolution(nrow,ncol),rlkleakage(nrow,ncol)
@@ -267,8 +267,8 @@ c
       COMPLEX(8) CZI,CALPH,CZ1,CZ2,CZ3,CZ0,CZ,CZA,
      &           comega,cdum1,cdum2,comls,cflk_omega_par,cdum,
      &           cflk_omega_coefficient
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DRA(M,N),CZI(M),CALPH(M),ITYPE(M)
       DIMENSION rlkconst(nrow,ncol+1),ilkresolution(nrow,ncol)
 c
@@ -397,8 +397,8 @@ c
      &           czref
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DRA(M,N),CZI(M),CALPH(M),ITYPE(M)
       DIMENSION rlkconst(nrow,ncol+1),rlkresist(nrow,ncol),
      &          rlkpot(nrow,ncol),rlkheadlower(nrow,ncol),
@@ -702,8 +702,8 @@ c
      &           czref
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DRB(n),CZI(n)
       DIMENSION rlkconst(nrow,ncol+1),rlkresist(nrow,ncol),
      &          rlkpot(nrow,ncol),rlkleakage(nrow,ncol),
@@ -904,8 +904,8 @@ c
       COMPLEX(8) CZI,CZ,cz0,cz1,cz2,cz3,cflk_subomega,CZref
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DRSCR(m),CZI(m)
       DIMENSION rlkpot(nrow,ncol),ilkresolution(nrow,ncol),
      &          rlksubpotupper(nbuf),rlkheadlower(nrow,ncol),
@@ -1091,8 +1091,8 @@ c
       COMPLEX(8) CZI,CZ,cz0,cz1,cz2,cz3,CZref
       CHARACTER(8) aBasenameOut
       CHARACTER(16)aDateTimeOut
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION CZI(m)
       DIMENSION rlkpot(nrow,ncol),ilkresolution(nrow,ncol),
      &          rlksubpotupper(nbuf)
@@ -1184,8 +1184,8 @@ c
       INTEGER(4) J,nrow,ncol,irow,jcol,
      &           ilkresolution, iresolution
       REAL(8) DRB,rdx,rdy,rlkleakage
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       DIMENSION DRB(*)
       DIMENSION rlkleakage(nrow,ncol),ilkresolution(nrow,ncol)
 c
@@ -1248,7 +1248,7 @@ c
      &                 ilkresolution(nrow,ncol),
      &                 rlksubheadlower(nbuf),rlksubleakage(nbuf)
       INCLUDE 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
       write (iluer,1000)
  1000 format (' Warning: routine lksolve-actual is called,',
      &         '  but is not up-to-date!')
@@ -1310,8 +1310,8 @@ c
       COMPLEX(8) czi
       DIMENSION dra(m,n),drfac(4,m),czi(m),itype(m),lskip(m),
      &          ilkresolution(nrow,ncol),rlksublambda2init(nbuf)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
       mloc=m  ! do not change "m" !!
       if (lkleakage.and.lksolving.and.lkaveragehead) then
@@ -1404,7 +1404,7 @@ c
       LOGICAL lflkincludesubgrid
       REAL(8) dra,drb,drscr
       DIMENSION dra(imxsze,nstr),drb(imxsze),drscr(imxsze)
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       if (lkleakage.and.lflkincludesubgrid()) then
       nouter_local=nouter    ! this way ninner and nouter cannot accidentally be reset
@@ -1444,8 +1444,8 @@ c
       ALLOCATABLE rtems(:,:),rtemp(:,:),cztemp(:,:)
       parameter (itemp=25,relax=0.02)   !!!!!!!!!!!!! NOTE: select under- or over-relaxation.
       save
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
       if (lkleakage.and.lflkincludesubgrid()) then
        if (.not.ALLOCATED(rtemp)) then ! not yet allocated, do so
@@ -1660,8 +1660,8 @@ c
       ALLOCATABLE rmat(:,:),rkno(:),rlab2(:,:),scr1(:),scr2(:)
       parameter (relax=0.02)   !!!!!!!!!!!!! NOTE: select under- or over-relaxation.   Not used at present!
       save
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
       nouter=nouterin
       if (lkleakage.and.lflkincludesubgrid()) then

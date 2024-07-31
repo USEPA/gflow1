@@ -77,8 +77,8 @@ c
      &            ilkresolution(:,:),rlkrecharge(:,:),
      &            rlksubheadlower(:),rlksubleakage(:),
      &            rlksubpotupper(:),rlksublambda2init(:),ilkpointer(:,:)
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       DATA AWORD/ 'O','R','I','G',' ',
      .            'S','O','L','V',' ',
      .            'C','H','E','C',' ',
@@ -655,8 +655,8 @@ c
       INTEGER nrow,ncol,nbuf
       REAL(8) rdum1,rdum2,rlkdeltay
       DIMENSION rlkdeltay(nrow)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
       lkleakage=.TRUE. ! authorize leakage calulations
       nlkrowsize=nrow
@@ -676,8 +676,8 @@ c
       implicit none
       INTEGER idum1,idum2,idum3,idum4
       REAL(8) rdum1
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
       lksolving=idum1.eq.1
       lkaveragehead=idum2.eq.1
@@ -707,7 +707,7 @@ c
      &        RK0,RH0,RHED0,RB0,RP0
       COMPLEX cz0,cz1,cz2,comls
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkconst(nrow,ncol+1)
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       call GVPAR (RK0,RH0,RHED0,RB0,RP0,CZ0)
 c
@@ -736,7 +736,7 @@ c
 c     passing lksolving
 c
       implicit none
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       lflksolving=lksolving
 c
@@ -750,7 +750,7 @@ c
 c     passing lkleakage
 c
       implicit none
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
 c
       lfleakage=lkleakage
 c
@@ -778,8 +778,8 @@ c
       DIMENSION rlkheadlower(nrow,ncol),rlksubheadlower(nbuf),
      &          ilkresolution(nrow,ncol),ilkpointer(nrow,ncol)
       ALLOCATABLE rbuf(:,:)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       save
 c
       if (lknosubgridfile) return
@@ -1077,8 +1077,8 @@ c
 !      DIMENSION rcoef(k,k),rknots(8), ! rknots over-dimensioned: calculated dimension = 6
 !     &          rscr(30), ! rscr over-dimensioned: calculated = 27
 !     &          rxc(npts),ryc(npts),rhed(k,k),rbuf(ires,ires)
-!      include 'lkcom.inc'
-!      include 'lusys.inc'
+!      INCLUDE 'lkcom.inc'
+!      INCLUDE 'lusys.inc'
 !      save
 c
 !      if (nrow.ge.5.and.ncol.ge.5) then   ! OK MODFLOW grid large enough to do interpolation

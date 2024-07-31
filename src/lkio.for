@@ -58,8 +58,8 @@ C
      &        nrow,ncol,nbuf
       LOGICAL LDUM      
       REAL(8) RVERSION
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       save
 C
       if (ierr.ne.0) return
@@ -119,8 +119,8 @@ C
      &          ilkresolution(nrow,ncol),rlkrecharge(nrow,ncol),
      &          rlksubpotupper(nbuf),ilkpointer(nrow,ncol),
      &          rlksublambda2init(nbuf)
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       save
 C
       ntot=nrow*ncol
@@ -210,9 +210,9 @@ c
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkleakage(nrow,ncol),ilkresolution(nrow,ncol)
       ALLOCATABLE scratch(:,:)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
        if (.not.lksolving) return
 c
@@ -318,9 +318,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkresist(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
        if (.not.lksolving) return     ! do not write resistances unless we are solving
 c
@@ -387,9 +387,9 @@ c
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkheadupper(nrow,ncol)
       DIMENSION ilkresolution(nrow,ncol)
       ALLOCATABLE scratch(:)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 
 c                                       loption2=.TRUE.  ! implement option 2 (default is option 1), see comments above.
                                        loption2=.false.  ! implement option 1 (default is option 1), see comments above.
@@ -525,8 +525,8 @@ c
       REAL(8) rdum,rvar
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -606,9 +606,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       REAL(8) rlkdeltax,rlkdeltay,rvar
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
       Dimension rlkdeltax(ncol),rlkdeltay(nrow)
 
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
@@ -706,8 +706,8 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       ALLOCATABLE iresolution(:)
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -783,9 +783,9 @@ c
       CHARACTER*16 aDateTimeOut
       DIMENSION ilkpointer(nlkrowsize,nlkcolsize)
       DIMENSION ilkresolution(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       lknosubgridfile=lnofile ! set this in lkcom.inc
       if (lknosubgridfile) then
@@ -851,9 +851,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkheadlower(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       if (.not.lksolving) then
        rlkheadlower(1:nrow,1:ncol)=0.0d0
@@ -927,9 +927,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkresist(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       if (.not.lksolving) then
        do i=1,nlkrowsize
@@ -988,9 +988,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkresist(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       if (.not.lksolving) then
        rlkresist(1:nrow,1:ncol)=0.0d0
@@ -1047,9 +1047,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkleakage(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -1106,9 +1106,9 @@ c
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkleakage(nrow,ncol),ilkresolution(nrow,ncol),
      &          rtemp(ncol),drb(m)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       if (lkleakage.and.lksolving) then   ! only do so if we are actually solving for leakages
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
@@ -1174,9 +1174,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkrecharge(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -1235,9 +1235,9 @@ c
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkheadlower(nrow,ncol)
       ALLOCATABLE scratch(:)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
@@ -1298,9 +1298,9 @@ c
       CHARACTER*8 aBasenameOut
       CHARACTER*16 aDateTimeOut
       DIMENSION rlkpercenterror(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
       if (.not.lksolving) RETURN ! do not write leakage errors if no leakage solution
 c
@@ -1344,8 +1344,8 @@ c
       REAL(8) rlkheadlower,rlkheadupper,rlkleakage
       DIMENSION rlkheadlower(nrow,ncol),rlkheadupper(nrow,ncol),
      &                    rlkleakage(nrow,ncol),idt(8)
-      include 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'lkcom.inc'
 c
       if (.not.lksolving) RETURN ! Do not write monitoring file if no leakage solution, hence no iterations between GFLOW and MODFLOW
 c

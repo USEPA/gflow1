@@ -49,7 +49,7 @@ c
       COMPLEX(8) cz0,cz1,cz2,cz3
       DIMENSION rlkdeltax(*),rlkdeltay(*)
       INCLUDE 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
       if (lkleakage) then
       rx1=rlkx0+SUM(rlkdeltax(1:j))
@@ -73,7 +73,7 @@ c     Return potential due to all leakage elements in MODFLOW grid
 c
       implicit none
       COMPLEX(8) cz,cfunc
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
       cflk_omega=CMPLX(0.0,0.0)
       if (lkleakage) then
        call cflk_omega_sub (cz,cfunc)
@@ -99,8 +99,8 @@ c
       COMPLEX(8) cz,cfunc,cz1,cz2,comls,cflk_omega_par,cdum
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkleakage(nrow,ncol),
      &          rlkrecharge(nrow,ncol),rlkconst(nrow,ncol+1)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
 c
 c                   >> include all line-sinks (along vertical grid lines)
 c
@@ -202,7 +202,7 @@ C
       LOGICAL lfar
       REAL(8) DCOF,dpi
       COMPLEX(8) cz,cz1,cz2,cdum1,cdum2,CBZ,cfbigz,cdi
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA ndbtrm,cdi,dpi /17,(0.0,1.0),.3141592653589793D+1/
       DATA DCOF /0.3333333333333333D0,0.0D0,
@@ -252,7 +252,7 @@ c
       REAL(8) rqi,rq3
       COMPLEX(8) cz,cfunc
       DIMENSION rqi(3)
-      include 'lkcom.inc'
+      INCLUDE 'lkcom.inc'
       if (lkleakage) then
        rq3=0.0
        call cflk_W_sub (cz,cfunc,rq3)
@@ -279,9 +279,9 @@ c
       COMPLEX(8) cz,cfunc,cz1,cz2,cdls,cflk_W_par,cdum
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),rlkleakage(nrow,ncol),
      &          rlkrecharge(nrow,ncol)
-      include 'lkcom.inc'
-      include 'com3d.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lusys.inc'
 c
 c                   >> include all line-sinks (along vertical grid lines)
 c
@@ -393,7 +393,7 @@ C
       LOGICAL lfar
       REAL(8) DCOF,dpi
       COMPLEX(8) cz,cz1,cz2,cdum1,cdum2,CBZ,cfbigz,cdi
-      INCLUDE 'LUSYS.INC'
+      INCLUDE 'lusys.inc'
       DIMENSION DCOF(21)
       DATA ndbtrm,cdi,dpi /17,(0.0,1.0),.3141592653589793D+1/
       DATA DCOF /
@@ -441,8 +441,8 @@ c     Return potential due to all subgrid leakage elements (sub-cells) in MODFLO
 c
       implicit none
       COMPLEX(8) cz,cfunc
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       cflk_subomega=CMPLX(0.0,0.0)
       if (lkleakage) then
        call cflk_subomega_sub (cz,cfunc)
@@ -477,8 +477,8 @@ c
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),ilkpointer(nrow,ncol),
      &          ilkresolution(nrow,ncol),rlkconst(nrow,ncol+1),
      &          rlksubleakage(nbuf)
-      include 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'lkcom.inc'
 c
       cfunc=CMPLX(0.0d0,0.0d0)
       lseries=.false.
@@ -563,8 +563,8 @@ c
      &           czm,cbz
       DIMENSION rlksubleakage(nbuf)
       ALLOCATABLE ca(:,:),cas(:),rsall(:),czm(:),rphim(:)
-      include 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'lkcom.inc'
       save    ! to keep the allocated arrays
 c
       if (istart+ires*ires-1.gt.nbuf) THEN ! bail out, buffer overrun
@@ -740,8 +740,8 @@ c
       REAL(8) rqi,rq3
       COMPLEX(8) cz,cfunc
       DIMENSION rqi(3)
-      include 'lkcom.inc'
-      include 'lusys.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
       if (lkleakage) then
       rq3=0.0
       call lk_subW_sub (cz,cfunc,rq3)
@@ -773,8 +773,8 @@ c
       COMPLEX(8) cz,cz0,cfunc,cfuncMF
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),ilkpointer(nrow,ncol),
      &          ilkresolution(nrow,ncol),rlksubleakage(nbuf)
-      include 'lusys.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'lkcom.inc'
 c
       cfunc=CMPLX(0.0d0,0.0d0)
       rq3=0.0d0
@@ -867,9 +867,9 @@ c
      &           cdum
       DIMENSION rlksubleakage(nbuf)
       ALLOCATABLE ca(:,:),cas(:),rsall(:),czm(:),rphim(:)
-      include 'lusys.inc'
-      include 'com3d.inc'
-      include 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'com3d.inc'
+      INCLUDE 'lkcom.inc'
       cfunc=CMPLX(0.0d0,0.0d0)
       rq3=0.0d0
       if (istart+ires*ires-1.gt.nbuf) THEN ! bail out, buffer overrun
@@ -1044,7 +1044,7 @@ c
       REAL(8) rconst,rdxx,rdyy,rx,ry
       COMPLEX(8) cz,cz0,cz1,cz2,cz3,cdum,cdum1,cdum2,comls,
      &           cflk_omega_par
-      include 'lusys.inc'
+      INCLUDE 'lusys.inc'
 c
 c     cell structure:
 c

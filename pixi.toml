@@ -1,0 +1,12 @@
+[project]
+name = "gflow1"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "linux-aarch64", "osx-arm64", "osx-64"]
+version = "0.0.1"
+
+[tasks]
+setup = "meson setup builddir --libdir=bin --bindir=bin"
+build = "meson install -C builddir"
+
+[dependencies]
+meson = ">=1.5.0,<1.6"

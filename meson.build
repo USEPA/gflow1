@@ -11,6 +11,7 @@ project(
   
 compiler = meson.get_compiler('fortran')
 compiler_id = compiler.get_id()
+compile_args = []
 if compiler_id == 'gcc'
   # General options
   compile_args += ['-std=legacy', '-fno-align-commons', '-freal-4-real-8']

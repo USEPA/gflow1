@@ -254,6 +254,7 @@ C
 C     Single aquifer Dupuit-Forhheimer model for conjunctive surface water
 C     and groundwater flow in both confined and unconfined aquifers. 
 C
+      use lahey_utils
       IMPLICIT NONE
       INTEGER NEQCOM,NEQMAX,NCHA,I,NCHAR1,NCHAR2,IDUM,
      &        NEQ,IERR,IMXSZE,IVAR,ngridsize, cmdstatus
@@ -274,19 +275,8 @@ c
 C
 C     parse the GFLOW1.EXE command line
 C
-C      CALL GETCL (ACLINE)
-
-      CALL getarg(1, ACLINE)
-      IF (LEN_TRIM(ACLINE) > 0) THEN
-         CONTINUE
-      ELSE
-         STOP
-      END IF
-
-      DO NCHA = 1, LEN(ACLINE)
-        IF (ACLINE(NCHA:NCHA).EQ.' ') EXIT
-      END DO
-      NCHA = NCHA - 1
+      CALL GETCL (ACLINE)
+      NCHA=NBLANK(ACLINE)
       DO 3 I=1,132
       ALINE(I)=' '
   3   CONTINUE      
@@ -337,6 +327,7 @@ C
 C
 C -----------------------------------------------------------------------------
 C
+      use lahey_utils
       IMPLICIT NONE
       LOGICAL LDATACHANGE,LBAD,LESCAP,LTWL,lDirectFromDiskTemp,
      &        LDBBOTTOMOFF,LDBBOTTOMON,LFLSLAKEITERATIONS,lfleakage,
@@ -423,10 +414,7 @@ C
       IF (LMISS.OR.LERROR) THEN ! failed to read a filename
         NCHA=0
       ELSE                      ! get filename length for parsing
-        DO NCHA = 1, LEN(AFILE2)
-          IF(AFILE2(NCHA:NCHA).EQ.' ') EXIT
-        END DO
-        NCHA = NCHA - 1
+        NCHA=NBLANK(AFILE2)
       ENDIF
       LMISS=.FALSE.
       LERROR=.FALSE.
@@ -508,9 +496,9 @@ c     &         ' igrsize=',i5)
           CALL HALT(2) ! stop program execution for batch version
         end if
       end if
-c      !call timer (iticks1)
+c      call timer (iticks1)
       CALL GRIDIN (DRA,IGRSIZE)
-c      !call timer (iticks2)
+c      call timer (iticks2)
 c      iticks=iticks2-iticks1
 c      write (iluer,1234) iticks
 c 1234 format (' setup1234: time for grid=',i10)
@@ -659,8 +647,8 @@ c
       open (UNIT=ilutmp,FILE='gfmfmonitor.dat',RECL=132,
      &      POSITION='append',iostat=ierr)
       if (ierr.ne.0) THEN ! failed to open file, abort
-C       call IOSTAT_MSG (ierr,amessage)
-       write (iluer,1010) ierr
+       call IOSTAT_MSG (ierr,amessage)
+       write (iluer,1010) amessage
  1010  format ('Failed to open -gfmfmonitor.dat- in Setup.',/,
      & 'Error number is ',i5,' Error message is:',/,
      & a256,/)
@@ -825,7 +813,7 @@ c                     --------------------------------------------
       WRITE (ILUME,6300)
       LSOL=.FALSE.
       LGRCOM=.FALSE.    ! grid no longer compatible
-c      !call timer (ILAYER) ! ILAYER used as a code to identify a solution
+c      call timer (ILAYER) ! ILAYER used as a code to identify a solution
       ENDIF
       ENDIF         ! end solve streamflow only
 c                   -----------------------------------------------
@@ -844,7 +832,7 @@ c                   -----------------------------------------------
 c
 c     start timing the solution procedure
 c
-c  505 !call timer (iticks1)
+  505 call timer(iticks1)
 c
       DO I=1,ITER
       WRITE (*,6100)
@@ -875,7 +863,7 @@ c
 c     end timing solution procedure
 c
  510  continue
-      !call timer (iticks2)
+      call timer (iticks2)
       iticks=iticks2-iticks1
       write (ilume,2222) iticks
  2222 format (' TOTAL SOLUTION TIME =                             ',i10,
@@ -918,7 +906,7 @@ c     end of logic to add iterations for base jump
 c
   511 call lslakewaterbalance(.FALSE.,lErrorReport) ! write lake water balance at end of inner loop
 c
-c      IF (LFLSLAKEITERATIONS(NOUTERLOOP).and..not.lakedone) GOTO 505
+      IF (LFLSLAKEITERATIONS(NOUTERLOOP).and..not.lakedone) GOTO 505
 c
 c     Solution procedure is complete, wrap up calculations and error reporting
 c
@@ -949,33 +937,28 @@ c                                       set lErrorReport=true to force a report
 C
 C     failure to create matrix files, halt program
 C
-c 512  call iostat_msg(istatus,amessage)
- 512  write (*,9097) istatus ! error in allocating file
-      write (ilume,9097) istatus
+ 512  call iostat_msg(istatus,amessage)
+      write (ilume,9097) amessage
       AMESS(1)='Error allocating matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
-c 513  call iostat_msg(istatus,amessage)
- 513  write (*,9098) istatus ! error in allocating file
-      write (ilume,9098) istatus
+ 513  call iostat_msg(istatus,amessage)
+      write (ilume,9098) amessage
       AMESS(1)='Error allocating decomposed matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
-c 514  call iostat_msg(istatus,amessage)
-  514 write (*,9097) istatus ! error in allocating file
-      write (ilume,9097) istatus
+  514  call iostat_msg(istatus,amessage)
+      write (ilume,9097) amessage
       AMESS(1)='Error opening matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
-c 515  call iostat_msg(istatus,amessage)
-  515 write (*,9098) istatus ! error in allocating file
-      write (ilume,9098) istatus
+  515  call iostat_msg(istatus,amessage)
+      write (ilume,9098) amessage
       AMESS(1)='Error opening decomposed matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version
-c 516  call iostat_msg(istatus,amessage)
-  516    write (*,9099) istatus ! error in allocating file
-      write (ilume,9099) istatus
+  516  call iostat_msg(istatus,amessage)
+      write (ilume,9099) amessage
       AMESS(1)='Error reading from matrix file on disk.'
       AMESS(2)='See IO error in Message.log file. Execution halted.'
       CALL HALT(2) ! stop program execution for batch version

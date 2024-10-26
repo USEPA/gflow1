@@ -29,6 +29,7 @@ c   if niter=0 and lErrorReport=.false. only an error report will be issued.
 c
 c
 C      
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) IMXSZE,ITYPE,IPIV,NITER,I,ITER,M,N,N1,J,igs,neffective,
      &           iticks,iticks1,iticks2,iticks3,iticks4,ItickStart,
@@ -82,8 +83,8 @@ c
       if (lnotczi) then
         ALLOCATE (czi_short(imxsze),czi_long(imxsze),stat=ierr)   ! allocate scratch arrays
         if (ierr.ne.0) then
-c          call iostat_msg (ierr,amessage)
-          write (ilume,1111) ierr
+          call iostat_msg (ierr,amessage)
+          write (ilume,1111) amessage
  1111     format (a132)
           deallocate (czi_short,czi_long)
           write (ilume,8000) imxsze
@@ -103,8 +104,8 @@ c
       if (lnotlskip) then
         ALLOCATE (lskip(imxsze),stat=ierr)   ! allocate an extra scratch array, when solving over disc
         if (ierr.ne.0) then
-c          call iostat_msg (ierr,amessage)
-          write (ilume,1112) ierr
+          call iostat_msg (ierr,amessage)
+          write (ilume,1112) amessage
  1112     format (a132)
           deallocate (lskip)
           write (ilume,8001) imxsze
@@ -139,7 +140,7 @@ c        CALL DIERROR (RERMAX)
 c
 c ---- NITER>0 get ready to generate a solution ---------------------
 c
-      !call timer (iticks1)
+      call timer (iticks1)
       DO I=1,IMXSZE     ! INITIALIZE ARRAYS
       DRSCR(I)=0.0D00
       if (nsol.eq.0) DRB(I)=0.0D00  ! else it may contain line-sink or leakage element strenghts differences
@@ -176,7 +177,7 @@ c Note: this is one step, while for line-sink strength we first store old values
        endif
        lkeepsigmadone=.true.
       end if
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9002) iticks
  9002 format(' Array initialization execution time=               ',i10,
@@ -194,7 +195,7 @@ c     start groundwater flow solution iterations
 c     ------------------------------------------
 c
   5   DO  30 ITER=1,NITER
-      !call timer (ItickStart)
+      call timer (ItickStart)
       M=0
       N=0
       lskip(1:imxsze)=.false.
@@ -207,7 +208,7 @@ c
       if (LerrorReport) write (ilume,9010)
       if (LerrorReport) write (*,9010)
  9010 format (' generating collocation point vector')
-      !call timer  (iticks1)
+      call timer  (iticks1)
       N1=N
 c      if (lsolvefirst) then
 c        ntemp=1
@@ -258,7 +259,7 @@ c
           CALL HALT(3) ! stop program execution for batch version
       end if
 c
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9011) iticks
  9011 format(' Collocation point vector execution time=           ',i10,
@@ -271,7 +272,7 @@ c
 c Note: this must be done because line-sink strengths may have been changed in LSCZC
 c       such changes will be stored in drb
 c
-      !call timer  (iticks1)
+      call timer  (iticks1)
       if (nsol.gt.0) then  ! load initial matrix and use to store known vector array updates in DRSCR
         call LoadMatrix (dra,m,n,lErrorReport,ltimer)
         call initialupdate (dra,drb,drscr,m,n,lErrorReport)
@@ -317,7 +318,7 @@ c
 c
       end if ! End of debugging of known vector update routines
 c
-      !call timer (iticks2)
+      call timer (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9044) iticks
  9044 format(' Known vector arrays update execution time=         ',i10,
@@ -354,9 +355,9 @@ c     construction of matrix
 c     ----------------------
 c
       IF (LSOLVEFIRST.or.lWrongFile) THEN ! matrix construction will only be done once
-        !call timer  (iticks1)
+        call timer  (iticks1)
         DRA(1:M,1:N)=0.0D0 ! initialize matrix
-        !call timer  (iticks2)
+        call timer  (iticks2)
         iticks=iticks2-iticks1
         if (ltimer) write (ilume,9012) iticks
  9012 format(' Initializing of matrix coefficients time=          ',i10,
@@ -365,7 +366,7 @@ c
         if (LerrorReport) write (ilume,9020)
         if (LerrorReport) write (*,9020)
  9020   format (' generating matrix coefficients')
-        !call timer  (iticks1)
+        call timer  (iticks1)
         CALL LSGENMAT (DRA,CZI,M,N,J,DRFAC,CALPH,ITYPE,
      &                 lDirectFromDisk,ltimer)
         CALL DBGENMAT (DRA,CZI,M,N,J,DRFAC,CALPH,ITYPE)
@@ -380,7 +381,7 @@ c        call matrixrowout  (dra,m,500,'matrix row 500 lk')     !!!!!!!!!! debug
 C        CALL PDMAT (DRA,CZI,N,J,DRFAC,CALPH,ITYPE)
 C        CALL DIMAT (DRA,CZI,N,J,DRFAC,CALPH,ITYPE)
 c        CALL LKMAT (DRA,CZI,N,J,DRFAC,CALPH,ITYPE)
-        !call timer  (iticks2)
+        call timer  (iticks2)
         iticks=iticks2-iticks1
         if (ltimer) write (ilume,9013) iticks
  9013 format(' Matrix generation execution time=                  ',i10,
@@ -486,7 +487,7 @@ c                      ----------------------------
       if (LerrorReport) write (ilume,9030)
       if (LerrorReport) write (*,9030)
  9030 format (' generating known vector')
-      !call timer  (iticks1)
+      call timer  (iticks1)
       drb(1:n)=0.0d0 ! initialize known vector
       J=0
       CALL LSKNO (DRB,J,czi_short,ITYPE,lDirectFromDisk)
@@ -499,7 +500,7 @@ C      CALL PDKNO (DRB,J,CZI)
 C      CALL DIKNO (DRB,J,CZI)
 C      CALL LKKNO (DRB,J,CZI)
 c
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9031) iticks
  9031 format(' Knownvector execution time=                        ',i10,
@@ -521,9 +522,9 @@ c                                    --------------------
         if (LerrorReport) write (ilume,9040)
         if (LerrorReport) write (*,9040)
  9040   format (' decomposing the matrix')
-        !call timer  (iticks1)
+        call timer  (iticks1)
         CALL DECOMP (N,DRA,DRCOND,IPIV,DRSCR,DRFAC)
-        !call timer  (iticks2)
+        call timer  (iticks2)
         iticks=iticks2-iticks1
         if (ltimer) write (ilume,9041) iticks
  9041 format(' DECOMP execution time=                             ',i10,
@@ -546,7 +547,7 @@ c                               --------------------------------
         if (LerrorReport) write (ilume,9050)
         if (LerrorReport) write (*,9050)
  9050  format (' forward elimination and back substitution (solve)')
-        !call timer  (iticks1)
+        call timer  (iticks1)
         if (.not.lDirectFromDisk) then   ! could be on first iteration
            CALL SOLVE (N,DRA,DRB,IPIV) ! forward elimination and back substitution
         else  ! this occurs when both "lsolvefirst" and "ldirectfromdisk" are true
@@ -563,7 +564,7 @@ c
           call Sherman_Morrison (n,dra,drb,ipiv,lskip,
      &                       lErrorReport,ltimer)
 c
-          !call timer  (iticks2)
+          call timer  (iticks2)
           iticks=iticks2-iticks1
           if (ltimer) write (ilume,9051) iticks
  9051 format(' SOLVE execution time=                              ',i10,
@@ -581,7 +582,7 @@ c           Both the decomposed and the original matrixes are also loaded in the
 c     WARNING: m=m_original here and only "n" rows of the original coefficient matrix is loaded
 c              in the Sherman-Morrison routine. OK as long as LK-routines are last (save for GV-routines).
 c
-          !call timer (iticks1)
+          call timer (iticks1)
           do i=1,n              ! set LSKIP and adjust known vector DRB
            if (lskip(i))  drb(i)=0.0d0
 c         write (ilume,1002) i,lskip(i)                                  !   DEBUGGING!!!!
@@ -592,7 +593,7 @@ c     create solution based on stored matrix and skipped equations
 c
           call Sherman_Morrison (n,dra,drb,ipiv,lskip,
      &                       lErrorReport,ltimer)
-          !call timer (iticks2)
+          call timer (iticks2)
           iticks=iticks2-iticks1
           if (ltimer) write (ilume,9045) iticks
  9045 format(' DirectFromDisk (Sherman_Morrison) execution time=  ',i10,
@@ -607,7 +608,7 @@ c                        -----------------------------------
       if (LerrorReport) write (ilume,9060)
       if (LerrorReport) write (*,9060)
  9060 format (' substituting the solution vector')
-      !call timer  (iticks1)
+      call timer  (iticks1)
       J=0
       CALL LSSUB (DRB,J)
       CALL DBSUB (DRB,J)
@@ -618,7 +619,7 @@ c                        -----------------------------------
 C      CALL PDSUB (DRB,J)
 C      CALL DISUB (DRB,J)
 C      CALL LKSUB (DRB,J)
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9061) iticks
  9061 format(' Substitution of solution vector execution time=    ',i10,
@@ -636,7 +637,7 @@ c                 -------------------------------------------------------------
 c
 c               WARNING: Make sure DRB is not changed in SUB routines or before the calls below!!
 c
-      !call timer  (iticks1)
+      call timer  (iticks1)
       call LoadMatrix (dra,m,n,lErrorReport,ltimer)  !!! NOW we have DRA(m,n) M X N matrix
       call initialupdate (dra,drb,drscr,m,n,lErrorReport) ! use initial matrix to generate modifications of known vector arrays
 c
@@ -658,13 +659,13 @@ c     &,/,'has been (re)created and before error report ')
           AMESS(2)='Contact technical support.'
           CALL HALT(2) ! stop program execution for batch version
         endif
-      !call timer (iticks2)
+      call timer (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9044) iticks
 c
       if (lflkincludesubgrid()) then
 c
-       !call timer (iticks1)
+       call timer (iticks1)
 c
 c              -------------------------------------------
 c              solve sub-cells separately
@@ -680,7 +681,7 @@ c
 c
 c      write (iluer,4567) n,drb(1:n)
 c 4567 format (' Solut4567: n, drb(1:n) ',i4,2x,10(d14.7))
-      !call timer (iticks2)
+      call timer (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9088) iticks
  9088 format(' Solution process of subgrids    execution time=    ',i10,
@@ -737,7 +738,7 @@ c
           AMESS(2)='Contact technical support.'
           CALL HALT(2) ! stop program execution for batch version
         endif
-      !call timer (iticks2)
+      call timer (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9044) iticks
 c
@@ -747,10 +748,10 @@ c
 c                                ---------------------------
 c                                cleanup and error reporting
 c                                ---------------------------
-      !call timer (iticks1)
+      call timer (iticks1)
       CALL DBPREP (czreset) ! reset the "previous point" memory in DBPREP
       RDUM=RFPOT(czreset)   ! reset the "previous point" memory in RFPOT
-      !call timer (iticks2)
+      call timer (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,9082) iticks
  9082 format(' cleanup                             execution time=',i10,
@@ -763,7 +764,7 @@ c                                ---------------------------
        write (ilume,9070)
        write (*,9070)
  9070  format (' checking boundary conditions')
-       !call timer  (iticks1)
+       call timer  (iticks1)
        lquit=.TRUE. ! anticipate that GW solution may have converged.
 c                      lquit may be set FALSE in any of the XXERROR routines.
 c       write (ilume,9999) nsol,minimum_iterations,lquit
@@ -783,7 +784,7 @@ c       write (ilume,9999) nsol,minimum_iterations,lquit
        if (nsol.lt.minimum_iterations) lquit=.false. ! don't abort yet
 c       write (ilume,9999) nsol,minimum_iterations,lquit
 c 9999  format (' solut: nsol,minimum_iterations,lquit ',i3,i3,l3)
-       !call timer  (iticks2)
+       call timer  (iticks2)
        iticks=iticks2-iticks1
        if (ltimer) write (ilume,9071) iticks
  9071  format(' Check BC execution time=                          ',i10,
@@ -791,7 +792,7 @@ c 9999  format (' solut: nsol,minimum_iterations,lquit ',i3,i3,l3)
       endif
       write (ilume,7000)
       IF (lquit) GOTO 31
-      !call timer (ItickEnd)
+      call timer (ItickEnd)
       iticks=ItickEnd-ItickStart
       if (ltimer) write (ilume,9081) iticks
  9081 format(' Iteration total execution time=                    ',i10,
@@ -821,7 +822,7 @@ c      write (ilume,3456)
 c 3456 format ('solut3456: we are now updating after a sub-cell solution'
 c     & ' for a single MODFLOW cell'
 c     &,/,' We are in the ENTRY update in SOLUT.')
-      !call timer (iticks3)
+      call timer (iticks3)
       call lsupdate (drscr,j,m,n,.FALSE.,0)
       call dbupdate (drscr,j,m,n,czi_long,calph,.FALSE.,0)
       call wlupdate (drscr,j,m,n,czi_long,.FALSE.,0)
@@ -834,7 +835,7 @@ c     &,/,' We are in the ENTRY update in SOLUT.')
           AMESS(2)='Contact technical support.'
           CALL HALT(2) ! stop program execution for batch version
         endif
-       !call timer  (iticks4)
+       call timer  (iticks4)
        iticks=iticks4-iticks3
        if (ltimer) write (ilume,9077) iticks
  9077 format(' Known vector arrays update (no A*b) execution time=',i10,

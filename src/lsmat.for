@@ -510,6 +510,7 @@ c
 c     Note: use of stored matrix and solution. Make sure LSMAT is first in matrix, so that
 c           the ith head specified line-sink corresponds to the ith matrix equation
 c
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) M,N,II,IAD,I,iticks,iticks1,iticks2,iremove
       LOGICAL ltimer
@@ -520,7 +521,7 @@ c
       INCLUDE 'tracom.inc'
 c
       IF (NLSH.EQ.0) RETURN
-c     if (ltimer) call timer  (iticks1)
+      if (ltimer) call timer  (iticks1)
       i=0
       iremove=0
       DO II=1,NLSH ! check all head specified line-sinks (with or without resistance, galleries, drains, lakes)
@@ -534,7 +535,7 @@ c     if (ltimer) call timer  (iticks1)
       ENDDO
       write (ilume,1000) iremove
       if (ltimer) then
-        !call timer (iticks2)
+        call timer (iticks2)
         iticks=iticks2-iticks1
       if (ltimer) write (ilume,1001) iticks
  1001 format(' ls_remove_equations execution time=                ',i10,

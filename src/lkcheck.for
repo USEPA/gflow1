@@ -208,6 +208,7 @@ c
 c     update the potential at collocation points of leakage elements
 c
 c
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) i,j,ii,jj,nrow,ncol,n,nbuf,iad,ires0,ires2,itr,
      &           irow,jcol,ncell,ilkresolution,iresolution,iad0,ierr,
@@ -358,8 +359,8 @@ c              rs=rlkleakage(i,j)
                 ires2=ires0*ires0
                 ALLOCATE (rtrans(ires2),stat=ierr)
                 if (ierr.ne.0) then
-c                 call iostat_msg (ierr,amessage)
-                  write (ilume,1112) ierr
+                  call iostat_msg (ierr,amessage)
+                  write (ilume,1112) amessage
  1112             format (a132)
                   deallocate (rtrans)
                   write (ilume,8001) ires2

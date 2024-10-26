@@ -57,7 +57,7 @@ C
 c
 C
 C --------------------------------------------------------------------------
-C    
+C
       BLOCK DATA SETLUSYS
 C
 C --------------------------------------------------------------------------
@@ -72,7 +72,7 @@ c           logical unit 6 is reserved for default output, do not assign
 c           logical unit 10 is reserved for coefficient matrix io
 c           logical unit 11 is reserved for decomposed matrix io
 c
-C     
+C
       DATA LECHO,LUCON,LUOUTFILE /.FALSE.,.TRUE.,.FALSE./
       END
 C
@@ -122,7 +122,7 @@ C
       WRITE (ILUOUT,3000) ICALL
       IF (LUOUTFILE) WRITE (ILUME,3000) ICALL
       READ (ILUIN,4000) ADUM
-      IF (ADUM.EQ.'Q'.OR.ADUM.EQ.'q') RETURN      
+      IF (ADUM.EQ.'Q'.OR.ADUM.EQ.'q') RETURN
       ICOUNT=0
       ENDIF
       WRITE (ILUOUT,2000) CZPIEZ(I),RHPIEZ(I),APZLAB(I)
@@ -161,14 +161,14 @@ C
       WRITE (ILUOUT,1001) R3DSTO,R3DZ
       WRITE (ILUOUT,1010) (R3DCPZ(I),I=1,NY)
       WRITE (ILUOUT,1011) RETARDATION,RHALFLIFE
-      WRITE (ILUOUT,2000) ICALL      
+      WRITE (ILUOUT,2000) ICALL
       IF (LUOUTFILE) WRITE (ILUME,2000) ICALL
       READ (ILUIN,3000) ADUM
       IF (ADUM.EQ.'Q'.OR.ADUM.EQ.'q') RETURN
       WRITE (ILUOUT,1020) L3DREV,L3DEND,L3DPL,L3DHOR,L3DVER
       WRITE (ILUOUT,1030) R3DX1,R3DY1,R3DZ1
       WRITE (ILUOUT,1040) R3DX2,R3DY2,R3DZ2
-      WRITE (ILUOUT,2000) ICALL      
+      WRITE (ILUOUT,2000) ICALL
       IF (LUOUTFILE) WRITE (ILUME,2000) ICALL
       READ (ILUIN,3000) ADUM
       IF (ADUM.EQ.'Q'.OR.ADUM.EQ.'q') RETURN
@@ -183,7 +183,7 @@ C
  1040 FORMAT (' CM3DOUT: R3DX2,R3DY2,R3DZ2',3(2X,G11.4))
  2000 FORMAT (' CM3DOUT: ICALL=',I3,' press <Enter> to continue.')
  3000 FORMAT (A1)
-      END         
+      END
 C
 C --------------------------------------------------------------------------
 C
@@ -214,11 +214,11 @@ C
       IF (IERR.NE.0) WRITE (ILUER,2000) IERR
 C     Check for legal viewport parameters and correct when necessary
       IF (IX2.GT.NDOTX) IX2=NDOTX
-      IF (IY2.GT.NDOTY) IY2=NDOTY      
+      IF (IY2.GT.NDOTY) IY2=NDOTY
       RETURN
- 1000 FORMAT (' Writing initialization file.')      
+ 1000 FORMAT (' Writing initialization file.')
  2000 FORMAT (' Reading initialization file.')
- 3000 FORMAT (' ***ERROR: in INITIO, IERR=',I4)      
+ 3000 FORMAT (' ***ERROR: in INITIO, IERR=',I4)
       END
 C
 C --------------------------------------------------------------------------
@@ -255,7 +255,7 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
       CALL DBDATIO (ILU)
       CALL WLDATIO (ILU)
       CALL LSDATIO (ILU)
-      CALL TWDATIO (ILU)      
+      CALL TWDATIO (ILU)
       CALL W3DATIO (ILU)
       CALL DIDATIO (ILU)
       CALL ENDATIO (ILU)
@@ -265,7 +265,7 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
  1000 FORMAT ('     ----- Writing Input Data File -----')
  2000 FORMAT (' *Date: ',A8,2X, 'Time: ',A11,/,
      &        ' *Title: ',A16)
- 2500 FORMAT (' * Written by GFLOW1 version 1.1 ')     
+ 2500 FORMAT (' * Written by GFLOW1 version 1.1 ')
  3000 FORMAT (' Input data file ',A16,' has been written.')
  4000 FORMAT (' No input data file has been written.')
       END
@@ -291,17 +291,17 @@ C
       DO 10 I=1,16
       IF (ICHAR(ATITLE(I:I)).GT.32) GOTO 15
   10  CONTINUE
-      RETURN      
+      RETURN
   15  WRITE (ILU,3000) ATITLE
       RETURN
-C     
+C
  1000 FORMAT (' error error.log',/,
      &        ' yes',/,
      &        ' message nul',/,
      &        ' echo con',/,
      &        ' quit')
  2000 FORMAT (' modelorigin ',G21.14,1X,G21.14,1X,I2)
- 3000 FORMAT (' title ',A16)      
+ 3000 FORMAT (' title ',A16)
       END
 C
 C --------------------------------------------------------------------------
@@ -320,7 +320,7 @@ C
 C
       WRITE (ILU,1000)
       RETURN
-C     
+C
  1000 FORMAT (' switch',/,
      &        ' error con',/,
      &        ' message con',/,
@@ -351,11 +351,11 @@ C
       IF (R3DX1.GT.R3DX2.OR.R3DY1.GT.R3DY2.OR.R3DZ1.GT.R3DZ2) RETURN
       IF (R3DX1.EQ.R3DX2.AND.R3DY1.EQ.R3DY2.AND.R3DZ1.EQ.R3DZ2) RETURN
       WRITE (ILU,1000) R3DX1,R3DY1,R3DZ1,R3DX2,R3DY2,R3DZ2
-      ELSE  
+      ELSE
       WRITE (ILU,2000) RX1,RY1,RX2,RY2 ! write current window coordinates
       ENDIF
       RETURN
-C     
+C
  1000 FORMAT (' layout',/,
      &        ' window ',2(2F11.1,F11.3),/,
      &        ' quit')
@@ -437,7 +437,7 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
      &      800,850,900,910), jump
 c
 c     read coordinates and label
-c      
+c
  100  if (lflux) GOTO 400
       lbad=.false.
       cdum=cvar(1)
@@ -726,7 +726,7 @@ c
      &        ' Available commands:',/,
      &        ' <F1> = Help',/,' FILE  (',a,')',/,
      &        ' LINESINK (head/discharge)',/,
-     &        ' WELL     (head/discharge)',/,     
+     &        ' WELL     (head/discharge)',/,
      &        ' (x)  (y)  [z]  [label]',/,' <Esc> or QUIT',/,' >')
  3000 format ('@',10(e14.7,','),4(e21.14,','),a)
  4000 format (' x,y,z ',3(e14.7,2x),/,
@@ -773,7 +773,7 @@ C     Routine reads or writes contents of MAIN.INC to external file
 C
       IMPLICIT NONE
       INTEGER(4) ICODE,ILU,IERR
-      REAL(8) RVERSION      
+      REAL(8) RVERSION
       INCLUDE 'main.inc'
       INCLUDE 'lusys.inc'
 C
@@ -828,7 +828,7 @@ C
       END
 C
 C --------------------------------------------------------------------------
-C     
+C
       SUBROUTINE MNOUT (ICALL)
 C
 C --------------------------------------------------------------------------
@@ -860,12 +860,12 @@ C
 C
 C --------------------------------------------------------------------------
 C
-      SUBROUTINE DEBUG      
+      SUBROUTINE DEBUG
 C
 C --------------------------------------------------------------------------
 C
 C
-C     Subroutine writes all common variables 
+C     Subroutine writes all common variables
 C
       IMPLICIT NONE
       INTEGER(4) JUMP
@@ -873,8 +873,8 @@ C
       CHARACTER(1) APAR(81)
       INCLUDE 'lusys.inc'
       INCLUDE 'match.inc'
-      DATA APAR /         
-     .             'Q','U','I','T',' ', 
+      DATA APAR /
+     .             'Q','U','I','T',' ',
      .             'G','R','I','D',' ',
      .             'P','P','W','E',' ',
      .             'C','O','M','3',' ',
@@ -890,9 +890,9 @@ C
      .             'L','U','S','Y',' ',
      .             'C','H','E','C',' ',
      .             'L','E','A','K',' ',
-     .             ATERM/   
+     .             ATERM/
 C
-      LERROR=.FALSE. 
+      LERROR=.FALSE.
       LMISS=.FALSE.
 c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
   10  IF (LERROR.OR.LMISS) WRITE (ILUER,400) ALINE2
@@ -905,7 +905,7 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
       IF (.NOT.LBAD) GOTO 15
       GOTO (10,13), JUMP
   13  WRITE (ILUME,300) ALINE2
-      GOTO 10       
+      GOTO 10
   15  GOTO (900,994,995,996,997,998,999,1000,1002,1004,1006,1008,
      &      1009,1010,1020,1030),JUMP
  900  RETURN
@@ -916,33 +916,33 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
  996  CALL CM3DOUT (1)
       GOTO 10
  997  CALL GVOUT (1)
-      GOTO 10  
+      GOTO 10
  998  CALL PDOUT (1)
       GOTO 10
  999  CALL LSNKOUT (1)
       GOTO 10
  1000 CONTINUE
 C      CALL PLOUT (1)     ! NOT AVAILABLE IN BATCH MODE
-      GOTO 10 
+      GOTO 10
  1002 CALL DIOUT (1)
       GOTO 10
  1004 CALL TWOUT (1)
       GOTO 10
  1006 CONTINUE
       CALL WLOUT (1)
-      GOTO 10    
+      GOTO 10
  1008 CALL DBOUT (1)
       GOTO 10
  1009 CALL MNOUT (1)
-      GOTO 10      
+      GOTO 10
  1010 CALL LUOUT (1)
-      GOTO 10      
+      GOTO 10
  1020 CALL CHKOUT (1)
       GOTO 10
  1030 CONTINUE
 C      CALL LKOUT (1)          ! NOT AVAILABLE IN BATCH MODE
       GOTO 10
-C            
+C
  100  FORMAT (' Debug module commands:'/
      &' GRID'/' PPWEL'/' COM3D'/' GIVEN'/' SINKDISC'/' LINESINK'/' PLOT'
      &/' SD3D'/' TWELL'/' WELL'/' INHOMOGENEITY'/' MAIN'/' LUSYS'/
@@ -1065,7 +1065,7 @@ c  40  CONTINUE
       WRITE (ilume,1100) ICALL
       IF (LUOUTFILE) WRITE (ILUME,1100) ICALL
       ENDIF
-      WRITE (ilume,6000) ICALL     
+      WRITE (ilume,6000) ICALL
  1000 FORMAT ( ' M,N=',2I3/)
  1100 FORMAT ('   MATOUT: ICALL=',I3)
  1200 FORMAT (10('  ITYPE(I)=',10(I3)/))
@@ -1090,6 +1090,7 @@ C
 C
 C     Routine prints a diagnostic in GFLOW.OPS and stops program execution.
 C
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) I,NLINE,itic,itic0
       CHARACTER*1 adum
@@ -1097,9 +1098,9 @@ C
       WRITE (*,1000)
       WRITE (*,2000) (AMESS(I),I=1,NLINE)
       write (*,4000)
-      !call timer  (itic0)
+      call timer  (itic0)
       do
-      !call timer  (itic)
+      call timer  (itic)
       if (itic-itic0.gt.500) GOTO 10
       end do
    10 OPEN (UNIT=11,FILE='GFLOW.OPS',STATUS='REPLACE')
@@ -1122,7 +1123,7 @@ C
 C
 C     Routine performs a binary read or write operation to
 C     an external file.
-C      
+C
       IMPLICIT NONE
       INTEGER(4) ILU,ICODE,IERR
       LOGICAL LREAD,LWRITE,LRET
@@ -1193,7 +1194,7 @@ C ---------------------------end program spec. statements
         write (iluer,3000)
       end if
       RETURN
-  900 FORMAT (A1)      
+  900 FORMAT (A1)
  1000 FORMAT (' ***ERROR in BIO: illegal argument AIO=',A5)
  2000 format (' ***ERROR in BIO: ',a16,'.sol is incompatible ',/
      &        'with the current solver. It is an older solution file.')
@@ -1256,7 +1257,7 @@ C
       ENDIF
 C     ----------------------------------
       ENTRY CRAFIL (ILU,ITYPE,LRET,AEXT)
-C     ----------------------------------  
+C     ----------------------------------
       LERROR=.FALSE.
       LMISS=.FALSE.
       LRET=.FALSE.
@@ -1282,7 +1283,7 @@ c
         OPEN(UNIT=ILU,FILE=AFILE)
       ELSE
         OPEN(UNIT=ILU,ERR=5000,FILE=AFILE,STATUS='NEW',IOSTAT=IERR)
-      ENDIF      
+      ENDIF
       ENDIF
       IF (ITYP.EQ.3) THEN
       OPEN(UNIT=ILU,ERR=5000,ACCESS='DIRECT',FILE=AFILE,
@@ -1332,12 +1333,12 @@ C      CALL CURGET (RXC,RYC)         ! NOT AVAILABLE IN BATCH MODE
       IF (ITYP.EQ.4) THEN
       OPEN(UNIT=ILU,ERR=5000,FILE=AFILE,STATUS='UNKNOWN',RECL=132,
      &       IOSTAT=IERR)
-      ENDIF 
+      ENDIF
       IF (ITYP.EQ.5) THEN
       OPEN(UNIT=ILU,ERR=5000,FILE=AFILE,STATUS='UNKNOWN',RECL=256,
      &       IOSTAT=IERR)
-      ENDIF      
-      IF (LREP) WRITE (ILUME,9003) AFILE,ILU      
+      ENDIF
+      IF (LREP) WRITE (ILUME,9003) AFILE,ILU
       GOTO 8000
       ENDIF
       IF (ALINE(1).EQ.'N'.OR.ALINE(1).EQ.'n') THEN
@@ -1371,7 +1372,7 @@ c ----------------------- end of program execution -----------------------
       END IF
       IF (LFILEOPEN) THEN
         LRET=.FALSE.
-        LERROR=.FALSE.     
+        LERROR=.FALSE.
       ELSE
       AMESS(1)='Failure to access file.'
       AMESS(2)='Make sure the file is write enabled.'
@@ -1379,25 +1380,25 @@ c ----------------------- end of program execution -----------------------
 c---------------------- end of program execution --------------------------
       ENDIF
       RETURN
-C      
+C
  9002 FORMAT (' File ',A16,' has been opened and assigned to LU:',I3,/)
- 9102 FORMAT ('+File ',A16,' has been opened and assigned to LU:',I3) 
+ 9102 FORMAT ('+File ',A16,' has been opened and assigned to LU:',I3)
  9003 FORMAT(' File ',A16,' has been reopened and assigned to LU:',I3,/)
- 9103 FORMAT('+File ',A16,' has been reopened and assigned to LU:',I3) 
+ 9103 FORMAT('+File ',A16,' has been reopened and assigned to LU:',I3)
  9001 FORMAT(' ***ILLEGAL OR MISSING PARAMETERS IN CRFILE'/)
- 9101 FORMAT('+***ILLEGAL OR MISSING PARAMETERS IN CRFILE') 
+ 9101 FORMAT('+***ILLEGAL OR MISSING PARAMETERS IN CRFILE')
  9005 FORMAT(' Enter name of file to be created. (CR to abort IO) >')
- 9006 FORMAT('+Enter name of file to be created. (CR to abort IO) >') 
+ 9006 FORMAT('+Enter name of file to be created. (CR to abort IO) >')
  9009 FORMAT ('+                                                     ',
      &'                                        ')
- 9010 FORMAT(' File ',A16,' already exists; REPLACE? (Yes/No/Quit) >')     
+ 9010 FORMAT(' File ',A16,' already exists; REPLACE? (Yes/No/Quit) >')
  9110 FORMAT('+File ',A16,' already exists; REPLACE? (Yes/No/Quit) >')
  9011 FORMAT(' *** ERROR ',I5,' while allocating file (ITYPE=',I2,').'/)
- 9111 FORMAT('+*** ERROR ',I5,' while allocating file (ITYPE=',I2,').') 
+ 9111 FORMAT('+*** ERROR ',I5,' while allocating file (ITYPE=',I2,').')
  9012 FORMAT(' *** ERROR ',I5,' while closing file (ITYPE=',I2,').'/)
- 9112 FORMAT('+*** ERROR ',I5,' while closing file (ITYPE=',I2,').') 
+ 9112 FORMAT('+*** ERROR ',I5,' while closing file (ITYPE=',I2,').')
  9022 FORMAT(' *** INCORRECT RESPONSE:')
- 9122 FORMAT('+*** INCORRECT RESPONSE: REPLACE? (Yes/No/Quit) >') 
+ 9122 FORMAT('+*** INCORRECT RESPONSE: REPLACE? (Yes/No/Quit) >')
       END
 C
 C --------------------------------------------------------------------------
@@ -1413,7 +1414,7 @@ C     |ITYPE| = 1 unformatted file
 C     |ITYPE| = 2 formatted file
 C     |ITYPE| = 3 formatted, direct access file (recl=31)
 C     ITYPE < 0 do not report IO
-C      
+C
       IMPLICIT NONE
       INTEGER(4)ILU,ITYPE,ITYP,IERR
       LOGICAL LRET,LREP,LFILEOPEN
@@ -1423,7 +1424,7 @@ C
       INCLUDE 'lusys.inc'
       LRET=.TRUE.
       CALL GETFN (2)
-  5   IF (LERROR) THEN    
+  5   IF (LERROR) THEN
       LERROR=.FALSE.
       LMISS=.FALSE.
  10   IF(LMISS.OR.LERROR) THEN
@@ -1457,7 +1458,7 @@ C
 C     Check for proper file extension
 C
       CALL FILECH (AEXT)
-C      
+C
 C     -----------------------------
       ENTRY OPAFIL (ILU,ITYPE,LRET)
 C     -----------------------------
@@ -1469,12 +1470,12 @@ C     |ITYPE| = 1 unformatted file
 C     |ITYPE| = 2 formatted file
 C     |ITYPE| = 3 formatted, direct access file (recl=31)
 C     ITYPE < 0 do not report IO
-C      
+C
       LRET=.FALSE.
       LERROR=.FALSE.
       LMISS=.FALSE.
       LREP=ITYPE.GT.0
-      ITYP=IABS(ITYPE) 
+      ITYP=IABS(ITYPE)
       IF (ITYP.EQ.1) THEN
       OPEN(UNIT=ILU,FILE=AFILE,STATUS='OLD',FORM='UNFORMATTED',
      .     ERR=5000,IOSTAT=IERR)
@@ -1490,7 +1491,7 @@ C
       INQUIRE (UNIT=ILU,OPENED=LFILEOPEN)          ! ensure file is connected
       IF (LFILEOPEN) THEN
         LRET=.FALSE.
-        LERROR=.FALSE.     
+        LERROR=.FALSE.
       ELSE
         LRET=.TRUE.
         LERROR=.TRUE.
@@ -1506,15 +1507,15 @@ C
       GOTO 5
  9000 FORMAT(80A1)
  9001 FORMAT(' ***ILLEGAL OR MISSING PARAMETERS IN OPFILU'/)
- 9101 FORMAT('+***ILLEGAL OR MISSING PARAMETERS IN OPFILU') 
+ 9101 FORMAT('+***ILLEGAL OR MISSING PARAMETERS IN OPFILU')
  9005 FORMAT(' Enter name of file to be opened. (CR to abort IO) >')
- 9105 FORMAT('+Enter name of file to be opened. (CR to abort IO) >') 
+ 9105 FORMAT('+Enter name of file to be opened. (CR to abort IO) >')
  9007 FORMAT(' File ',A16,' assigned to logical unit ',I2,/)
- 9107 FORMAT('+File ',A16,' assigned to logical unit ',I2) 
+ 9107 FORMAT('+File ',A16,' assigned to logical unit ',I2)
  9010 FORMAT(' ***File ',A16,' does not exist. (IOSTAT=',I5,')')
- 9110 FORMAT('+***File ',A16,' does not exist. (IOSTAT=',I5,')') 
+ 9110 FORMAT('+***File ',A16,' does not exist. (IOSTAT=',I5,')')
  9009 FORMAT ('+                                                     ',
-     &'                                        ') 
+     &'                                        ')
       END
 C
 C --------------------------------------------------------------------------
@@ -1559,9 +1560,9 @@ C
       ENDIF
       RETURN
  1000 FORMAT (' ***WARNING: extension "',A4,'" repaced by "',A4,'"!')
- 1001 FORMAT ('+***WARNING: extension "',A4,'" repaced by "',A4,'"!') 
+ 1001 FORMAT ('+***WARNING: extension "',A4,'" repaced by "',A4,'"!')
  2000 FORMAT (' ***WARNING: filename too long, replaced by ',A16)
- 2001 FORMAT ('+***WARNING: filename too long, replaced by ',A16) 
+ 2001 FORMAT ('+***WARNING: filename too long, replaced by ',A16)
  9009 FORMAT ('+                                                     ',
      &'                                        ')
       END
@@ -1618,13 +1619,13 @@ C
       CALL TIDYUL          ! new TIDYUL call maintaining upper and lower case
 C     ------------------
       ENTRY GETFN (NPAR)
-C     ------------------            
+C     ------------------
       AFILE = '                '
       NCHAR = 0
       IF (NPAR.LE.0) THEN
             LMISS=.TRUE.
             RETURN
-      ENDIF            
+      ENDIF
       I1=ILPNT(NPAR)
       NCHAR=MAX0(0,ILPNT(NPAR+1)-I1)
       IF (NCHAR.EQ.0)  THEN
@@ -1684,7 +1685,7 @@ C
       WRITE (3,1020) RMIN,RMAX
       NROW=NX/5
       NXROW=NROW*5
-      NXREST=NX-NXROW        
+      NXREST=NX-NXROW
       DO 20 J=1,NY
       IF (NXROW.GT.0) THEN
       DO 10 I=1,NXROW,5
@@ -1694,7 +1695,7 @@ C
       IF (NXREST.EQ.1) WRITE (3,1032) RA(NXROW+1,J)
       IF (NXREST.EQ.2) WRITE (3,1033) (RA(NXROW+K,J),K=0,1)
       IF (NXREST.EQ.3) WRITE (3,1034) (RA(NXROW+K,J),K=0,2)
-      IF (NXREST.EQ.4) WRITE (3,1035) (RA(NXROW+K,J),K=0,3)            
+      IF (NXREST.EQ.4) WRITE (3,1035) (RA(NXROW+K,J),K=0,3)
   20  CONTINUE
       CLOSE (3)
       if (lucon) WRITE (ILUME,2000) AFILESURFER1
@@ -1723,7 +1724,7 @@ C      if (lucon) WRITE (ILUME,3000) AFILESURFER2
  1032 FORMAT (G14.7)
  1033 FORMAT (2(G14.7,1X))
  1034 FORMAT (3(G14.7,1X))
- 1035 FORMAT (4(G14.7,1X))  
+ 1035 FORMAT (4(G14.7,1X))
  2000 FORMAT (' Grid has been written to SURFER grid file: ',A16)
  3000 Format (' Layout has been written to SURFER boundary line file: ',
      &A16,/)
@@ -1770,17 +1771,17 @@ C
       INCLUDE 'match.inc'
 C
       DO 1 I=1,NLINEMAX                   ! empty buffers
-      ALINEBUFFER(I)='                                                 
+      ALINEBUFFER(I)='
      &                              '
   1   CONTINUE
       DO 2 I=1,IMXLN
       APAGEBUFFER(I)=ALINEBUFFER(1)
-  2   CONTINUE      
-C  
+  2   CONTINUE
+C
       AESC=CHAR(27)
       ILU=2
       NLINEMX2=NLINEMAX/2
-      OPEN (ILU,ERR=100,FILE=AFILE,STATUS='OLD',POSITION='REWIND')     
+      OPEN (ILU,ERR=100,FILE=AFILE,STATUS='OLD',POSITION='REWIND')
       NLINETOTAL=0
   5   READ (ILU,END=6,FMT=1000) ALINEBUFFER(1)
       NLINETOTAL=NLINETOTAL+1           ! determine length of file
@@ -1800,7 +1801,7 @@ C
       I=I+1
       READ (ILU,END=200,FMT=1000) ALINEBUFFER(I)
   10  CONTINUE
-  17  CONTINUE      
+  17  CONTINUE
       IF (ISTARTLINE.LT.IBUFST) THEN      ! hit top of linebuffer, refill
         IBUFST=IBUFST-NLINEMX2
         IBUFST=MAX(IBUFST,1)
@@ -1822,14 +1823,14 @@ C
         READ (ILU,END=200,FMT=1000) ALINEBUFFER(1)
   20    CONTINUE
         GOTO 7
-      ENDIF          
+      ENDIF
       I=0
       ILINE1=ISTARTLINE-IBUFST+1
       ILINE2=IENDLINE-IBUFST+1
       DO 21 ILINE=ILINE1,ILINE2           ! read linebuffer into page buffer
       I=I+1
       APAGEBUFFER(I)=ALINEBUFFER(ILINE)
-  21  CONTINUE   
+  21  CONTINUE
 C            IF (LOPEN) CALL PLSETCUR (7,1,1)   ! NOT AVAILABLE IN BATCH MODE
       WRITE (ILUME,2000) APAGEBUFFER      ! write page buffer to screen
       IATR=32
@@ -1882,7 +1883,7 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
       RETURN
       ENDIF
       GOTO 22
-C      
+C
   100 CONTINUE
 c      call inline
 c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
@@ -1895,16 +1896,16 @@ c      CALL CLEARSCREEN                 ! NOT AVAILABLE IN BATCH MODE
       RETURN
 C
  1000 FORMAT (A80)
- 1600 FORMAT ('+',A1,'[',I2,'m')        
+ 1600 FORMAT ('+',A1,'[',I2,'m')
  1999 FORMAT (' ')
  2000 FORMAT (23('+',A80,/),'+',A80)
  3000 FORMAT (' ***ERROR in view routine, file is empty.',/)
  4000 FORMAT ('+ Press UP/DOWN ARROW keys or PAGE keys to scan text,',
      &        ' press <Esc> to exit')
- 5000 FORMAT (' ***ERROR in view routine, cannot open file:',A16,/)     
+ 5000 FORMAT (' ***ERROR in view routine, cannot open file:',A16,/)
  6000 FORMAT (' ***ERROR in view routine, try to read beyond end of',
      &        ' file.',/)
-      END      
+      END
 C
 C --------------------------------------------------------------------------
 C
@@ -2162,7 +2163,7 @@ C---START OF A STRING---
    50 ILPNT(NPAR+1)=IL1
       RETURN
  1000 FORMAT ('+',132A1)
-      END      
+      END
 C
 C --------------------------------------------------------------------------
 C
@@ -2230,8 +2231,9 @@ C
 C --------------------------------------------------------------------------
 C
 C
-C     Routine reads ALINE and sets pointers 
+C     Routine reads ALINE and sets pointers
 C
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) I,IKEY,ILENGTH,IERR
       CHARACTER(256) AMESSAGE
@@ -2283,7 +2285,7 @@ C
       IF (LECHO.AND.LUCON) WRITE (ILUECH,1000) ALINE
       DO 30 I=1,ilinelength
       ALINE2(I)=ALINE(I)
-  30  CONTINUE      
+  30  CONTINUE
   35  CALL TIDY
       IF (ALINE(1).EQ.'*') GOTO 5
       if (aline(1).eq.'$') then
@@ -2291,7 +2293,7 @@ C
         goto 5
       endif
       RETURN
-C     --------- hit end of file without proper trailer statements      
+C     --------- hit end of file without proper trailer statements
   45  WRITE (ILUER,3000)
       PRINT 3000
       PRINT*,' Press any key to continue.'
@@ -2306,15 +2308,15 @@ C      CALL TONE              ! NOT AVAILABLE IN BATCH MODE
       OPEN (ILUIN,FILE=ASTRING,STATUS='OLD',IOSTAT=IERR,ERR=55)
       ALINE(1)='*'
       RETURN
-C  55  CALL IOSTAT_MSG (IERR,AMESSAGE)
-   55 PRINT*, IERR
+  55  CALL IOSTAT_MSG (IERR,AMESSAGE)
+      PRINT*, IERR
       PRINT*,' Press any key to continue.'
       CLOSE (ILUIN)
       OPEN (ILUIN,FILE='CON')
       LUCON=.TRUE.
       ALINE(1)='*'
       RETURN
-C      
+C
  1000 FORMAT (132a1)
  1500 format ('+',132a1)
  2000 FORMAT ('&',A1)
@@ -2352,7 +2354,7 @@ C
       IMPLICIT NONE
       INTEGER(4) ILUI,ILUM,ILUE,ILUO,ILUP,ILUC
       INCLUDE 'lusys.inc'
-      SAVE      
+      SAVE
       ILUI=ILUIN
       ILUM=ILUME
       ILUO=ILUOUT
@@ -2364,7 +2366,7 @@ C
       END
 C
 C --------------------------------------------------------------------------
-C      
+C
       SUBROUTINE SWTCHS(ILUI,ILUM,ILUE,ILUO,ILUP,ILUC)
 C
 C --------------------------------------------------------------------------
@@ -2432,7 +2434,7 @@ C
       GOTO 10
 C
 C     Check for new logical unit number
-C      
+C
   15  LLU=ILPNT(4).NE.0
       IF(LLU) IDUM=IVAR(3)
       IF (IDUM.EQ.1.OR.IDUM.EQ.2) THEN
@@ -2445,7 +2447,7 @@ C
       GOTO (100,200,300,400,500,550,600,700,800,900), JUMP
 C
 C     Change logical unit numbers if LLU=.TRUE.
-C      
+C
  100  IF (LUCON.AND.LINALREADY) THEN
       if (lucon) WRITE (ILUME,9015)
       ENDIF
@@ -2458,13 +2460,13 @@ C
       GOTO 6000
  400  CALL LUSWAP(LLU,ILUOLD,ILUNEW,ILUE)
       GOTO 6000
- 500  CALL LUSWAP(LLU,ILUOLD,ILUNEW,ILUP)      
+ 500  CALL LUSWAP(LLU,ILUOLD,ILUNEW,ILUP)
       GOTO 6000
  550  CALL LUSWAP(LLU,ILUOLD,ILUNEW,ILUC)
       GOTO 6000
 C
 C     Help
-C      
+C
  600  AFILE='SWTCHHLP.HLP   '
       GOTO 10
 C
@@ -2486,11 +2488,11 @@ C
 C     dummy YES to avoid errors in reading instructions from a file
 C     whereby a "yes" is added in anticipation of the need to delete
 C     a file
-C     
+C
  800  GOTO 10
 C
 C
- 900  CALL MATCH (APAR,2,JUMP,LBAD)    
+ 900  CALL MATCH (APAR,2,JUMP,LBAD)
       LMISS=LBAD
       IF (LMISS) GOTO 10
       LGRAPHICS=JUMP.EQ.1
@@ -2498,9 +2500,9 @@ C
 C
 C
 C     Reassign input logical unit
-C      
+C
  5000 CALL GETFN (2)
-      LUCON=AFILE(1:4).EQ.'CON '.OR.AFILE(1:4).EQ.'con ' 
+      LUCON=AFILE(1:4).EQ.'CON '.OR.AFILE(1:4).EQ.'con '
       CALL FILECH ('.DAT')
       IF (LMISS) GOTO 10
 C      LUCON=INDEX(AFILE,'CON').NE.0
@@ -2509,14 +2511,14 @@ C      LUCON=INDEX(AFILE,'CON').NE.0
       GOTO 10
 C
 C     Reassign output logical units
-C      
+C
  6000 CALL GETFN (2)
       IF (LMISS) GOTO 10
-C ----------------------------check for echo command to set LECHO      
+C ----------------------------check for echo command to set LECHO
       IF (JUMP.EQ.6) THEN
       IF (INDEX(AFILE,'OFF').NE.0) THEN
       CALL FLUSH (ILUOLD)
-      CLOSE(ILUOLD,ERR=6400,STATUS='KEEP')      
+      CLOSE(ILUOLD,ERR=6400,STATUS='KEEP')
       LECHO=.FALSE.
       GOTO 10
       ELSE
@@ -2531,7 +2533,7 @@ C ----------------------------check for OUTPUT command to set LUOUTFILE
       LUOUTFILE=.TRUE.
       ENDIF
       ENDIF
-C ---------------------------------------------------------------      
+C ---------------------------------------------------------------
       CALL FLUSH (ILUOLD)
       CLOSE(ILUOLD,ERR=6400,STATUS='KEEP')
       IF (AFILE(1:4).EQ.'PRN '.OR.AFILE(1:4).EQ.'prn '.OR.
@@ -2547,7 +2549,7 @@ C ---------------------------------------------------------------
       GOTO 10
 C
 C     Errors in closing or opening logical units.
-C      
+C
  6300 WRITE (ILUE,9009) AFILE,MOD(IERR,256)
       LECHO=.FALSE.
       AMESS(1)='Failure to create or access file'
@@ -2563,7 +2565,7 @@ c ------------------------- end of program execution ------------------------
       GOTO 10
  6500 if (lucon) WRITE(ILUM,9011)
       LUCON=.TRUE.
-      GOTO 10      
+      GOTO 10
  6600 if (lucon) WRITE(ILUM,9012)
       LTEMP=LECHO
       LECHO=.FALSE.
@@ -2577,7 +2579,7 @@ c ------------------------- end of program execution ------------------------
       ENDIF
       ADEF(JUMP)=AFILE
       GOTO 10
-C      
+C
  9001 FORMAT(' ***ILLEGAL PARAMETER(S) in switch module:',/,80A1)
  9002 FORMAT(' ***MISSING PARAMETER(S) in switch module:',/,80A1)
  9003 FORMAT(' ***ILLEGAL COMMAND in switch module:',/,80A1)
@@ -2595,16 +2597,16 @@ C
  9500 FORMAT (' ---------- SWITCH module ----------',/,
      &' Current assignments in SWITCH:'/
      &' IO function (filename, con, prn, lpt1, nul) ')
- 9510 FORMAT (' INPUT       (',A16,'             ) ') 
- 9520 FORMAT (' OUTPUT      (',A16,'             ) ') 
- 9530 FORMAT (' MESSAGE     (',A16,'             ) ') 
- 9540 FORMAT (' ERROR       (',A16,'             ) ') 
+ 9510 FORMAT (' INPUT       (',A16,'             ) ')
+ 9520 FORMAT (' OUTPUT      (',A16,'             ) ')
+ 9530 FORMAT (' MESSAGE     (',A16,'             ) ')
+ 9540 FORMAT (' ERROR       (',A16,'             ) ')
  9550 FORMAT (' PLOT        (',A16,'             ) ')
  9555 FORMAT (' ECHO        (',A16,'             ) ')
  9556 FORMAT (' ECHO OFF  (file/device name) [logical unit]')
  9557 FORMAT (' PICTURE ON    (off)')
  9558 FORMAT (' PICTURE OFF   (on)')
- 9600 FORMAT (/' <F1>=Help',/,' <Esc> or QUIT '/' >') 
+ 9600 FORMAT (/' <F1>=Help',/,' <Esc> or QUIT '/' >')
  9990 FORMAT (//' ********* ERRORS DETECTED DURING INPUT!',//,
      &        ' Press <Enter> for error report.')
       END
@@ -2644,6 +2646,7 @@ c     ltimer       .true. fro reporting execution time
 c
 c    uses logical unit 10
 c
+      use lahey_utils
       implicit none
       LOGICAL ltimer,lErrorReport,lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut
@@ -2657,7 +2660,7 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' writing coefficient matrix to disk, size=',i4)
-      !call timer (iticks1)
+      call timer (iticks1)
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
      &           aBasenameOut,aDateTimeOut,nsolOut)
@@ -2666,15 +2669,15 @@ c
       do i=1,isize
       write (UNIT=10,IOSTAT=istatus,ERR=200)dra(i,1:n) ! changed to row by row write on 4-19-06
       end do
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Written coefficient matrix. Execution time=        ',i10,
      &' E-2 seconds.')
 
       return
-c  200 call iostat_msg(istatus,amessage)
- 200  write (*,2000) istatus ! error in accessing file
+ 200  call iostat_msg(istatus,amessage)
+      write (*,2000) istatus ! error in accessing file
       write (ilume,2000) istatus
  2000 format (' Error in WRITE routine in WriteMatrix: IOSTAT=',/,a80,/,
      &        ' program execution aborted.')
@@ -2700,6 +2703,7 @@ c     ltimer       .true. fro reporting execution time
 c
 c     using logical unit 10
 c
+      use lahey_utils
       implicit none
       LOGICAL ltimer,lErrorReport
       INTEGER(4) n,istatus,i,j,isize,iticks,iticks1,iticks2,nEquation
@@ -2711,13 +2715,13 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' loading coefficient matrix from disk, size=',i4)
-      !call timer (iticks1)
+      call timer (iticks1)
       REWIND (UNIT=10)
       read (UNIT=10,IOSTAT=istatus,ERR=100) aDateTimeStamp,nEquation  ! not used here for speed
       do i=1,isize
       read (UNIT=10,IOSTAT=istatus,ERR=100)dra(i,1:n) ! changed to row by row read on 4-19-06
       end do
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Loaded coefficient matrix. Execution time=         ',i10,
@@ -2725,9 +2729,8 @@ c
 
       return
 c
-c  100 call IOSTAT_MSG (istatus,amessage)
- 100  write (*,1000) istatus ! error in reading file
-      write (ilume,1000) istatus
+ 100  call IOSTAT_MSG (istatus,amessage)
+      write (ilume,1000) amessage
  1000 format (' Error in LoadMatrix:',/,a80,/,
      &        ' program execution aborted.')
       AMESS(1)='Error when reading matrix file *.mtr'
@@ -2753,6 +2756,7 @@ c
 c     Using logical unit 11
 c
 c
+      use lahey_utils
       implicit none
       LOGICAL ltimer,lErrorReport,lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut
@@ -2766,7 +2770,7 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' writing decomposed matrix to disk, size=',i4)
-      !call timer (iticks1)
+      call timer (iticks1)
       call GetMainData (lsolOut,loadsolOut,linalreadyOut,
      &           lErrorReportOut,lDirectfromDiskOut,
      &           aBasenameOut,aDateTimeOut,nsolOut)
@@ -2774,14 +2778,14 @@ c
       write (UNIT=11,IOSTAT=istatus,ERR=200) aDateTimeOut,n
       write (UNIT=11,IOSTAT=istatus,ERR=200) ((dra(i,j),i=1,n),j=1,n)
       write (UNIT=11,IOSTAT=istatus,ERR=200) (ipiv(i),i=1,n)
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Written decomposed matrix. Execution time=         ',i10,
      &' E-2 seconds.')
       return
-c  200 call iostat_msg(istatus,amessage)
- 200  write (*,2000) amessage ! error in accessing file
+  200 call iostat_msg(istatus,amessage)
+      write (*,2000) amessage ! error in accessing file
       write (ilume,2000) amessage
  2000 format (' Error in WriteDecompMatrix: IOSTAT=',/,a80,/,
      &        ' program execution aborted.')
@@ -2809,6 +2813,7 @@ c
 c     using logical unit 11
 c
 c
+      use lahey_utils
       implicit none
       LOGICAL ltimer,lErrorReport
       INTEGER(4) ipiv,n,istatus,i,j,iticks,iticks1,iticks2,
@@ -2821,12 +2826,12 @@ c
 c
       if (lErrorReport) write (ilume,1001) n
  1001 format (' loading decomposed matrix from disk, size=',i4)
-      !call timer (iticks1)
+      call timer (iticks1)
       REWIND (UNIT=11)
       read (UNIT=11,IOSTAT=istatus,ERR=100) aDateTimeStamp,nEquation  ! not used here for speed
       read (UNIT=11,IOSTAT=istatus,ERR=100) ((dra(i,j),i=1,n),j=1,n)
       read (UNIT=11,IOSTAT=istatus,ERR=100) (ipiv(i),i=1,n)
-      !call timer  (iticks2)
+      call timer  (iticks2)
       iticks=iticks2-iticks1
       if (ltimer) write (ilume,2001) iticks
  2001 format(' Loaded decomposed matrix. Execution time=          ',i10,
@@ -2834,9 +2839,8 @@ c
 
       return
 c
-c  100 call IOSTAT_MSG (istatus,amessage)
-  100 write (*,1000) istatus ! error in reading file
-      write (ilume,1000) istatus
+  100 call IOSTAT_MSG (istatus,amessage)
+      write (ilume,1000) amessage
  1000 format (' Error in LoadDecompMatrix:',/,a80,/,
      &        ' program execution aborted.')
       AMESS(1)='Error reading decomposed matrix file *.dec'

@@ -887,6 +887,7 @@ c
 C       -----------  end documentation if *.pth file -------------
 C
 C
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) NPTMAX,NST,ISTATUSBAR,ISTART,IEND,ISTREAM,I,
      &           J,NSWITCH,ICOUNT,ISTAG,NWSTR,idum
@@ -1265,7 +1266,7 @@ C
       iticks_near1=0
       iticks_near2=0
       DO 10 I=ISTART,IEND
-c      if (i.gt.1) !call timer  (iticks_trace2)
+c      if (i.gt.1) call timer  (iticks_trace2)
 c      iticks_trace=iticks_trace2-iticks_trace1
 c      if (iticks_trace.gt.0) then ! this will not report the last trace!
 c       idum=iticks_trace-iticks_near
@@ -1282,7 +1283,7 @@ c       iticks_trace=0
 c       iticks_near=0
 c       inear_call=0
 c      end if
-c      !call timer  (iticks_trace1)
+c      call timer  (iticks_trace1)
       if (i.eq.0) GOTO 10   ! avoid trace when a GO command is given without any points specified. (6/1/2000)
       LCLOSE=.FALSE.
       ISTAG=0
@@ -1753,7 +1754,7 @@ C
 C     ---------------------- adjust new point or end streamline
 C                            when near an analytic element
 c      inear_call=inear_call+1
-c      !call timer (iticks_near1)
+c      call timer (iticks_near1)
 c      GOTO 666 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BLOCKED FOR TIMING!!!!!!
       CALL WLNEAR (CZ,CZNEW,RZ0,RZNEW,LREDO) ! wells
       CALL LSNEAR (CZ,CZNEW,RZ0,RZNEW,CZEULER,RZEULER,LEULER,LREDO) ! line sinks
@@ -1764,7 +1765,7 @@ c      GOTO 666 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BLOCKED FOR TIMING!!!!!
       CALL PDNEAR (CZ,CZNEW,RZ0,RZNEW,LREDO) ! sinkdiscs (2D)
       CALL SBNEAR (CZ,CZNEW,RZ0,RZNEW,LREDO) ! stream boundary for Simple WHPA in WhAEM  (routine at end of this file)
 c 666  continue
-c      !call timer (iticks_near2)                          ! temporary timer logic
+c      call timer (iticks_near2)                          ! temporary timer logic
 c      iticks_near=iticks_near+iticks_near2-iticks_near1 ! temporary timer logic
       IF (LREDO) GOTO 5
       RHGHT=RFHGHT(CZNEW)  ! don't let streamline get out of aquifer

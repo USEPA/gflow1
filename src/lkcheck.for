@@ -45,9 +45,9 @@ c
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),
      & rlkleakage(nrow,ncol),rlkheadlower(nrow,ncol),
      & rlkresist(nrow,ncol),ilkresolution(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
 c ------------ check data integrity
 c
@@ -232,10 +232,10 @@ c
      &          rlksubpotupper(nbuf),rlksubheadlower(nbuf),
      &          rlksubleakage(nbuf)
       ALLOCATABLE rtrans(:)
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      include 'TRACOM.INC'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'match.inc'
       save
 c
       DATA rconverge_leakage /1.0d0/  ! hardwire convergence criteria to 1% (NOTE: must be added to converge file)
@@ -358,8 +358,8 @@ c              rs=rlkleakage(i,j)
                 ires2=ires0*ires0
                 ALLOCATE (rtrans(ires2),stat=ierr)
                 if (ierr.ne.0) then
-                  call iostat_msg (ierr,amessage)
-                  write (ilume,1112) amessage
+c                 call iostat_msg (ierr,amessage)
+                  write (ilume,1112) ierr
  1112             format (a132)
                   deallocate (rtrans)
                   write (ilume,8001) ires2

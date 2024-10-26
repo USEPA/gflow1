@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Release (gfortran)",
+            "type": "shell",
+            "command": "pixi",
+            "args": ["run", "build-release-gfortran"],
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build Debug (gfortran)",
+            "type": "shell",
+            "command": "pixi",
+            "args": ["run", "build-debug-gfortran"],
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build Release (ifort)",
+            "type": "shell",
+            "command": "pixi",
+            "args": ["run", "build-release-ifort"],
+            "group": "build",
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Build Debug (ifort)",
+            "type": "shell",
+            "command": "pixi",
+            "args": ["run", "build-debug-ifort"],
+            "group": "build",
+            "problemMatcher": ["$msCompile"]
+        }
+    ]
+}

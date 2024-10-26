@@ -5,9 +5,15 @@ platforms = ["win-64", "linux-64", "linux-aarch64", "osx-arm64", "osx-64"]
 version = "0.0.1"
 
 [tasks]
-setup = "meson setup builddir --libdir=bin --bindir=bin"
-build = "meson install -C builddir"
+build-release-gfortran = "meson setup builddir-release-gfortran --buildtype=release -Dfortran_compiler=gfortran && meson compile -C builddir-release-gfortran && meson install -C builddir-release-gfortran"
+build-debug-gfortran = "meson setup builddir-debug-gfortran --buildtype=debug -Dfortran_compiler=gfortran && meson compile -C builddir-debug-gfortran && meson install -C builddir-debug-gfortran"
+build-release-ifort = "meson setup builddir-release-ifort --buildtype=release -Dfortran_compiler=ifort && meson compile -C builddir-release-ifort && meson install -C builddir-release-ifort"
+build-debug-ifort = "meson setup builddir-debug-ifort --buildtype=debug -Dfortran_compiler=ifort && meson compile -C builddir-debug-ifort && meson install -C builddir-debug-ifort"
+
+# Whatever has been most recently built will be moved to the ./bin directory.
+test = "pytest"
 
 [dependencies]
 fortls = "*"
 meson = ">=1.5.0,<1.6"
+pytest = "*"

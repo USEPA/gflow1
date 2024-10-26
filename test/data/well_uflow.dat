@@ -1,0 +1,41 @@
+error well_uflow-error.log
+yes
+message well_uflow-message.log
+yes
+picture off
+quit
+
+bfname well_uflow
+title well_uflow
+
+aquifer
+perm 10
+thick 10
+por 0.2
+reference 0 0 100
+uniflow 1 0
+quit
+
+well
+discharge
+0 0 50 1
+quit
+
+solve
+
+grid
+wind -200 -25 25 25
+horizontalpoints 86
+plot heads
+go
+surfer well_uflow
+y
+quit
+
+extract
+file well_uflow
+y
+well discharge
+quit
+
+stop

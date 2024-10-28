@@ -97,7 +97,7 @@ cd gflow1
 3. Add the main GFLOW repository as an upstream remote to your repository.
 
 ```shell
-git remote add upstream https://github.com/MODFLOW-USGS/modflow6.git
+git remote add upstream https://github.com/USEPA/gflow1.git
 ```
 
 ## Building

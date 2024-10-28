@@ -12,11 +12,11 @@ project(
 compiler = meson.get_compiler('fortran')
 compiler_id = compiler.get_id()
 compile_args = []
+link_args = []
 if compiler_id == 'gcc'
   # General options
   compile_args += ['-std=legacy', '-fno-align-commons', '-freal-4-real-8']
   # Define OS with gfortran for OS specific code
-  # These are identical to pre-defined macros available with ifort
   system = build_machine.system()
   if system == 'linux'
     compile_args += '-D__linux__'
@@ -24,6 +24,7 @@ if compiler_id == 'gcc'
     compile_args += '-D__APPLE__'
   elif system == 'windows'
     compile_args += '-D_WIN32'
+    link_args += ['-static', '-static-libgcc', '-static-libgfortran']
   endif
 # TODO ifort, etc.
 endif
@@ -115,6 +116,7 @@ executable(
     sources: [main_file] + src,
     include_directories: incdir,
     fortran_args : compile_args,
+    link_args: link_args,
     install: true,
     install_dir: project_bin_dir,
 )

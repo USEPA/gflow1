@@ -20,7 +20,7 @@ releases section.
 ## Goals
 This repository serves two main goals:
 
--	To enable use of GFLOW models on Windows, macOS, and Linux now and in the
+- To enable use of GFLOW models on Windows, macOS, and Linux now and in the
 future.
 - To publicly host the gflow1 code for archival purposes.
 
@@ -28,20 +28,20 @@ future.
 We have the following (tentative) plans, primarily focused on improving
 robustness and usability:
 
--	Support for mixed case paths: gflow1 is not case sensitive when dealing with
+- Support for mixed case paths: gflow1 is not case sensitive when dealing with
 file paths and will internally transform file paths to upper case, since it was
 a Windows only application. While Windows is not case sensitive for file paths,
 macOS and Linux are. Ideally, the casing of paths can be preserved.
--	Support for long paths: gflow1 currently supports paths of no longer than 256
+- Support for long paths: gflow1 currently supports paths of no longer than 256
 characters.
--	Fix compiler warnings: compilation with gflow1 currently emits many warnings.
+- Fix compiler warnings: compilation with gflow1 currently emits many warnings.
 Ideally, we address all of these.
--	Multi-compiler support: we currently only compile with gfortran. We intend to
+- Multi-compiler support: we currently only compile with gfortran. We intend to
 add Intel Fortran as well (and address new warnings as they pop up).
--	The ` '-freal-4-real-8'` flag is required to force all reals to double
+- The ` '-freal-4-real-8'` flag is required to force all reals to double
 precision, since the executable otherwise crashes when run. Ideally, all type
 declarations are updated to explicit double precision.
--	Add a basic set of integration tests.
+- Add a basic set of integration tests.
 
 ## QGIS-plugin
 A rudimentary QGIS plugin is available at

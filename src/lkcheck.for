@@ -45,9 +45,9 @@ c
       DIMENSION rlkdeltax(ncol),rlkdeltay(nrow),
      & rlkleakage(nrow,ncol),rlkheadlower(nrow,ncol),
      & rlkresist(nrow,ncol),ilkresolution(nrow,ncol)
-      include 'lkcom.inc'
-      include 'lusys.inc'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'match.inc'
 c
 c ------------ check data integrity
 c
@@ -208,6 +208,7 @@ c
 c     update the potential at collocation points of leakage elements
 c
 c
+      use lahey_utils
       IMPLICIT NONE
       INTEGER(4) i,j,ii,jj,nrow,ncol,n,nbuf,iad,ires0,ires2,itr,
      &           irow,jcol,ncell,ilkresolution,iresolution,iad0,ierr,
@@ -232,10 +233,10 @@ c
      &          rlksubpotupper(nbuf),rlksubheadlower(nbuf),
      &          rlksubleakage(nbuf)
       ALLOCATABLE rtrans(:)
-      INCLUDE 'LKCOM.INC'
-      INCLUDE 'LUSYS.INC'
-      include 'TRACOM.INC'
-      include 'match.inc'
+      INCLUDE 'lkcom.inc'
+      INCLUDE 'lusys.inc'
+      INCLUDE 'tracom.inc'
+      INCLUDE 'match.inc'
       save
 c
       DATA rconverge_leakage /1.0d0/  ! hardwire convergence criteria to 1% (NOTE: must be added to converge file)

@@ -15,7 +15,7 @@ Computer Systems has been permanently closed since December 31, 2022
 The code has been successfully migrated to gfortran and supports multiple
 platforms. It can now be compiled not just on Windows, but also on macOS and
 Linux. Executables are available for Windows, macOS, and Linux under the
-releases section.
+releases section: https://github.com/USEPA/gflow1/releases
 
 ## Goals
 This repository serves two main goals:

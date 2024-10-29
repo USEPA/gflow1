@@ -116,24 +116,28 @@ Press `Cntrl + Shift + P > Tasks: Run build task > Build Release (gfortran)`.
 
 ## Releasing
 
-The GitHub workflows have been configured to automatically build and upload
-new executables upon pushing a new tag to the main branch.
+The GitHub workflows have been configured to automatically build, test, and
+upload new executables by creating a new release in the GitHub release
+interface.
 
-1. Ensure you are on main branch.
-2. Create and push a new tag.
+1. Go to: https://github.com/USEPA/gflow1/releases/new
+2. Create a new tag. It should be the letter `v` followed by the version
+   number, like `v0.0.1`.
+3. Write a short description.
+4. Click the "Publish Release" button.
 
-```console
-git tag 0.0.1
-git push origin 0.0.1
-```
-
-The workflow runs for Windows, macOS, and Linux; and will automatically:
+The creation of a new tag will automatically trigger workflow for Windows,
+macOS, and Linux runners. Each runner will automatically take the following
+steps:
 
 - Build the executables
 - Run the tests
-- Compress executables into a ZIP archive
+- Compress the executable into a ZIP archive
 - Create a text file containing a SHA-256 hash of the ZIP archive
-- Upload the ZIP and hash text file to: https://github.com/USEPA/gflow1/releases
+- Upload the ZIP file and hash text file to the newly created release.
+
+The new release will be found at:
+https://github.com/USEPA/gflow1/releases
 
 ## Debugging
 

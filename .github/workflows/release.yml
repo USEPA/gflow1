@@ -1,0 +1,51 @@
+name: release
+
+on:
+  push:
+    branches:
+    - main
+    tags:
+      - '*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macOS-latest
+          - windows-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          manifest-path: pixi.toml
+
+      - name: Setup gfortran
+        uses: fortran-lang/setup-fortran@v1
+        with:
+          compiler: gcc
+
+      - name: Build GFLOW executable
+        run: pixi run build-release-gfortran
+
+      - name: Run Tests
+        run: pixi run test
+
+      - name: Create ZIP and SHA256 hash
+        run: pixi run create-release-zip
+
+      - name: Upload ZIP and SHA256 hash
+        run: gh release upload ${{ github.ref_name }} release/gflow2-${{ runner.os }}.zip release/sha256-checksum-${{ runner.os }}.txt
+        env:
+          GITHUB_TOKEN: ${{ github.TOKEN }}

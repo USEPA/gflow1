@@ -114,7 +114,28 @@ pixi run build-release-gfortran
 We can also build from VSCode:
 Press `Cntrl + Shift + P > Tasks: Run build task > Build Release (gfortran)`.
 
-## Deubugging
+## Releasing
+
+The GitHub workflows have been configured to automatically build and upload
+new executables upon pushing a new tag to the main branch.
+
+1. Ensure you are on main branch.
+2. Create and push a new tag.
+
+```console
+git tag 0.0.1
+git push origin 0.0.1
+```
+
+The workflow runs for Windows, macOS, and Linux; and will automatically:
+
+- Build the executables
+- Run the tests
+- Compress executables into a ZIP archive
+- Create a text file containing a SHA-256 hash of the ZIP archive
+- Upload the ZIP and hash text file to: https://github.com/USEPA/gflow1/releases
+
+## Debugging
 
 Most of the time you will want to debug with `gdb`. When compiling with `ifort`
 on Windows, `vsdbg` is preferred.

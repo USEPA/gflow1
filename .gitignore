@@ -42,3 +42,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Bin and release directory
+bin
+release

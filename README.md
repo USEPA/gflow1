@@ -1,9 +1,7 @@
 # gflow1
-GFLOW is the original analytic element groundwater solver written by Henk M.
-Haitjema. GFLOW is an analytic element model, which solves steady state
-groundwater flow in a single aquifer. GFLOW supports three-dimensional particle
-tracking, but employs the Dupuit-Forchheimer approximation, thereby ignoring
-resistance to vertical flow.
+GFLOW is the original analytic element groundwater solver written by Henk M. Haitjema. GFLOW is an analytic element model, which solves steady state groundwater flow in a single aquifer, with support for conjunctive groundwater/surface water solutions. GFLOW supports three-dimensional particle tracking, but employs the Dupuit-Forchheimer approximation, thereby ignoring resistance to vertical flow.
+
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 ## Status
 The initial commit of this repository consists of the Fortran code associated

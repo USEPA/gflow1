@@ -1,26 +1,26 @@
 # gflow1
-GFLOW is the original analytic element groundwater solver written by Henk M. Haitjema. GFLOW is an analytic element model, which solves steady state groundwater flow in a single aquifer, with support for conjunctive groundwater/surface water solutions. GFLOW supports three-dimensional particle tracking, but employs the Dupuit-Forchheimer approximation, thereby ignoring resistance to vertical flow.
+GFLOW an analytic element groundwater solver written by Henk M. Haitjema. GFLOW solves steady state groundwater flow in a single aquifer, with support for conjunctive groundwater/surface water solutions, and interface seawater intrusion solutions. GFLOW supports three-dimensional particle tracking, but employs the Dupuit-Forchheimer approximation, thereby ignoring resistance to vertical flow. The computational solver in the GFLOW groundwater modeling system is represented in the file GFLOW1.exe.  EPA is the current host of the GFLOW modeling system https://www.epa.gov/hydrowq/gflow-groundwater-flow-analytic-element-model
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 ## Status
 The initial commit of this repository consists of the Fortran code associated
 with the public release version gflow1.exe (1/24/2018), which is the
-computional core of GFLOW. The gflow1 code was originally only compiled with
+computational core of GFLOW. The gflow1 code was originally only compiled with
 the Lahey Fortran compiler on Windows. This compiler is discontinued as Lahey
 Computer Systems has been permanently closed since December 31, 2022
 
-The code has been successfully migrated to gfortran and supports multiple
+The is progressing on migrating to gfortran and supports multiple
 platforms. It can now be compiled not just on Windows, but also on macOS and
-Linux. Executables are available for Windows, macOS, and Linux under the
+Linux. Test Executables are available for Windows, macOS, and Linux under the
 releases section: https://github.com/USEPA/gflow1/releases
 
 ## Goals
-This repository serves two main goals:
+This repository serves three main goals:
 
-- To enable use of GFLOW models on Windows, macOS, and Linux now and in the
-future.
-- To publicly host the gflow1 code for archival purposes.
+- To demonstrate the integrity of the recompiled gflow1.exe on Windows, macOS, and Linux.
+- To publicly host the original and refreshed gflow1 code for archival purposes.
+- To provide a foundation for the development of new GFLOW user interfaces.
 
 ## Roadmap
 We have the following (tentative) plans, primarily focused on improving

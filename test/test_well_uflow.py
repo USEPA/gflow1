@@ -1,9 +1,9 @@
 import contextlib
-import math
 import pathlib
 import os
 import subprocess
 
+import numpy as np
 import pytest
 
 
@@ -86,20 +86,15 @@ class TestRun:
         tokens = (self.tmpdir / "WELL_UFLOW.GRD").read_text().split()
         assert tokens[0] == "DSAA"
         nx, ny = int(tokens[1]), int(tokens[2])
-        xmin, xmax, ymin, ymax = (float(v) for v in tokens[3:7])
-        heads = [float(v) for v in tokens[9:]]
-        assert len(heads) == nx * ny
+        xmin, xmax, ymin, ymax = map(float, tokens[3:7])
+        heads = np.array(tokens[9:], dtype=float)
+        assert heads.size == nx * ny
+        heads = heads.reshape(ny, nx)  # heads[row, col], row 0 at ymin
 
-        dx = (xmax - xmin) / (nx - 1)
-        dy = (ymax - ymin) / (ny - 1)
-        max_error = 0.0
-        for row in range(ny):
-            y = ymin + row * dy
-            for col in range(nx):
-                x = xmin + col * dx
-                r = max(math.hypot(x, y), rw)
-                expected = (-Q0 * x + Q / (2.0 * math.pi) * math.log(r / rw)) / T + href
-                max_error = max(max_error, abs(heads[row * nx + col] - expected))
+        xx, yy = np.meshgrid(np.linspace(xmin, xmax, nx), np.linspace(ymin, ymax, ny))
+        r = np.maximum(np.hypot(xx, yy), rw)
+        expected = (-Q0 * xx + Q / (2.0 * np.pi) * np.log(r / rw)) / T + href
 
         # GFLOW writes heads with 4 decimals, so allow for rounding [ft].
+        max_error = np.abs(heads - expected).max()
         assert max_error < 1.0e-3

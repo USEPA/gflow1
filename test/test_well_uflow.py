@@ -3,6 +3,7 @@ import pathlib
 import os
 import subprocess
 
+import numpy as np
 import pytest
 
 
@@ -56,4 +57,44 @@ class TestRun:
     def test_files(self):
         assert (self.tmpdir / "WELL_UFLOW.GRD").exists()
         assert (self.tmpdir / "WELL_UFLOW.XTR").exists()
- 
+
+    def test_heads_match_analytic_solution(self):
+        """
+        Compare the gridded heads with the analytic solution for a well in a
+        uniform flow field, Haitjema (1995), Analytic Element Modeling of
+        Groundwater Flow, section 3.1.10, equation (3.110):
+
+            Phi = -Q0 * x + Q / (2 pi) * ln(r) + C
+
+        For confined flow the head is Phi / (k H) plus a constant. The constant
+        follows from the reference point in well_uflow.dat, which is located
+        at the well (0, 0) with head 100; inside the well radius the potential
+        is evaluated at the well radius.
+        """
+        # Parameters from test/data/well_uflow.dat. Units are feet and days;
+        # the window coordinates (x, y) are in ft as well.
+        k = 10.0  # hydraulic conductivity, perm [ft/day]
+        H = 10.0  # aquifer thickness, thick [ft]
+        Q0 = 1.0  # uniform flow rate in the x-direction, uniflow [ft^2/day]
+        Q = 50.0  # well discharge [ft^3/day]
+        rw = 1.0  # well radius [ft]
+        href = 100.0  # head at the reference point (0, 0) [ft]
+        T = k * H  # transmissivity [ft^2/day]
+
+        # Read the Surfer ASCII grid (DSAA). Values are stored row by row,
+        # starting at ymin, with nx values per row.
+        tokens = (self.tmpdir / "WELL_UFLOW.GRD").read_text().split()
+        assert tokens[0] == "DSAA"
+        nx, ny = int(tokens[1]), int(tokens[2])
+        xmin, xmax, ymin, ymax = map(float, tokens[3:7])
+        heads = np.array(tokens[9:], dtype=float)
+        assert heads.size == nx * ny
+        heads = heads.reshape(ny, nx)  # heads[row, col], row 0 at ymin
+
+        xx, yy = np.meshgrid(np.linspace(xmin, xmax, nx), np.linspace(ymin, ymax, ny))
+        r = np.maximum(np.hypot(xx, yy), rw)
+        expected = (-Q0 * xx + Q / (2.0 * np.pi) * np.log(r / rw)) / T + href
+
+        # GFLOW writes heads with 4 decimals, so allow for rounding [ft].
+        max_error = np.abs(heads - expected).max()
+        assert max_error < 1.0e-3

@@ -1,3 +1,5 @@
+DEPRECATED - This repository has been archived and is no longer maintained. The code is provided for historical reference and may contain unpatched or unknown vulnerabilities. It should not be used in production systems.
+
 # gflow1
 GFLOW an analytic element groundwater solver written by Henk M. Haitjema. GFLOW solves steady state groundwater flow in a single aquifer, with support for conjunctive groundwater/surface water solutions, and interface seawater intrusion solutions. GFLOW supports three-dimensional particle tracking, but employs the Dupuit-Forchheimer approximation, thereby ignoring resistance to vertical flow. The computational solver in the GFLOW groundwater modeling system is represented in the file GFLOW1.exe.  EPA is the current host of the GFLOW modeling system https://www.epa.gov/hydrowq/gflow-groundwater-flow-analytic-element-model
 
